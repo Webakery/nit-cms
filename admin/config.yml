@@ -12,8 +12,11 @@ collections:
     delete: false
     editor:
       preview: false
-    file: "content/gallery/gallery.json"  # Stores data in a JSON file
-    fields:
-      - {label: "Title", name: "title", widget: "string"}
-      - {label: "Image", name: "image", widget: "image"}
-      - {label: "Description", name: "description", widget: "text", required: false}
+    files:  # ✅ Correct way for a single file
+      - file: "content/gallery/gallery.json"  # Stores data in a single JSON file
+        label: "Gallery"
+        name: "gallery"
+        fields:
+          - {label: "Title", name: "title", widget: "string"}
+          - {label: "Image", name: "image", widget: "image"}
+          - {label: "Description", name: "description", widget: "text", required: false}
