@@ -1,0 +1,16 @@
+backend:
+  name: git-gateway
+  branch: main  # Change this if your branch is different
+
+media_folder: "images/uploads"  # Folder for uploaded images
+public_folder: "/images/uploads"
+
+collections:
+  - name: "recent-works"
+    label: "Recent Works"
+    folder: "content/recent-works"
+    create: true
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Image", name: "image", widget: "image" }
+      - { label: "Description", name: "body", widget: "markdown" }
