@@ -358,30 +358,51 @@
 						</ul>
 					</div>
 				</div>
-				
-				<script>
-				  // Load gallery images from JSON files
-				  fetch('/content/gallery/gallery.json') // Change path if needed
-					.then(response => response.json())
-					.then(images => {
-						let galleryHTML = "";
-						images.forEach(image => {
-							galleryHTML += `
-								<li class="one-third animate-box" style="background-image: url(${image.image});">
-									<a class="color-4">
-										<div class="case-studies-summary">
-											<h2>${image.title}</h2>
-											<p>${image.description || ""}</p>
-										</div>
-									</a>
-								</li>
-							`;
-						});
-						document.getElementById('fh5co-portfolio-list').innerHTML = galleryHTML;
-					})
-					.catch(error => console.error("Error loading gallery:", error));
-				</script>
-				
+
+					<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    fetch('/content/gallery/gallery.json') // Ensure this path is correct
+      .then(response => {
+        if (!response.ok) {
+          throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+        return response.json();
+      })
+      .then(data => {
+        if (!Array.isArray(data)) {
+          throw new Error("Invalid JSON format: Expected an array");
+        }
+
+        let galleryHTML = "";
+        data.forEach(item => {
+          if (!item.image || !item.title) {
+            console.warn("Skipping invalid entry:", item);
+            return; // Skip invalid entries
+          }
+
+          galleryHTML += `
+            <li class="one-third animate-box" style="background-image: url(${item.image});">
+              <a class="color-4">
+                <div class="case-studies-summary">
+                  <h2>${item.title}</h2>
+                  <p>${item.description || ""}</p>
+                </div>
+              </a>
+            </li>
+          `;
+        });
+
+        const galleryList = document.getElementById('fh5co-portfolio-list');
+        if (galleryList) {
+          galleryList.innerHTML = galleryHTML;
+        } else {
+          console.error("Gallery container not found");
+        }
+      })
+      .catch(error => console.error("Error loading gallery:", error));
+  });
+</script>
+
 
 				<div class="row">
 					<div class="col-md-4 col-md-offset-4 text-center animate-box">
