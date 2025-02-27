@@ -1,17 +1,16 @@
 backend:
   name: git-gateway
-  branch: main  # Change this if your branch is different
+  branch: main  # Change this to your branch name if different
 
-media_folder: "images/uploads"  # Where uploaded images are stored
+media_folder: "images/uploads"  # Where images are stored
 public_folder: "/images/uploads"
 
 collections:
   - name: "gallery"
     label: "Gallery"
-    folder: "content/gallery"  # Folder to store JSON data
+    folder: "content/gallery"
     create: true
-    format: json
-    slug: "{{slug}}"
     fields:
       - { label: "Title", name: "title", widget: "string" }
-      - { l
+      - { label: "Image", name: "image", widget: "image" }
+      - { label: "Description", name: "body", widget: "markdown" }
