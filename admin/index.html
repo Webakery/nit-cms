@@ -4,19 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Panel</title>
-<script src="https://unpkg.com/netlify-cms-app@2.15.72/dist/netlify-cms-app.js"></script>
-
+    <script src="https://unpkg.com/netlify-cms-app@latest/dist/netlify-cms-app.js"></script>
 </head>
 <body>
-    <!-- CMS Container (Required) -->
+    <!-- CMS Container -->
     <div id="nc-root"></div>
 
     <script>
-        if (typeof NetlifyCmsApp !== "undefined") {
-            NetlifyCmsApp.init();
-        } else {
-            console.error("NetlifyCmsApp failed to load.");
-        }
+        document.addEventListener("DOMContentLoaded", function () {
+            if (typeof NetlifyCmsApp !== "undefined") {
+                NetlifyCmsApp.init();
+            } else {
+                console.error("NetlifyCmsApp failed to load.");
+            }
+        });
     </script>
 </body>
 </html>
