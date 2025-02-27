@@ -362,6 +362,8 @@
 
 				<script>
 				  // Load gallery images from JSON files
+					let galleryHTML = ''; // Declare the variable here
+
 fetch('https://genuine-biscochitos-511b59.netlify.app/content/gallery/imag2.json')
 .then(response => response.json())
 .then(imageData => {
