@@ -359,49 +359,35 @@
 					</div>
 				</div>
 
-					<script>
-  document.addEventListener("DOMContentLoaded", function () {
-    fetch('/content/gallery/gallery.json') // Ensure this path is correct
-      .then(response => {
-        if (!response.ok) {
-          throw new Error(`HTTP error! Status: ${response.status}`);
-        }
-        return response.json();
-      })
-      .then(data => {
-        if (!Array.isArray(data)) {
-          throw new Error("Invalid JSON format: Expected an array");
-        }
 
-        let galleryHTML = "";
-        data.forEach(item => {
-          if (!item.image || !item.title) {
-            console.warn("Skipping invalid entry:", item);
-            return; // Skip invalid entries
-          }
-
+				<script>
+				  // Load gallery images from JSON files
+				// Fetch all JSON files in the gallery folder
+fetch('/content/gallery')  // Assuming your server exposes the content/gallery folder
+  .then(response => response.json())
+  .then(files => {
+    let galleryHTML = '';
+    files.forEach(file => {
+      fetch(`/content/gallery/${title}`)  // Fetch each individual JSON file
+        .then(response => response.json())
+        .then(imageData => {
           galleryHTML += `
-            <li class="one-third animate-box" style="background-image: url(${item.image});">
+            <li class="one-third animate-box" style="background-image: url(${imageData.image});">
               <a class="color-4">
                 <div class="case-studies-summary">
-                  <h2>${item.title}</h2>
-                  <p>${item.description || ""}</p>
+                  <h2>${imageData.title}</h2>
+                  <p>${imageData.description || ''}</p>
                 </div>
               </a>
             </li>
           `;
         });
+    });
+    document.getElementById('fh5co-portfolio-list').innerHTML = galleryHTML;
+  })
+  .catch(error => console.error("Error loading gallery:", error));
 
-        const galleryList = document.getElementById('fh5co-portfolio-list');
-        if (galleryList) {
-          galleryList.innerHTML = galleryHTML;
-        } else {
-          console.error("Gallery container not found");
-        }
-      })
-      .catch(error => console.error("Error loading gallery:", error));
-  });
-</script>
+				</script>
 
 
 				<div class="row">
