@@ -358,34 +358,39 @@
 						</ul>
 					</div>
 				</div>
-
-
-				<script>
-				  // Load gallery images from JSON files
-					let galleryHTML = ''; // Declare the variable here
-
+<script>
 fetch('https://genuine-biscochitos-511b59.netlify.app/content/gallery/imag2.json')
-.then(response => response.json())
-.then(imageData => {
-  console.log(imageData); // Check the data in the console
-  galleryHTML += `
-    <li class="one-third animate-box" style="background-image: url(${imageData.image});">
-      <a class="color-4">
-        <div class="case-studies-summary">
-          <h2>${imageData.title}</h2>
-          <p>${imageData.description || ''}</p>
-        </div>
-      </a>
-    </li>
-  `;
+  .then(response => response.json())
+  .then(imageData => {
+    console.log(imageData); // Check the data in the console
 
-	      document.getElementById('fh5co-portfolio-list').innerHTML = galleryHTML;
+    let galleryHTML = ''; // Initialize an empty string to store the gallery HTML
 
-})
-.catch(error => console.error('Error loading gallery:', error));
-	</script>
+    // Loop through all items in the imageData array
+    imageData.forEach(item => {
+      // Access properties dynamically and handle missing fields
+      const title = item.title || 'Untitled';  // Default to 'Untitled' if title is missing
+      const imageUrl = item.image || '/path/to/placeholder-image.jpg';  // Default to a placeholder if image is missing
+      const description = item.description || 'No description available';  // Default if description is missing
 
+      // Append the HTML structure for each image to the galleryHTML string
+      galleryHTML += `
+        <li class="one-third animate-box" style="background-image: url(${imageUrl});">
+          <a class="color-4">
+            <div class="case-studies-summary">
+              <h2>${title}</h2> <!-- Display the title -->
+              <p>${description}</p> <!-- Display description -->
+            </div>
+          </a>
+        </li>
+      `;
+    });
 
+    // Append the generated HTML to the #fh5co-portfolio-list element
+    document.getElementById('fh5co-portfolio-list').innerHTML = galleryHTML;
+  })
+  .catch(error => console.error('Error loading gallery:', error));
+				</script>
 				<div class="row">
 					<div class="col-md-4 col-md-offset-4 text-center animate-box">
 						<a href="https://www.instagram.com/neravy_islamic_trust/" target="_blank" class="btn btn-primary btn-lg">See More</a>
