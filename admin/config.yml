@@ -9,9 +9,12 @@ public_folder: "/images/uploads"
 collections:
   - name: "gallery"
     label: "Gallery"
-    folder: "content/gallery"
-    create: true
+    delete: false
+    editor:
+      preview: false
+    format: json
+    file: "content/gallery/gallery.json"  # Saves all gallery entries in one JSON file
     fields:
-      - { label: "Title", name: "title", widget: "string" }
-      - { label: "Image", name: "image", widget: "image" }
-      - { label: "Description", name: "body", widget: "markdown" }
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Image", name: "image", widget: "image"}
+      - {label: "Description", name: "description", widget: "text", required: false}
