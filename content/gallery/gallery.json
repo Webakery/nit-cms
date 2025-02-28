@@ -14,6 +14,10 @@
       "title": "demo3",
       "image": "/images/uploads/food.jpg",
       "description": "hshs"
+    },
+    {
+      "title": "sample 4",
+      "image": "/images/uploads/x.jpg"
     }
   ]
 }
