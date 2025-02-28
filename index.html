@@ -339,21 +339,62 @@
 
 
 		
-				<div class="container">
-					<div class="row">
-					  <div class="col-md-12 text-center heading-section">
-						  <br>
-						  <br>
-						  <br>
-						<h3>Featured</h3>
-						<br />
-						<div id="featured-highlights">
-						  <!-- Dynamic highlights will be loaded here -->
-						</div>
-						  
-					  </div>
-					</div>
-				  </div>
+				<div class="container" style=" position: relative; padding: 60px 20px; background: linear-gradient(135deg, #1a1a1a, #3a3a3a); border-radius: 15px; box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.5); text-align: center; overflow: hidden;">
+  
+  <!-- Glowing Animated Title -->
+  <h3 style=" font-size: 30px, font-weight: bold, 
+    text-transform: uppercase; 
+    color: white; 
+    letter-spacing: 2px; 
+    position: relative;
+    display: inline-block;
+    padding: 10px 20px;
+    background: linear-gradient(90deg, #ff0080, #ffcf00);
+    border-radius: 8px;
+    box-shadow: 0px 0px 20px rgba(255, 0, 128, 0.7);
+    animation: glowText 1.5s infinite alternate;">
+    Featured
+  </h3>
+
+  <br><br>
+
+  <!-- Floating Glow Effect -->
+  <div style="
+    position: absolute; 
+    top: -20px; 
+    left: -50px; 
+    width: 120px; 
+    height: 120px; 
+    background: rgba(255, 0, 128, 0.4); 
+    filter: blur(50px);
+    animation: floatGlow 4s infinite alternate;">
+  </div>
+
+  <div id="featured-highlights" style="
+    display: flex; 
+    flex-wrap: wrap; 
+    gap: 20px; 
+    justify-content: center;
+    margin-top: 20px;">
+    <!-- Dynamic highlights will be loaded here -->
+  </div>
+
+</div>
+
+<style>
+  /* Glowing Title Animation */
+  @keyframes glowText {
+    from { box-shadow: 0px 0px 15px rgba(255, 0, 128, 0.5); }
+    to { box-shadow: 0px 0px 25px rgba(255, 207, 0, 0.8); }
+  }
+
+  /* Floating Glow Animation */
+  @keyframes floatGlow {
+    from { transform: translateY(-10px) rotate(5deg); opacity: 0.6; }
+    to { transform: translateY(10px) rotate(-5deg); opacity: 0.9; }
+  }
+</style>
+
 				  
 				  <script>
 					const featuredBaseUrl = "https://genuine-biscochitos-511b59.netlify.app/public"; // Unique Base URL for Featured
