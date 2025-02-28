@@ -4,6 +4,16 @@
       "title": "jello",
       "image": "/images/uploads/1.jpg",
       "description": "helloss"
+    },
+    {
+      "title": "demo2",
+      "image": "/images/uploads/44.jpg",
+      "description": "good"
+    },
+    {
+      "title": "demo3",
+      "image": "/images/uploads/food.jpg",
+      "description": "hshs"
     }
   ]
 }
