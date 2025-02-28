@@ -1,25 +1,18 @@
 backend:
   name: git-gateway
-  branch: main
+  branch: main  # Change this if using a different branch
 
-media_folder: "public/images/uploads"  # Where images are stored
-public_folder: "/images/uploads"       # How images are accessed
+media_folder: "public/images/uploads"  # Where uploaded images are stored
+public_folder: "/images/uploads"  # Public path for images
 
 collections:
   - name: "gallery"
     label: "Gallery"
-    format: "json"
-    folder: "content/gallery"  # Each image gets a separate JSON file
+    folder: "content/gallery"
     create: true
-    slug: "{{slug}}"  # Each file will have a unique name
+    slug: "{{slug}}"  # Auto-generate slug based on title
+    format: "json"  # Saves as JSON file
     fields:
       - { label: "Title", name: "title", widget: "string" }
       - { label: "Image", name: "image", widget: "image" }
-      - { label: "Description", name: "description", widget: "text", required: false }
-
-  - name: "gallery_index"
-    label: "Gallery Index"
-    format: "json"
-    file: "content/gallery/index.json"  # This file lists all gallery JSON files
-    fields:
-      - { label: "Files", name: "files", widget: "list", field: { label: "File", name: "file", widget: "string" } }
+      - { label: "Description", name: "description", widget: "text" }
