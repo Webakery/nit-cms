@@ -685,55 +685,21 @@ fetch("https://genuine-biscochitos-511b59.netlify.app/content/gallery/gallery.js
 
 
 		<div id="fh5co-blog-section" class="fh5co-section-gray">
-			
-
-
-
-
-<div class="container">
+			<div class="container">
   <div class="row">
     <div class="col-md-12 text-center heading-section">
       <h3>Recent Works</h3>
       <br />
-						<p style="font-size: 18px; color: #555;">
-							We provide <span style="color: #d929b3; font-weight: bold;">medical assistance</span>, 
-							<span style="color: #e74c3c; font-weight: bold;">monetary support</span>, 
-							<span style="color: #1e8308; font-weight: bold;">tree plantation</span>, 
-							<span style="color: #3498db; font-weight: bold;">educational aid</span>, and 
-							<span style="color: #f39c12; font-weight: bold;">food distribution</span> to those in need.
-						</p>
-	    <br>
-      <div id="recent-works-container">
-        <div id="recent-works" class="scrollable-content">
-          <!-- Dynamic recent works will be loaded here -->
-        </div>
+      <div id="recent-works">
+        <!-- Dynamic recent works will be loaded here -->
       </div>
     </div>
   </div>
 </div>
 
-<style>
-  #recent-works-container {
-    max-height: 550px; /* Limit height */
-    overflow-y: auto; /* Enable vertical scroll */
-    padding: 10px;
-    border-radius: 10px;
-  }
 
-  .scrollable-content {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 15px;
-  }
-
-  .scrollable-content > div {
-    flex: 1 1 calc(33.33% - 20px); /* Show 3 per row */
-    max-width: calc(33.33% - 20px);
-  }
-</style>
-
-<script>
-  const recentWorksBaseUrl = "https://genuine-biscochitos-511b59.netlify.app/public"; 
+			<script>
+  const recentWorksBaseUrl = "https://genuine-biscochitos-511b59.netlify.app/public"; // Unique Base URL for Recent Works
 
   fetch("https://genuine-biscochitos-511b59.netlify.app/content/recent-works/recent-works.json")
     .then(response => {
@@ -753,12 +719,13 @@ fetch("https://genuine-biscochitos-511b59.netlify.app/content/gallery/gallery.js
 
       let worksHTML = '';
 
-      data.works.forEach((item, index) => {
+      data.works.forEach(item => {
         const title = item.title || "Untitled";
         const description = item.description || "No description available";
         const imageUrl = item.image
           ? `${recentWorksBaseUrl}${item.image}`  
           : "https://via.placeholder.com/300";
+        const date = item.date ? new Date(item.date).toLocaleDateString() : "Unknown Date";
 
         worksHTML += `
           <div class="col-lg-4 col-md-4 col-sm-6">
@@ -780,14 +747,6 @@ fetch("https://genuine-biscochitos-511b59.netlify.app/content/gallery/gallery.js
     .catch(error => console.error("Error loading recent works:", error));
 </script>
 
-
-					<div class="clearfix visible-md-block"></div>
-				</div>
-
-
-			</div>
-		</div>
-		</div>
 		</div>
 
 
