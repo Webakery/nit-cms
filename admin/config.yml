@@ -36,3 +36,20 @@ collections:
               - { label: "Title", name: "title", widget: "string" }
               - { label: "Image", name: "image", widget: "image" }
               - { label: "Description", name: "description", widget: "text" }
+
+  - name: "recent-works"
+    label: "Recent Works"
+    files:
+      - name: "recent-works"
+        label: "Recent Works"
+        file: "content/recent-works/recent-works.json"
+        format: "json"
+        fields:
+          - label: "Works"
+            name: "works"
+            widget: "list"
+            fields:
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Image", name: "image", widget: "image" }
+              - { label: "Description", name: "description", widget: "text" }
+              - { label: "Date", name: "date", widget: "datetime" }
