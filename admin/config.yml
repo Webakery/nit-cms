@@ -9,9 +9,9 @@ collections:
   - name: "gallery"
     label: "Gallery"
     format: "json"
-    folder: "content/gallery"           # Folder where the gallery JSON files will be stored
-    create: true                        # Allows the creation of multiple entries
-    slug: "{{slug}}"                    # Dynamic filename based on the slug
+    folder: "public/content/gallery"
+    create: true
+    slug: "gallery"  # Ensures it's always "gallery.json"
     fields:
       - {label: "Title", name: "title", widget: "string"}
       - {label: "Image", name: "image", widget: "image"}
