@@ -358,52 +358,44 @@
 						</ul>
 					</div>
 				</div>
+
 <script>
-  async function loadGallery() {
-    try {
-      // Fetch the index.json file to get a list of gallery JSON files
-      const indexResponse = await fetch('/content/gallery/index.json');
-      if (!indexResponse.ok) throw new Error('Failed to load gallery index.');
-      
-      const indexData = await indexResponse.json();
-      const fileList = indexData.files; // Array of file names
+	fetch('https://genuine-biscochitos-511b59.netlify.app/content/gallery/imag2.json')
+  .then(response => response.json())
+  .then(data => {
+    console.log(data); // Check if the JSON loads correctly
 
-      let galleryHTML = '';
-      let galleryData = [];
+    let galleryHTML = ''; // Initialize an empty string to store the gallery HTML
 
-      // Fetch each JSON file dynamically from the index
-      await Promise.all(fileList.map(async (file) => {
-        const response = await fetch(`/content/gallery/${file}`);
-        if (!response.ok) throw new Error(`Error fetching ${file}`);
-        const imageData = await response.json();
-        galleryData.push(imageData);
-      }));
+    // Ensure 'gallery' exists in the JSON and loop through each item
+    if (data.gallery && Array.isArray(data.gallery)) {
+      data.gallery.forEach(item => {
+        // Access properties dynamically and handle missing fields
+        const title = item.title || 'Untitled';  // Default to 'Untitled' if title is missing
+        const imageUrl = item.image || 'https://via.placeholder.com/300';  // Default placeholder image
+        const description = item.description || 'No description available';  // Default if description is missing
 
-      // Process the merged gallery data
-      galleryData.forEach(item => {
-        const title = item.title || 'Untitled';
-        const imageUrl = item.image.startsWith('/images/uploads') ? item.image : `/images/uploads/${item.image}`;
-        const description = item.description || 'No description available';
-
+        // Append the HTML structure for each image to the galleryHTML string
         galleryHTML += `
           <li class="one-third animate-box" style="background-image: url(${imageUrl});">
             <a class="color-4">
               <div class="case-studies-summary">
-                <h2>${title}</h2>
-                <p>${description}</p>
+                <h2>${title}</h2> <!-- Display the title -->
+                <p>${description}</p> <!-- Display description -->
               </div>
             </a>
           </li>
         `;
       });
 
+      // Append the generated HTML to the #fh5co-portfolio-list element
       document.getElementById('fh5co-portfolio-list').innerHTML = galleryHTML;
-    } catch (error) {
-      console.error('Error loading gallery:', error);
+    } else {
+      console.error("Gallery data is missing or invalid.");
     }
-  }
+  })
+  .catch(error => console.error('Error loading gallery:', error));
 
-  loadGallery();
 </script>
 
 				<div class="row">
