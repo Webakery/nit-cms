@@ -689,7 +689,6 @@ fetch("https://genuine-biscochitos-511b59.netlify.app/content/gallery/gallery.js
 <div id="fh5co-recent-works">
   <div class="container">
     <section id="recent-works">
-
       <div class="row">
         <div class="col-md-6 col-md-offset-3 text-center heading-section animate-box">
           <h3>Recent Works</h3>
@@ -703,9 +702,7 @@ fetch("https://genuine-biscochitos-511b59.netlify.app/content/gallery/gallery.js
 
       <div class="row row-bottom-padded-md">
         <div class="col-md-12">
-          <ul id="fh5co-recent-works-list">
-            <!-- Recent Works will be dynamically inserted here -->
-          </ul>
+          <ul id="fh5co-recent-works-list"></ul>
         </div>
       </div>
     </section>
@@ -731,26 +728,17 @@ fetch("https://genuine-biscochitos-511b59.netlify.app/content/recent-works/recen
 
     data.works.forEach(item => {
       const title = item.title || "Untitled";
+      const description = item.description || "No description available.";
       const imageUrl = item.image
         ? `${recentWorksBaseUrl}${item.image}`  
         : "https://via.placeholder.com/300";  
 
       worksHTML += `
-        <li class="one-third animate-box" style="background-image: url(${imageUrl});">
+        <li class="one-third animate-box" style="background-image: url(${imageUrl}); background-size: cover; background-position: center;">
           <a class="color-4">
-            <div class="case-studies-summary">
-              <h2 style="
-                background: linear-gradient(135deg, #a3109e, #ff5f6d); 
-                color: white; 
-                padding: 12px 20px; 
-                font-size: 18px; 
-                border-radius: 8px; 
-                text-transform: uppercase;
-                letter-spacing: 1px;
-                box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
-                display: inline-block;">
-                ${title}
-              </h2>            
+            <div class="case-studies-summary" style="padding: 20px; background: rgba(0, 0, 0, 0.6); color: white; border-radius: 10px;">
+              <h2 style="margin-bottom: 10px; font-size: 20px;">${title}</h2>
+              <p style="font-size: 14px;">${description}</p>
             </div>
           </a>
         </li>
@@ -761,7 +749,6 @@ fetch("https://genuine-biscochitos-511b59.netlify.app/content/recent-works/recen
   })
   .catch(error => console.error("Error loading recent works:", error));
 </script>
-
 
 
 
