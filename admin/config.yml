@@ -9,10 +9,17 @@ collections:
   - name: "gallery"
     label: "Gallery"
     format: "json"
-    folder: "content/gallery"  # Each image gets a separate JSON file here
+    folder: "content/gallery"  # Each image gets a separate JSON file
     create: true
     slug: "{{slug}}"  # Each file will have a unique name
     fields:
       - { label: "Title", name: "title", widget: "string" }
       - { label: "Image", name: "image", widget: "image" }
       - { label: "Description", name: "description", widget: "text", required: false }
+
+  - name: "gallery_index"
+    label: "Gallery Index"
+    format: "json"
+    file: "content/gallery/index.json"  # This file lists all gallery JSON files
+    fields:
+      - { label: "Files", name: "files", widget: "list", field: { label: "File", name: "file", widget: "string" } }
