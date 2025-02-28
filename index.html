@@ -396,48 +396,108 @@
 </style>
 
 				  
-				  <script>
-					const featuredBaseUrl = "https://genuine-biscochitos-511b59.netlify.app/public"; // Unique Base URL for Featured
-				  
-					fetch("https://genuine-biscochitos-511b59.netlify.app/content/featured/featured.json")
-					  .then(response => {
-						if (!response.ok) {
-						  throw new Error("Failed to load featured highlights");
-						}
-						return response.json();
-					  })
-					  .then(data => {
-						if (!data.highlights || !Array.isArray(data.highlights)) {
-						  throw new Error("Invalid featured highlights format.");
-						}
-				  
-						let highlightsHTML = '';
-				  
-						// Loop through all featured highlights
-						data.highlights.forEach(item => {
-						  const title = item.title || "Untitled";
-						  const description = item.description || "No description available";
-						  const imageUrl = item.image
-							? `${featuredBaseUrl}${item.image}`  // Using the new base URL variable
-							: "https://via.placeholder.com/300";  
-				  
-						  highlightsHTML += `
-							<div class="highlight-box">
-							  <p class="highlight-text">
-								${description}
-								<br><br>
-								<img src="${imageUrl}" style="display: block; margin: 0 auto; width: 90%; border-radius: 10px;">
-								<br/>
-							  </p>
-							</div>
-						  `;
-						});
-				  
-						// Insert into HTML
-						document.getElementById("featured-highlights").innerHTML = highlightsHTML;
-					  })
-					  .catch(error => console.error("Error loading featured highlights:", error));
-				  </script>
+<script>
+  const featuredBaseUrl = "https://genuine-biscochitos-511b59.netlify.app/public"; // Unique Base URL for Featured
+
+  fetch("https://genuine-biscochitos-511b59.netlify.app/content/featured/featured.json")
+    .then(response => {
+      if (!response.ok) {
+        throw new Error("Failed to load featured highlights");
+      }
+      return response.json();
+    })
+    .then(data => {
+      const featuredContainer = document.getElementById("featured-highlights");
+
+      if (!data.highlights || !Array.isArray(data.highlights) || data.highlights.length === 0) {
+        // If no highlights, show a fallback message
+        featuredContainer.innerHTML = `
+          <p class="no-featured-message">
+            📝 No featured updates at the moment. Stay tuned!
+          </p>
+        `;
+        return;
+      }
+
+      let highlightsHTML = '';
+
+      // Loop through all featured highlights
+      data.highlights.forEach(item => {
+        const title = item.title || "Untitled";
+        const description = item.description || "No description available";
+        const imageUrl = item.image ? `${featuredBaseUrl}${item.image}` : '';  
+
+        highlightsHTML += `
+          <div class="highlight-box">
+            <p class="highlight-text">
+              <strong>${title}</strong><br>
+              ${description}
+            </p>
+            ${imageUrl 
+              ? `<img src="${imageUrl}" class="highlight-image">` 
+              : ''} <!-- No image handling -->
+          </div>
+        `;
+      });
+
+      // Insert into HTML
+      featuredContainer.innerHTML = highlightsHTML;
+    })
+    .catch(error => {
+      console.error("Error loading featured highlights:", error);
+      document.getElementById("featured-highlights").innerHTML = `
+        <p class="no-featured-message">
+          ⚠️ Unable to load featured highlights. Please check back later.
+        </p>
+      `;
+    });
+</script>
+
+<style>
+  /* Featured Highlight Box */
+  .highlight-box {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 12px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    max-width: 500px;
+    width: 100%;
+  }
+
+  .highlight-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.15);
+  }
+
+  /* Featured Image */
+  .highlight-image {
+    display: block;
+    margin: 15px auto 0;
+    width: 90%;
+    border-radius: 10px;
+  }
+
+  /* No-Feature Message */
+  .no-featured-message {
+    font-size: 16px;
+    color: #666;
+    background: #f9f9f9;
+    padding: 12px 20px;
+    border-radius: 8px;
+    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+
+  /* Responsive Adjustments */
+  @media (max-width: 768px) {
+    .highlight-box {
+      padding: 15px;
+    }
+  }
+</style>
+
 
 			
 
