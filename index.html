@@ -359,14 +359,28 @@
 					</div>
 				</div>
 <script>
-  fetch('/content/gallery/gallery.json') // Use a single JSON file for simplicity
-    .then(response => response.json())
-    .then(imageData => {
-      console.log(imageData); // Debugging
+  async function loadGallery() {
+    try {
+      // Fetch the index.json file to get a list of gallery JSON files
+      const indexResponse = await fetch('/content/gallery/index.json');
+      if (!indexResponse.ok) throw new Error('Failed to load gallery index.');
+      
+      const indexData = await indexResponse.json();
+      const fileList = indexData.files; // Array of file names
 
       let galleryHTML = '';
+      let galleryData = [];
 
-      imageData.forEach(item => {
+      // Fetch each JSON file dynamically from the index
+      await Promise.all(fileList.map(async (file) => {
+        const response = await fetch(`/content/gallery/${file}`);
+        if (!response.ok) throw new Error(`Error fetching ${file}`);
+        const imageData = await response.json();
+        galleryData.push(imageData);
+      }));
+
+      // Process the merged gallery data
+      galleryData.forEach(item => {
         const title = item.title || 'Untitled';
         const imageUrl = item.image.startsWith('/images/uploads') ? item.image : `/images/uploads/${item.image}`;
         const description = item.description || 'No description available';
@@ -384,8 +398,12 @@
       });
 
       document.getElementById('fh5co-portfolio-list').innerHTML = galleryHTML;
-    })
-    .catch(error => console.error('Error loading gallery:', error));
+    } catch (error) {
+      console.error('Error loading gallery:', error);
+    }
+  }
+
+  loadGallery();
 </script>
 
 				<div class="row">
