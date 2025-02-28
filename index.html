@@ -359,56 +359,45 @@
 					</div>
 				</div>
 
-
 <script>
-	const indexUrl = "https://genuine-biscochitos-511b59.netlify.app/content/gallery/galleryIndex.json";
+const galleryUrl = "https://genuine-biscochitos-511b59.netlify.app/content/gallery/gallery.json";
 
-fetch(indexUrl)
+fetch(galleryUrl)
   .then(response => {
     if (!response.ok) {
-      throw new Error("Failed to load gallery index");
+      throw new Error("Failed to load gallery data");
     }
     return response.json();
   })
-  .then(indexData => {
-    if (!indexData.files || !Array.isArray(indexData.files)) {
-      throw new Error("Invalid gallery index format.");
+  .then(data => {
+    if (!data.gallery || !Array.isArray(data.gallery)) {
+      throw new Error("Invalid gallery format.");
     }
 
     let galleryHTML = '';
 
-    // Loop through each JSON file in galleryIndex.json
-    const fetchPromises = indexData.files.map(filename => {
-      const fileUrl = `https://genuine-biscochitos-511b59.netlify.app/content/gallery/${filename}`;
+    // Loop through all gallery items
+    data.gallery.forEach(item => {
+      const title = item.title || 'Untitled';
+      const imageUrl = item.image || 'https://via.placeholder.com/300';
+      const description = item.description || 'No description available';
 
-      return fetch(fileUrl)
-        .then(response => {
-          if (!response.ok) throw new Error(`Failed to load ${filename}`);
-          return response.json();
-        })
-        .then(data => {
-          if (data.image) {
-            galleryHTML += `
-              <li class="one-third animate-box" style="background-image: url(${data.image});">
-                <a class="color-4">
-                  <div class="case-studies-summary">
-                    <h2>${data.title || 'Untitled'}</h2>
-                    <p>${data.description || 'No description available'}</p>
-                  </div>
-                </a>
-              </li>
-            `;
-          }
-        })
-        .catch(error => console.error(error));
+      galleryHTML += `
+        <li class="one-third animate-box" style="background-image: url(${imageUrl});">
+          <a class="color-4">
+            <div class="case-studies-summary">
+              <h2>${title}</h2>
+              <p>${description}</p>
+            </div>
+          </a>
+        </li>
+      `;
     });
 
-    // After fetching all images, update the HTML
-    Promise.all(fetchPromises).then(() => {
-      document.getElementById('fh5co-portfolio-list').innerHTML = galleryHTML;
-    });
+    // Insert into HTML
+    document.getElementById('fh5co-portfolio-list').innerHTML = galleryHTML;
   })
-  .catch(error => console.error('Error loading gallery index:', error));
+  .catch(error => console.error('Error loading gallery:', error));
 
 </script>
 
