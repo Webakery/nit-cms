@@ -299,6 +299,8 @@
 											</div>
 				</div>
 
+				
+
 				<div class="row row-bottom-padded-md">
 					<div class="col-md-12 text-center animate-box">
 						<p><img src="images/ss.png" width="100%" alt="Free HTML5 Bootstrap Template" class="img-responsive"></p>
@@ -335,7 +337,64 @@
 			</div>
 		</div>
 
+
 		
+				<div class="container">
+					<div class="row">
+					  <div class="col-md-12 text-center heading-section">
+						<h3>Featured</h3>
+						<br />
+						<div id="featured-highlights">
+						  <!-- Dynamic highlights will be loaded here -->
+						</div>
+					  </div>
+					</div>
+				  </div>
+				  
+				  <script>
+					const featuredBaseUrl = "https://genuine-biscochitos-511b59.netlify.app/public"; // Unique Base URL for Featured
+				  
+					fetch("https://genuine-biscochitos-511b59.netlify.app/content/featured/featured.json")
+					  .then(response => {
+						if (!response.ok) {
+						  throw new Error("Failed to load featured highlights");
+						}
+						return response.json();
+					  })
+					  .then(data => {
+						if (!data.highlights || !Array.isArray(data.highlights)) {
+						  throw new Error("Invalid featured highlights format.");
+						}
+				  
+						let highlightsHTML = '';
+				  
+						// Loop through all featured highlights
+						data.highlights.forEach(item => {
+						  const title = item.title || "Untitled";
+						  const description = item.description || "No description available";
+						  const imageUrl = item.image
+							? `${featuredBaseUrl}${item.image}`  // Using the new base URL variable
+							: "https://via.placeholder.com/300";  
+				  
+						  highlightsHTML += `
+							<div class="highlight-box">
+							  <p class="highlight-text">
+								${description}
+								<br><br>
+								<img src="${imageUrl}" style="display: block; margin: 0 auto; width: 90%; border-radius: 10px;">
+								<br/>
+							  </p>
+							</div>
+						  `;
+						});
+				  
+						// Insert into HTML
+						document.getElementById("featured-highlights").innerHTML = highlightsHTML;
+					  })
+					  .catch(error => console.error("Error loading featured highlights:", error));
+				  </script>
+
+			
 
 		<div id="fh5co-portfolio">
 			<div class="container">
