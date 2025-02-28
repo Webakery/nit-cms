@@ -1,9 +1,101 @@
-{
-  "monthYear": "2024 January",
-  "peopleServed": 21,
-  "familiesHelped": 40,
-  "distributionDate": "32457",
-  "remainingAmount": 2432,
-  "totalContribution": 32457,
-  "totalExpense": 30018
-}
+[
+  {
+    "monthYear": "January 2024",
+    "peopleServed": 21,
+    "familiesHelped": 43,
+    "distributionDate": "21/01/2024",
+    "totalContribution": 32457,
+    "totalExpense": 30025,
+    "remainingAmount": 2432
+  },
+  {
+    "monthYear": "February 2024",
+    "peopleServed": 28,
+    "familiesHelped": 44,
+    "distributionDate": "28/02/2024",
+    "totalContribution": 33757,
+    "totalExpense": 33757,
+    "remainingAmount": 0
+  },
+  {
+    "monthYear": "March 2024",
+    "peopleServed": 112,
+    "familiesHelped": 165,
+    "distributionDate": "112/03/2024",
+    "totalContribution": 323885,
+    "totalExpense": 323885,
+    "remainingAmount": 0
+  },
+  {
+    "monthYear": "April 2024",
+    "peopleServed": 30,
+    "familiesHelped": 44,
+    "distributionDate": "30/04/2024",
+    "totalContribution": 38800,
+    "totalExpense": 29596,
+    "remainingAmount": 9204
+  },
+  {
+    "monthYear": "May 2024",
+    "peopleServed": 22,
+    "familiesHelped": 45,
+    "distributionDate": "22/05/2024",
+    "totalContribution": 36756,
+    "totalExpense": 30779,
+    "remainingAmount": 5977
+  },
+  {
+    "monthYear": "June 2024",
+    "peopleServed": 22,
+    "familiesHelped": 42,
+    "distributionDate": "22/06/2024",
+    "totalContribution": 27827,
+    "totalExpense": 24019,
+    "remainingAmount": 3808
+  },
+  {
+    "monthYear": "July 2024",
+    "peopleServed": 25,
+    "familiesHelped": 45,
+    "distributionDate": "25/07/2024",
+    "totalContribution": 31858,
+    "totalExpense": 27650,
+    "remainingAmount": 4208
+  },
+  {
+    "monthYear": "August 2024",
+    "peopleServed": 27,
+    "familiesHelped": 42,
+    "distributionDate": "27/08/2024",
+    "totalContribution": 42258,
+    "totalExpense": 33968,
+    "remainingAmount": 8290
+  },
+  {
+    "monthYear": "September 2024",
+    "peopleServed": 23,
+    "familiesHelped": 42,
+    "distributionDate": "23/09/2024",
+    "totalContribution": 37490,
+    "totalExpense": 27686,
+    "remainingAmount": 9804
+  },
+  {
+    "monthYear": "October 2024",
+    "peopleServed": 23,
+    "familiesHelped": 42,
+    "distributionDate": "23/10/2024",
+    "totalContribution": 47728,
+    "totalExpense": 31059,
+    "remainingAmount": 16669
+  },
+  {
+    "monthYear": "November 2024",
+    "peopleServed": null,
+    "familiesHelped": 43,
+    "distributionDate": null,
+    "totalContribution": null,
+    "totalExpense": 0,
+    "remainingAmount": 0
+  }
+]
