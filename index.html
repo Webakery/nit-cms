@@ -360,8 +360,8 @@
 				</div>
 
 
- <script>
-  function loadAllGalleries() {
+					<script>
+  function loadGallery() {
     const indexUrl = "https://genuine-biscochitos-511b59.netlify.app/content/gallery/galleryIndex.json";
 
     fetch(indexUrl)
@@ -378,7 +378,7 @@
 
         let galleryHTML = '';
 
-        // Fetch each JSON file listed in galleryIndex.json
+        // Fetch each JSON file
         const fetchPromises = indexData.files.map(file => {
           const jsonUrl = `https://genuine-biscochitos-511b59.netlify.app/content/gallery/${file}`;
           return fetch(jsonUrl)
@@ -395,40 +395,38 @@
             });
         });
 
-        // Once all fetches complete, process the data
+        // Process all JSON files after they are fetched
         Promise.all(fetchPromises).then(galleries => {
           galleries.forEach(data => {
-            if (data && Array.isArray(data.gallery)) {
-              data.gallery.forEach(item => {
-                const title = item.title || 'Untitled';
-                const imageUrl = item.image || 'https://via.placeholder.com/300';
-                const description = item.description || 'No description available';
+            if (data) {
+              const title = data.title || 'Untitled';
+              const imageUrl = data.image || 'https://via.placeholder.com/300';
+              const description = data.description || 'No description available';
 
-                galleryHTML += `
-                  <li class="one-third animate-box" style="background-image: url(${imageUrl});">
-                    <a class="color-4">
-                      <div class="case-studies-summary">
-                        <h2>${title}</h2>
-                        <p>${description}</p>
-                      </div>
-                    </a>
-                  </li>
-                `;
-              });
+              galleryHTML += `
+                <li class="one-third animate-box" style="background-image: url(${imageUrl});">
+                  <a class="color-4">
+                    <div class="case-studies-summary">
+                      <h2>${title}</h2>
+                      <p>${description}</p>
+                    </div>
+                  </a>
+                </li>
+              `;
             }
           });
 
-          // Inject the final HTML into the page
+          // Insert gallery HTML into the page
           document.getElementById('fh5co-portfolio-list').innerHTML = galleryHTML;
         });
       })
-      .catch(error => console.error("Error loading gallery index:", error));
+      .catch(error => console.error("Error loading gallery:", error));
   }
 
-  // Load all galleries on page load
-  loadAllGalleries();
-
+  // Load the gallery when the page loads
+  loadGallery();
 </script>
+
 
 				<div class="row">
 					<div class="col-md-4 col-md-offset-4 text-center animate-box">
