@@ -703,12 +703,37 @@ fetch("https://genuine-biscochitos-511b59.netlify.app/content/gallery/gallery.js
 					
 					
 			</div>
-			      <div id="recent-works">
-        <!-- Dynamic recent works will be loaded here -->
+
+
+      <div id="recent-works-container">
+        <div id="recent-works" class="scrollable-content">
+          <!-- Dynamic recent works will be loaded here -->
+        </div>
       </div>
 
-					<script>
-  const recentWorksBaseUrl = "https://genuine-biscochitos-511b59.netlify.app/public"; // Unique Base URL for Recent Works
+
+<style>
+  #recent-works-container {
+    max-height: 550px; /* Limit height */
+    overflow-y: auto; /* Enable vertical scroll */
+    padding: 10px;
+    border-radius: 10px;
+  }
+
+  .scrollable-content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+  }
+
+  .scrollable-content > div {
+    flex: 1 1 calc(33.33% - 20px); /* Show 3 per row */
+    max-width: calc(33.33% - 20px);
+  }
+</style>
+
+<script>
+  const recentWorksBaseUrl = "https://genuine-biscochitos-511b59.netlify.app/public"; 
 
   fetch("https://genuine-biscochitos-511b59.netlify.app/content/recent-works/recent-works.json")
     .then(response => {
@@ -728,13 +753,12 @@ fetch("https://genuine-biscochitos-511b59.netlify.app/content/gallery/gallery.js
 
       let worksHTML = '';
 
-      data.works.forEach(item => {
+      data.works.forEach((item, index) => {
         const title = item.title || "Untitled";
         const description = item.description || "No description available";
         const imageUrl = item.image
           ? `${recentWorksBaseUrl}${item.image}`  
           : "https://via.placeholder.com/300";
-        const date = item.date ? new Date(item.date).toLocaleDateString() : "Unknown Date";
 
         worksHTML += `
           <div class="col-lg-4 col-md-4 col-sm-6">
