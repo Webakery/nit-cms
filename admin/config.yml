@@ -1,18 +1,28 @@
 backend:
   name: git-gateway
-  branch: main  
+  branch: main
 
-media_folder: "public/images/uploads"  
-public_folder: "/images/uploads"  
+media_folder: "public/images/uploads"
+public_folder: "/images/uploads"
 
 collections:
   - name: "gallery"
     label: "Gallery"
     folder: "content/gallery"
     create: true
-    slug: "{{slug}}"  
-    format: "json"  
+    slug: "{{slug}}"  # JSON filename will be based on the title
+    format: "json"
     fields:
       - { label: "Title", name: "title", widget: "string" }
       - { label: "Image", name: "image", widget: "image" }
-      - { label: "Description", name: "description", widget: "text", required: false }
+      - { label: "Description", name: "description", widget: "text" }
+
+  - name: "galleryIndex"
+    label: "Gallery Index"
+    file: "content/gallery/galleryIndex.json"
+    format: "json"
+    fields:
+      - label: "Gallery Files"
+        name: "files"
+        widget: "list"
+        default: []
