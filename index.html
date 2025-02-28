@@ -360,71 +360,56 @@
 				</div>
 
 
-					<script>
-  function loadGallery() {
-    const indexUrl = "https://genuine-biscochitos-511b59.netlify.app/content/gallery/galleryIndex.json";
+<script>
+	const indexUrl = "https://genuine-biscochitos-511b59.netlify.app/content/gallery/galleryIndex.json";
 
-    fetch(indexUrl)
-      .then(response => {
-        if (!response.ok) {
-          throw new Error("Failed to load gallery index");
-        }
-        return response.json();
-      })
-      .then(indexData => {
-        if (!indexData.files || !Array.isArray(indexData.files)) {
-          throw new Error("Invalid gallery index format");
-        }
+fetch(indexUrl)
+  .then(response => {
+    if (!response.ok) {
+      throw new Error("Failed to load gallery index");
+    }
+    return response.json();
+  })
+  .then(indexData => {
+    if (!indexData.files || !Array.isArray(indexData.files)) {
+      throw new Error("Invalid gallery index format.");
+    }
 
-        let galleryHTML = '';
+    let galleryHTML = '';
 
-        // Fetch each JSON file
-        const fetchPromises = indexData.files.map(file => {
-          const jsonUrl = `https://genuine-biscochitos-511b59.netlify.app/content/gallery/${file}`;
-          return fetch(jsonUrl)
-            .then(response => {
-              if (!response.ok) {
-                console.error(`Failed to load ${file}`);
-                return null;
-              }
-              return response.json();
-            })
-            .catch(error => {
-              console.error(`Error loading ${file}:`, error);
-              return null;
-            });
-        });
+    // Loop through each JSON file in galleryIndex.json
+    const fetchPromises = indexData.files.map(filename => {
+      const fileUrl = `https://genuine-biscochitos-511b59.netlify.app/content/gallery/${filename}`;
 
-        // Process all JSON files after they are fetched
-        Promise.all(fetchPromises).then(galleries => {
-          galleries.forEach(data => {
-            if (data) {
-              const title = data.title || 'Untitled';
-              const imageUrl = data.image || 'https://via.placeholder.com/300';
-              const description = data.description || 'No description available';
+      return fetch(fileUrl)
+        .then(response => {
+          if (!response.ok) throw new Error(`Failed to load ${filename}`);
+          return response.json();
+        })
+        .then(data => {
+          if (data.image) {
+            galleryHTML += `
+              <li class="one-third animate-box" style="background-image: url(${data.image});">
+                <a class="color-4">
+                  <div class="case-studies-summary">
+                    <h2>${data.title || 'Untitled'}</h2>
+                    <p>${data.description || 'No description available'}</p>
+                  </div>
+                </a>
+              </li>
+            `;
+          }
+        })
+        .catch(error => console.error(error));
+    });
 
-              galleryHTML += `
-                <li class="one-third animate-box" style="background-image: url(${imageUrl});">
-                  <a class="color-4">
-                    <div class="case-studies-summary">
-                      <h2>${title}</h2>
-                      <p>${description}</p>
-                    </div>
-                  </a>
-                </li>
-              `;
-            }
-          });
+    // After fetching all images, update the HTML
+    Promise.all(fetchPromises).then(() => {
+      document.getElementById('fh5co-portfolio-list').innerHTML = galleryHTML;
+    });
+  })
+  .catch(error => console.error('Error loading gallery index:', error));
 
-          // Insert gallery HTML into the page
-          document.getElementById('fh5co-portfolio-list').innerHTML = galleryHTML;
-        });
-      })
-      .catch(error => console.error("Error loading gallery:", error));
-  }
-
-  // Load the gallery when the page loads
-  loadGallery();
 </script>
 
 
