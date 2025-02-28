@@ -360,9 +360,9 @@
 				</div>
 
 <script>
-const galleryUrl = "https://genuine-biscochitos-511b59.netlify.app/content/gallery/gallery.json";
+const baseUrl = "https://genuine-biscochitos-511b59.netlify.app"; // Base URL for images
 
-fetch(galleryUrl)
+fetch("https://genuine-biscochitos-511b59.netlify.app/content/gallery/gallery.json")
   .then(response => {
     if (!response.ok) {
       throw new Error("Failed to load gallery data");
@@ -378,9 +378,11 @@ fetch(galleryUrl)
 
     // Loop through all gallery items
     data.gallery.forEach(item => {
-      const title = item.title || 'Untitled';
-      const imageUrl = item.image || 'https://via.placeholder.com/300';
-      const description = item.description || 'No description available';
+      const title = item.title || "Untitled";
+      const imageUrl = item.image
+        ? `${baseUrl}${item.image}`  // Ensure full URL
+        : "https://via.placeholder.com/300";  
+      const description = item.description || "No description available";
 
       galleryHTML += `
         <li class="one-third animate-box" style="background-image: url(${imageUrl});">
@@ -395,9 +397,10 @@ fetch(galleryUrl)
     });
 
     // Insert into HTML
-    document.getElementById('fh5co-portfolio-list').innerHTML = galleryHTML;
+    document.getElementById("fh5co-portfolio-list").innerHTML = galleryHTML;
   })
-  .catch(error => console.error('Error loading gallery:', error));
+  .catch(error => console.error("Error loading gallery:", error));
+
 
 </script>
 
