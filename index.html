@@ -498,86 +498,7 @@
 </style>
 
 
-			
-
-	<div id="fh5co-recent-works">
-  <div class="container">
-    <section id="recent-works">
-
-      <div class="row">
-        <div class="col-md-6 col-md-offset-3 text-center heading-section animate-box">
-          <h3>Recent Works</h3>
-          <p style="text-align: center">
-            <p>“நீ (தர்மம் செய்யாமல்) முடிந்து வைத்துக் கொள்ளாதே! அவ்வாறு செய்தால் (இறைவனின் அருள்) உனக்கு (வழங்கப் படாமல்) முடிந்து வைத்துக் கொள்ளப்படும்.”</p>
-            <br>
-            <p><strong>அறிவிப்பவர்:</strong> அஸ்மா (ரலி)<br><strong>நூல்:</strong> புகாரி 1433, 1434</p>
-          </p>
-        </div>
-      </div>
-
-      <div class="row row-bottom-padded-md">
-        <div class="col-md-12">
-          <ul id="fh5co-recent-works-list">
-            <!-- Recent Works will be dynamically inserted here -->
-          </ul>
-        </div>
-      </div>
-    </section>
-  </div>
-</div>
-
-<script>
-const recentWorksBaseUrl = "https://genuine-biscochitos-511b59.netlify.app/public"; 
-
-fetch("https://genuine-biscochitos-511b59.netlify.app/content/recent-works/recent-works.json")
-  .then(response => {
-    if (!response.ok) {
-      throw new Error("Failed to load recent works data");
-    }
-    return response.json();
-  })
-  .then(data => {
-    if (!data.works || !Array.isArray(data.works)) {
-      throw new Error("Invalid recent works format.");
-    }
-
-    let worksHTML = '';
-
-    data.works.forEach(item => {
-      const title = item.title || "Untitled";
-      const imageUrl = item.image
-        ? `${recentWorksBaseUrl}${item.image}`  
-        : "https://via.placeholder.com/300";  
-
-      worksHTML += `
-        <li class="one-third animate-box" style="background-image: url(${imageUrl});">
-          <a class="color-4">
-            <div class="case-studies-summary">
-              <h2 style="
-                background: linear-gradient(135deg, #a3109e, #ff5f6d); 
-                color: white; 
-                padding: 12px 20px; 
-                font-size: 18px; 
-                border-radius: 8px; 
-                text-transform: uppercase;
-                letter-spacing: 1px;
-                box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
-                display: inline-block;">
-                ${title}
-              </h2>            
-            </div>
-          </a>
-        </li>
-      `;
-    });
-
-    document.getElementById("fh5co-recent-works-list").innerHTML = worksHTML;
-  })
-  .catch(error => console.error("Error loading recent works:", error));
-</script>
-
-
-
+	
 				<div class="row">
 					<div class="col-md-4 col-md-offset-4 text-center animate-box">
 						<a href="https://www.instagram.com/neravy_islamic_trust/" target="_blank" class="btn btn-primary btn-lg">See More</a>
@@ -590,7 +511,85 @@ fetch("https://genuine-biscochitos-511b59.netlify.app/content/recent-works/recen
 		</div>
 
 		
+<div id="fh5co-portfolio">
+			<div class="container">
+				<section id="gallery">
 
+				<div class="row">
+					<div class="col-md-6 col-md-offset-3 text-center heading-section animate-box">
+						<h3>Our Gallery</h3>
+						<p style="text-align: center">
+
+							<p>“உங்களில் ஒருவர் ஒவ்வொரு காலையிலும் (தமது உடலிலுள்ள) ஒவ்வொரு மூட்டிற்காகவும் தர்மம் செய்வது கடமையாகும்.”</p>  <br>
+<p><strong>அறிவிப்பவர்:</strong> அபூதர் (ரலி)<br><strong>நூல்:</strong> ஸஹீஹ் முஸ்லிம் (1302)</p>
+					</div>
+					
+				</div>
+
+				
+				<div class="row row-bottom-padded-md">
+					<div class="col-md-12">
+						<ul id="fh5co-portfolio-list">
+							<!-- Images will be dynamically inserted here -->
+						</ul>
+					</div>
+				</div>
+
+<script>
+const baseUrl = "https://genuine-biscochitos-511b59.netlify.app/public"; // Base URL for images
+
+fetch("https://genuine-biscochitos-511b59.netlify.app/content/gallery/gallery.json")
+  .then(response => {
+    if (!response.ok) {
+      throw new Error("Failed to load gallery data");
+    }
+    return response.json();
+  })
+  .then(data => {
+    if (!data.gallery || !Array.isArray(data.gallery)) {
+      throw new Error("Invalid gallery format.");
+    }
+
+    let galleryHTML = '';
+
+    // Loop through all gallery items
+    data.gallery.forEach(item => {
+      const title = item.title || "Untitled";
+      const imageUrl = item.image
+        ? ${baseUrl}${item.image}  // Ensure full URL
+        : "https://via.placeholder.com/300";  
+      const description = item.description || "No description available";
+
+      galleryHTML += 
+        <li class="one-third animate-box" style="background-image: url(${imageUrl});">
+          <a class="color-4">
+            <div class="case-studies-summary">
+		<h2 style="
+		        background: linear-gradient(135deg, #a3109e, #ff5f6d); 
+		        color: white; 
+		        padding: 12px 20px; 
+		        font-size: 18px; 
+		        border-radius: 8px; 
+		        text-transform: uppercase;
+		        letter-spacing: 1px;
+		        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+		        display: inline-block;">
+		        ${title}
+		      </h2>            
+      </div>
+          </a>
+        </li>
+      ;
+    });
+
+    // Insert into HTML
+    document.getElementById("fh5co-portfolio-list").innerHTML = galleryHTML;
+  })
+  .catch(error => console.error("Error loading gallery:", error));
+
+
+</script>
+		
 		
 		<div id="fh5co-content-section" class="fh5co-section-gray">
 			<div class="container">
@@ -682,70 +681,85 @@ fetch("https://genuine-biscochitos-511b59.netlify.app/content/recent-works/recen
 		<!-- END What we do -->
 
 
-		<div id="fh5co-blog-section" class="fh5co-section-gray">
-			<div class="container">
-  <div class="row">
-    <div class="col-md-12 text-center heading-section">
-      <h3>Recent Works</h3>
-      <br />
-      <div id="recent-works">
-        <!-- Dynamic recent works will be loaded here -->
+			
+
+<div id="fh5co-recent-works">
+  <div class="container">
+    <section id="recent-works">
+
+      <div class="row">
+        <div class="col-md-6 col-md-offset-3 text-center heading-section animate-box">
+          <h3>Recent Works</h3>
+          <p style="text-align: center">
+            <p>“நீ (தர்மம் செய்யாமல்) முடிந்து வைத்துக் கொள்ளாதே! அவ்வாறு செய்தால் (இறைவனின் அருள்) உனக்கு (வழங்கப் படாமல்) முடிந்து வைத்துக் கொள்ளப்படும்.”</p>
+            <br>
+            <p><strong>அறிவிப்பவர்:</strong> அஸ்மா (ரலி)<br><strong>நூல்:</strong> புகாரி 1433, 1434</p>
+          </p>
+        </div>
       </div>
-    </div>
+
+      <div class="row row-bottom-padded-md">
+        <div class="col-md-12">
+          <ul id="fh5co-recent-works-list">
+            <!-- Recent Works will be dynamically inserted here -->
+          </ul>
+        </div>
+      </div>
+    </section>
   </div>
 </div>
 
+<script>
+const recentWorksBaseUrl = "https://genuine-biscochitos-511b59.netlify.app/public"; 
 
-			<script>
-  const recentWorksBaseUrl = "https://genuine-biscochitos-511b59.netlify.app/public"; // Unique Base URL for Recent Works
+fetch("https://genuine-biscochitos-511b59.netlify.app/content/recent-works/recent-works.json")
+  .then(response => {
+    if (!response.ok) {
+      throw new Error("Failed to load recent works data");
+    }
+    return response.json();
+  })
+  .then(data => {
+    if (!data.works || !Array.isArray(data.works)) {
+      throw new Error("Invalid recent works format.");
+    }
 
-  fetch("https://genuine-biscochitos-511b59.netlify.app/content/recent-works/recent-works.json")
-    .then(response => {
-      if (!response.ok) {
-        throw new Error("Failed to load recent works");
-      }
-      return response.json();
-    })
-    .then(data => {
-      if (!data.works || !Array.isArray(data.works) || data.works.length === 0) {
-        document.getElementById("recent-works").innerHTML = `
-          <p style="text-align:center; font-size:18px; color:#888;">
-            No recent works to display at the moment. Stay tuned for updates!
-          </p>`;
-        return;
-      }
+    let worksHTML = '';
 
-      let worksHTML = '';
+    data.works.forEach(item => {
+      const title = item.title || "Untitled";
+      const imageUrl = item.image
+        ? `${recentWorksBaseUrl}${item.image}`  
+        : "https://via.placeholder.com/300";  
 
-      data.works.forEach(item => {
-        const title = item.title || "Untitled";
-        const description = item.description || "No description available";
-        const imageUrl = item.image
-          ? `${recentWorksBaseUrl}${item.image}`  
-          : "https://via.placeholder.com/300";
-        const date = item.date ? new Date(item.date).toLocaleDateString() : "Unknown Date";
-
-        worksHTML += `
-          <div class="col-lg-4 col-md-4 col-sm-6">
-            <div class="fh5co-blog animate-box">
-              <a><img class="img-responsive" src="${imageUrl}" alt=""></a>
-              <div class="blog-text">
-                <div class="prod-title">
-                  <h3><a href="#">${title}</a></h3>
-                  <p>${description}</p>
-                </div>
-              </div> 
+      worksHTML += `
+        <li class="one-third animate-box" style="background-image: url(${imageUrl});">
+          <a class="color-4">
+            <div class="case-studies-summary">
+              <h2 style="
+                background: linear-gradient(135deg, #a3109e, #ff5f6d); 
+                color: white; 
+                padding: 12px 20px; 
+                font-size: 18px; 
+                border-radius: 8px; 
+                text-transform: uppercase;
+                letter-spacing: 1px;
+                box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+                display: inline-block;">
+                ${title}
+              </h2>            
             </div>
-          </div>
-        `;
-      });
+          </a>
+        </li>
+      `;
+    });
 
-      document.getElementById("recent-works").innerHTML = worksHTML;
-    })
-    .catch(error => console.error("Error loading recent works:", error));
+    document.getElementById("fh5co-recent-works-list").innerHTML = worksHTML;
+  })
+  .catch(error => console.error("Error loading recent works:", error));
 </script>
 
-		</div>
+
 
 
 		<footer>
