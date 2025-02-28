@@ -359,57 +359,74 @@
 					</div>
 				</div>
 
-<script>
 
+ <script>
+  function loadAllGalleries() {
+    const indexUrl = "https://genuine-biscochitos-511b59.netlify.app/content/gallery/galleryIndex.json";
 
-	<script>
-  function loadGallery(jsonFileName) {
-    // Construct the full URL dynamically
-    const jsonUrl = `https://genuine-biscochitos-511b59.netlify.app/content/gallery/${jsonFileName}.json`;
-
-    fetch(jsonUrl)
+    fetch(indexUrl)
       .then(response => {
         if (!response.ok) {
-          throw new Error(`JSON file not found: ${jsonFileName}`);
+          throw new Error("Failed to load gallery index");
         }
         return response.json();
       })
-      .then(data => {
-        console.log(data); // Debugging: Log data to check if JSON loads
+      .then(indexData => {
+        if (!indexData.files || !Array.isArray(indexData.files)) {
+          throw new Error("Invalid gallery index format");
+        }
 
-        let galleryHTML = ''; // Initialize an empty string to store the gallery HTML
+        let galleryHTML = '';
 
-        // Ensure 'gallery' exists in the JSON and loop through each item
-        if (data.gallery && Array.isArray(data.gallery)) {
-          data.gallery.forEach(item => {
-            const title = item.title || 'Untitled';  
-            const imageUrl = item.image || 'https://via.placeholder.com/300';  
-            const description = item.description || 'No description available';  
+        // Fetch each JSON file listed in galleryIndex.json
+        const fetchPromises = indexData.files.map(file => {
+          const jsonUrl = `https://genuine-biscochitos-511b59.netlify.app/content/gallery/${file}`;
+          return fetch(jsonUrl)
+            .then(response => {
+              if (!response.ok) {
+                console.error(`Failed to load ${file}`);
+                return null;
+              }
+              return response.json();
+            })
+            .catch(error => {
+              console.error(`Error loading ${file}:`, error);
+              return null;
+            });
+        });
 
-            galleryHTML += `
-              <li class="one-third animate-box" style="background-image: url(${imageUrl});">
-                <a class="color-4">
-                  <div class="case-studies-summary">
-                    <h2>${title}</h2>
-                    <p>${description}</p>
-                  </div>
-                </a>
-              </li>
-            `;
+        // Once all fetches complete, process the data
+        Promise.all(fetchPromises).then(galleries => {
+          galleries.forEach(data => {
+            if (data && Array.isArray(data.gallery)) {
+              data.gallery.forEach(item => {
+                const title = item.title || 'Untitled';
+                const imageUrl = item.image || 'https://via.placeholder.com/300';
+                const description = item.description || 'No description available';
+
+                galleryHTML += `
+                  <li class="one-third animate-box" style="background-image: url(${imageUrl});">
+                    <a class="color-4">
+                      <div class="case-studies-summary">
+                        <h2>${title}</h2>
+                        <p>${description}</p>
+                      </div>
+                    </a>
+                  </li>
+                `;
+              });
+            }
           });
 
+          // Inject the final HTML into the page
           document.getElementById('fh5co-portfolio-list').innerHTML = galleryHTML;
-        } else {
-          console.error("Gallery data is missing or invalid.");
-        }
+        });
       })
-      .catch(error => console.error('Error loading gallery:', error));
+      .catch(error => console.error("Error loading gallery index:", error));
   }
 
-  // Example: Call function with a dynamic JSON filename (e.g., user input)
-  const userInputFileName = "imag2"; // This should be dynamically set based on user input
-  loadGallery(userInputFileName);
-</script>
+  // Load all galleries on page load
+  loadAllGalleries();
 
 </script>
 
