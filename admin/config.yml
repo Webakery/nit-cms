@@ -9,8 +9,8 @@ collections:
   - name: "gallery"
     label: "Gallery"
     format: "json"
-    file: "content/gallery.json"  # Ensures ALL images are saved in ONE file
+    file: "content/gallery.json"  # Stores all gallery entries in ONE file
     fields:
-      - {label: "Title", name: "title", widget: "string"}
-      - {label: "Image", name: "image", widget: "image"}
-      - {label: "Description", name: "description", widget: "text", required: false}
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Image", name: "image", widget: "image" }
+      - { label: "Description", name: "description", widget: "text", required: false }
