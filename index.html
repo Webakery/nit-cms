@@ -686,6 +686,8 @@ fetch("https://genuine-biscochitos-511b59.netlify.app/content/gallery/gallery.js
 
 			
 
+
+
 <div id="fh5co-recent-works">
   <div class="container">
     <section id="recent-works">
@@ -693,21 +695,68 @@ fetch("https://genuine-biscochitos-511b59.netlify.app/content/gallery/gallery.js
         <div class="col-md-6 col-md-offset-3 text-center heading-section animate-box">
           <h3>Recent Works</h3>
           <p style="text-align: center">
-            <p>“நீ (தர்மம் செய்யாமல்) முடிந்து வைத்துக் கொள்ளாதே! அவ்வாறு செய்தால் (இறைவனின் அருள்) உனக்கு (வழங்கப் படாமல்) முடிந்து வைத்துக் கொள்ளப்படும்.”</p>
-            <br>
-            <p><strong>அறிவிப்பவர்:</strong> அஸ்மா (ரலி)<br><strong>நூல்:</strong> புகாரி 1433, 1434</p>
+            “நீ (தர்மம் செய்யாமல்) முடிந்து வைத்துக் கொள்ளாதே! அவ்வாறு செய்தால் (இறைவனின் அருள்) உனக்கு (வழங்கப் படாமல்) முடிந்து வைத்துக் கொள்ளப்படும்.”
+            <br><br>
+            <strong>அறிவிப்பவர்:</strong> அஸ்மா (ரலி)<br>
+            <strong>நூல்:</strong> புகாரி 1433, 1434
           </p>
         </div>
       </div>
 
       <div class="row row-bottom-padded-md">
         <div class="col-md-12">
-          <ul id="fh5co-recent-works-list"></ul>
+          <ul id="fh5co-recent-works-list" class="recent-works-grid"></ul>
         </div>
       </div>
     </section>
   </div>
 </div>
+
+<style>
+  .recent-works-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsive 3 per row */
+    gap: 20px;
+    padding: 0;
+    list-style: none;
+  }
+
+  .recent-work-item {
+    background: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease-in-out;
+  }
+
+  .recent-work-item:hover {
+    transform: translateY(-5px);
+  }
+
+  .recent-work-item img {
+    width: 100%;
+    height: 200px; /* Keeps images elongated */
+    object-fit: cover;
+    display: block;
+  }
+
+  .recent-work-content {
+    padding: 15px;
+    text-align: center;
+  }
+
+  .recent-work-title {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 8px;
+  }
+
+  .recent-work-description {
+    font-size: 14px;
+    color: #666;
+  }
+</style>
 
 <script>
 const recentWorksBaseUrl = "https://genuine-biscochitos-511b59.netlify.app/public"; 
@@ -734,13 +783,12 @@ fetch("https://genuine-biscochitos-511b59.netlify.app/content/recent-works/recen
         : "https://via.placeholder.com/300";  
 
       worksHTML += `
-        <li class="one-third animate-box" style="background-image: url(${imageUrl}); background-size: cover; background-position: center;">
-          <a class="color-4">
-            <div class="case-studies-summary" style="padding: 20px; background: rgba(0, 0, 0, 0.6); color: white; border-radius: 10px;">
-              <h2 style="margin-bottom: 10px; font-size: 20px;">${title}</h2>
-              <p style="font-size: 14px;">${description}</p>
-            </div>
-          </a>
+        <li class="recent-work-item">
+          <img src="${imageUrl}" alt="${title}">
+          <div class="recent-work-content">
+            <h2 class="recent-work-title">${title}</h2>
+            <p class="recent-work-description">${description}</p>
+          </div>
         </li>
       `;
     });
