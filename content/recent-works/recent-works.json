@@ -2,13 +2,18 @@
   "works": [
     {
       "title": "Tree Plantation Drive",
-      "description": "Dated: 29/ Dec/ 2024\nPlanted 254 saplings as part of our environmental conservation efforts.",
+      "description": "Planted 254 saplings as part of our environmental conservation efforts.",
       "image": "/images/uploads/2024_12_29_tree_help_1_001.jpg"
     },
     {
-      "description": "Dated: 24/ Dec / 2024\nProvided Financial Support for Educational purpose",
+      "description": "Provided Financial Support for Educational purpose",
       "image": "/images/uploads/2024_12_24_education_help_1_001.jpg",
       "title": "Financial Support for Education"
+    },
+    {
+      "image": "/images/uploads/2024_12_24_food_help_1_001.jpg",
+      "title": "Food Help",
+      "description": "Provided Food Help to Needy"
     }
   ]
 }
