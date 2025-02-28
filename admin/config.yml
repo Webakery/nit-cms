@@ -8,13 +8,16 @@ public_folder: "/images/uploads"  # Public path for images
 collections:
   - name: "gallery"
     label: "Gallery"
-    file: "content/gallery/gallery.json"  # Stores everything in one JSON file
-    format: "json"
-    fields:
-      - label: "Gallery Images"
-        name: "gallery"
-        widget: "list"
+    files:
+      - name: "gallery"
+        label: "Gallery"
+        file: "content/gallery/gallery.json"  # Single JSON file for all images
+        format: "json"
         fields:
-          - { label: "Title", name: "title", widget: "string" }
-          - { label: "Image", name: "image", widget: "image" }
-          - { label: "Description", name: "description", widget: "text" }
+          - label: "Gallery Images"
+            name: "gallery"
+            widget: "list"
+            fields:
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Image", name: "image", widget: "image" }
+              - { label: "Description", name: "description", widget: "text" }
