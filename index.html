@@ -339,59 +339,59 @@
 
 
 		
-				<div class="container" style=" position: relative; padding: 60px 20px; background: linear-gradient(135deg, #1a1a1a, #3a3a3a); border-radius: 15px; box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.5); text-align: center; overflow: hidden;">
-  
-  <!-- Glowing Animated Title -->
-  <h3 style=" font-size: 30px, font-weight: bold, 
-    text-transform: uppercase; 
-    color: white; 
-    letter-spacing: 2px; 
-    position: relative;
-    display: inline-block;
-    padding: 10px 20px;
-    background: linear-gradient(90deg, #ff0080, #ffcf00);
-    border-radius: 8px;
-    box-shadow: 0px 0px 20px rgba(255, 0, 128, 0.7);
-    animation: glowText 1.5s infinite alternate;">
-    Featured
-  </h3>
+				
+ <div class="container">
+  <div class="row">
+    <div class="col-md-12 text-center heading-section">
+      <br><br><br>
+      
+      <!-- Stylish Title -->
+      <h3 style="
+        font-size: 28px; 
+        font-weight: bold; 
+        text-transform: uppercase; 
+        color: #333; 
+        letter-spacing: 1.5px; 
+        display: inline-block;
+        padding-bottom: 8px;
+        border-bottom: 3px solid #ff5722;">
+        Featured
+      </h3>
+      
+      <br><br>
 
-  <br><br>
-
-  <!-- Floating Glow Effect -->
-  <div style="
-    position: absolute; 
-    top: -20px; 
-    left: -50px; 
-    width: 120px; 
-    height: 120px; 
-    background: rgba(255, 0, 128, 0.4); 
-    filter: blur(50px);
-    animation: floatGlow 4s infinite alternate;">
+      <!-- Featured Highlights Section -->
+      <div id="featured-highlights" style="
+        display: flex; 
+        flex-wrap: wrap; 
+        gap: 20px; 
+        justify-content: center;">
+        <!-- Dynamic highlights will be loaded here -->
+      </div>
+    </div>
   </div>
-
-  <div id="featured-highlights" style="
-    display: flex; 
-    flex-wrap: wrap; 
-    gap: 20px; 
-    justify-content: center;
-    margin-top: 20px;">
-    <!-- Dynamic highlights will be loaded here -->
-  </div>
-
 </div>
 
 <style>
-  /* Glowing Title Animation */
-  @keyframes glowText {
-    from { box-shadow: 0px 0px 15px rgba(255, 0, 128, 0.5); }
-    to { box-shadow: 0px 0px 25px rgba(255, 207, 0, 0.8); }
+  /* Featured Highlight Box */
+  .highlight-box {
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
   }
 
-  /* Floating Glow Animation */
-  @keyframes floatGlow {
-    from { transform: translateY(-10px) rotate(5deg); opacity: 0.6; }
-    to { transform: translateY(10px) rotate(-5deg); opacity: 0.9; }
+  .highlight-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.15);
+  }
+
+  /* Responsive Adjustments */
+  @media (max-width: 768px) {
+    .highlight-box {
+      padding: 15px;
+    }
   }
 </style>
 
