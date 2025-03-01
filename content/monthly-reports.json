@@ -17,6 +17,78 @@
       "expense": "33,757",
       "remaining": "0",
       "familiesHelped": 40
+    },
+    {
+      "monthYear": "2024 March",
+      "distributionMonth": "2024 April",
+      "donors": 112,
+      "income": "3,23,885",
+      "expense": "3,23,885",
+      "remaining": "0",
+      "familiesHelped": 165
+    },
+    {
+      "monthYear": "2024 April",
+      "donors": 30,
+      "income": "38,800",
+      "distributionMonth": "2024 May",
+      "expense": "29,596",
+      "remaining": "9,204",
+      "familiesHelped": 44
+    },
+    {
+      "monthYear": "2024 May",
+      "donors": 22,
+      "income": "36,756",
+      "distributionMonth": "2024 June",
+      "expense": "30,779",
+      "remaining": "5,977",
+      "familiesHelped": 45
+    },
+    {
+      "monthYear": "2024 June",
+      "distributionMonth": "2024 July",
+      "donors": 22,
+      "income": "27,827",
+      "expense": "24,019",
+      "remaining": "3,808",
+      "familiesHelped": 42
+    },
+    {
+      "monthYear": "2024 July",
+      "distributionMonth": "2024 August",
+      "donors": 25,
+      "income": "31,858",
+      "expense": "27,650",
+      "remaining": "4,208",
+      "familiesHelped": 45
+    },
+    {
+      "monthYear": "2024 August",
+      "donors": 27,
+      "income": "42,258",
+      "distributionMonth": "2024 September",
+      "expense": "33,968",
+      "remaining": "8,290",
+      "familiesHelped": 42
+    },
+    {
+      "monthYear": "2024 September",
+      "donors": 23,
+      "distributionMonth": "2024 October",
+      "income": "37,490",
+      "expense": "27,686",
+      "remaining": "9,804",
+      "familiesHelped": 42
+    },
+    {
+      "monthYear": "2024 October",
+      "donors": 23,
+      "income": "47,728",
+      "distributionMonth": "2024 November",
+      "expense": "31,059",
+      "remaining": "16,669",
+      "familiesHelped": 43
     }
   ]
 }
