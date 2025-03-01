@@ -53,22 +53,22 @@ collections:
               - { label: "Image", name: "image", widget: "image" }
               - { label: "Description", name: "description", widget: "text" }
 
-
   - name: "monthly-reports"
     label: "மாதாந்திர அறிக்கைகள்"
-    file: "content/monthly-reports.json"
-    format: "json"
-    fields:
-      - label: "அறிக்கைகள்"
-        name: "reports"
-        widget: "list"
+    files:
+      - name: "monthly-reports"
+        label: "மாதாந்திர அறிக்கைகள்"
+        file: "content/monthly-reports.json"
+        format: "json"
         fields:
-          - { label: "வரவு வந்த மாதம்", name: "monthYear", widget: "string" }
-          - { label: "நன்கொடை கொடுத்த நபர்கள்", name: "donors", widget: "number" }
-          - { label: "வரவு", name: "income", widget: "string" }
-          - { label: "பொருட்கள் கொடுத்த மாதம்", name: "distributionMonth", widget: "string" }
-          - { label: "செலவு", name: "expense", widget: "string" }
-          - { label: "மீதம் (அடுத்த மாதம் வரவில் சேர்க்கப்பட்டுள்ளது)", name: "remaining", widget: "string" }
-          - { label: "கொடுத்த வீடுகள்", name: "familiesHelped", widget: "number" }
-
-
+          - label: "அறிக்கைகள்"
+            name: "reports"
+            widget: "list"
+            fields:
+              - { label: "வரவு வந்த மாதம்", name: "monthYear", widget: "string" }
+              - { label: "நன்கொடை கொடுத்த நபர்கள்", name: "donors", widget: "number" }
+              - { label: "வரவு", name: "income", widget: "string" }
+              - { label: "பொருட்கள் கொடுத்த மாதம்", name: "distributionMonth", widget: "string" }
+              - { label: "செலவு", name: "expense", widget: "string" }
+              - { label: "மீதம் (அடுத்த மாதம் வரவில் சேர்க்கப்பட்டுள்ளது)", name: "remaining", widget: "string" }
+              - { label: "கொடுத்த வீடுகள்", name: "familiesHelped", widget: "number" }
