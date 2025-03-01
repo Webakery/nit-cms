@@ -75,20 +75,18 @@ collections:
 
   - name: "donations"
     label: "Donations"
-    description: "Donation records"
-    format: "json"
-    editor:
-      preview: false
     files:
       - name: "donations"
-        label: "Donations List"
-        file: "donations.json"
+        label: "Donations"
+        file: "content/donations.json"
+        format: "json"
         fields:
-          - label: "Donations"
-            name: "donations"
-            widget: "list"
-            fields:
-              - { label: "Name", name: "name", widget: "string" }
-              - { label: "Amount", name: "amount", widget: "string" }
-              - { label: "Transaction ID", name: "transactionId", widget: "string" }
-              - { label: "Date", name: "date", widget: "datetime" }
+          - { label: "Donations", name: "donations", widget: "list", fields: 
+              [ 
+                { label: "Name", name: "name", widget: "string" },
+                { label: "Amount", name: "amount", widget: "string" },
+                { label: "Transaction ID", name: "transactionId", widget: "string" },
+                { label: "Date", name: "date", widget: "datetime" }
+              ] 
+            }
+
