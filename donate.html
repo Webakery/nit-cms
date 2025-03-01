@@ -18,42 +18,13 @@
     <p>உங்கள் சிறிய பங்களிப்பால் பெரிய மாற்றத்தை உருவாக்க முடியும்.</p>
 
     <form id="donationForm">
-        <input type="text" name="name" placeholder="பெயர் (Name)" required>
-        <input type="text" name="amount" placeholder="நன்கொடை தொகை (Donation Amount)" required>
-        <input type="text" name="transactionId" placeholder="UPI பரிவர்த்தனை ஐடி (Transaction ID)" required>
+        <input type="text" id="name" placeholder="பெயர் (Name)" required>
+        <input type="text" id="amount" placeholder="நன்கொடை தொகை (Donation Amount)" required>
+        <input type="text" id="transactionId" placeholder="UPI பரிவர்த்தனை ஐடி (Transaction ID)" required>
         <button type="submit">நன்கொடை வழங்க (Donate)</button>
     </form>
 
-    <script>
-        document.getElementById("donationForm").addEventListener("submit", async function (e) {
-            e.preventDefault();
-
-            const formData = new FormData(this);
-            const newDonation = {
-                name: formData.get("name"),
-                amount: formData.get("amount"),
-                transactionId: formData.get("transactionId"),
-                date: new Date().toISOString()
-            };
-
-            try {
-                // Load existing donations.json file
-                const response = await fetch("donations.json");
-                const donations = await response.json();
-
-                // Add new donation
-                donations.push(newDonation);
-
-                // Convert to JSON and store in localStorage (acts as temporary storage)
-                localStorage.setItem("donations", JSON.stringify(donations));
-
-                alert("நன்கொடை பதிவு செய்யப்பட்டது! (Donation saved)");
-                this.reset();
-            } catch (error) {
-                alert("பிழை: (Error saving donation) " + error.message);
-            }
-        });
-    </script>
+    <script src="script.js"></script>
 
 </body>
 </html>
