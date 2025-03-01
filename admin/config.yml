@@ -53,17 +53,4 @@ collections:
               - { label: "Image", name: "image", widget: "image" }
               - { label: "Description", name: "description", widget: "text" }
 
-  - name: "yearly-expenditure"
-    label: "Yearly Expenditure"
-    files:
-      - name: "yearly-expenditure"
-        label: "Yearly Expenditure"
-        file: "content/yearly-expenditure/yearly-expenditure.json"
-        format: "json"
-        fields:
-          - label: "Expenditures"
-            name: "expenditures"
-            widget: "list"
-            fields:
-              - { label: "Year", name: "year", widget: "string" }
-              - { label: "Expenditure Chart", name: "chart", widget: "image" }
+
