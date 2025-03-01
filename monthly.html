@@ -215,25 +215,25 @@
             });
         }
 
-        function displayReports(reports) {
-            let tableBody = document.getElementById("reportTable");
-            tableBody.innerHTML = "";
+function displayReports(reports) {
+    let tableBody = document.getElementById("reportTable");
+    tableBody.innerHTML = "";
 
-            reports.forEach(item => {
-                let row = 
-                    <tr>
-                        <td>${item.monthYear}</td>
-                        <td>${item.donors}</td>
-                        <td>ரூ. ${item.income}/-</td>
-                        <td>${item.distributionMonth}</td>
-                        <td>ரூ. ${item.expense}/-</td>
-                        <td>ரூ. ${item.remaining}/-</td>
-                        <td>${item.familiesHelped}</td>
-                    </tr>
-                ;
-                tableBody.innerHTML += row;
-            });
-        }
+    reports.forEach(item => {
+        let row = `
+            <tr>
+                <td>${item.monthYear}</td>
+                <td>${item.donors}</td>
+                <td>ரூ. ${item.income}/-</td>
+                <td>${item.distributionMonth}</td>
+                <td>ரூ. ${item.expense}/-</td>
+                <td>ரூ. ${item.remaining}/-</td>
+                <td>${item.familiesHelped}</td>
+            </tr>
+        `;
+        tableBody.innerHTML += row;
+    });
+}
     </script>
 
 </body>
