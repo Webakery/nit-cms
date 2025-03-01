@@ -79,7 +79,7 @@ collections:
     files:
       - name: "donations"
         label: "Donations"
-        file: "public/donations.json"
+        file: "content/donations.json"
         format: "json"
         fields:
           - label: "Donation List"
