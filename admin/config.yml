@@ -53,14 +53,13 @@ collections:
               - { label: "Image", name: "image", widget: "image" }
               - { label: "Description", name: "description", widget: "text" }
 
-- name: "yearly-expenditure"
-  label: "Yearly Expenditure"
-  folder: "content/yearly-expenditure"
-  create: true
-  format: "json"
-  slug: "{{slug}}"
-  fields:
-    - { label: "Year", name: "year", widget: "string" }
-    - { label: "Expenditure Chart", name: "chart", widget: "image" }
-    - { label: "Description", name: "description", widget: "text" }
-
+  - name: "yearly-expenditure"  # FIXED: Proper indentation
+    label: "Yearly Expenditure"
+    folder: "content/yearly-expenditure"
+    create: true
+    format: "json"
+    slug: "{{slug}}"
+    fields:
+      - { label: "Year", name: "year", widget: "string" }
+      - { label: "Expenditure Chart", name: "chart", widget: "image" }
+      - { label: "Description", name: "description", widget: "text" }
