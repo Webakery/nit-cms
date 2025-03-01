@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ta">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Donate Now</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; }
+        form { max-width: 400px; margin: auto; padding: 20px; border: 1px solid #ddd; border-radius: 5px; }
+        input, button { width: 100%; padding: 10px; margin: 10px 0; }
+        button { background: green; color: white; font-size: 16px; }
+    </style>
+</head>
+<body>
+
+    <h2>பொருளாதார உதவி வழங்க</h2>
+    <p>உங்கள் பங்களிப்பை பதிவு செய்ய கீழே உள்ள விவரங்களை நிரப்பவும்.</p>
+
+    <form id="donationForm">
+        <input type="text" name="name" placeholder="பெயர்" required>
+        <input type="text" name="transaction_id" placeholder="பரிவர்த்தனை ஐடி (Transaction ID)" required>
+        <input type="number" name="amount" placeholder="தொகை (Amount)" required>
+        <button type="submit">தானம் பதிவு செய்ய</button>
+    </form>
+
+    <script>
+        document.getElementById("donationForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+
+            let formData = new FormData(this);
+
+            fetch("save.php", {
+                method: "POST",
+                body: formData
+            })
+            .then(response => response.text())
+            .then(data => {
+                alert("உங்கள் பங்களிப்பு பதிவு செய்யப்பட்டது!");
+            })
+            .catch(error => {
+                console.error("Error:", error);
+            });
+        });
+    </script>
+
+</body>
+</html>
