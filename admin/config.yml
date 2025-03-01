@@ -67,4 +67,3 @@ collections:
             fields:
               - { label: "Year", name: "year", widget: "string" }
               - { label: "Expenditure Chart", name: "chart", widget: "image" }
-              - { label: "Description", name: "description", widget: "text" }
