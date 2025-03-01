@@ -74,12 +74,19 @@ collections:
               - { label: "கொடுத்த வீடுகள்", name: "familiesHelped", widget: "number" }
 
 
+  - name: "donations"
+    label: "Donations"
+    files:
       - name: "donations"
         label: "Donations"
-        file: "donations.json"
+        file: "public/donations.json"
         format: "json"
         fields:
-          - { label: "Name", name: "name", widget: "string" }
-          - { label: "Transaction ID", name: "transaction_id", widget: "string" }
-          - { label: "Amount", name: "amount", widget: "number" }
-          - { label: "Timestamp", name: "timestamp", widget: "datetime" }
+          - label: "Donation List"
+            name: "donations"
+            widget: "list"
+            fields:
+              - { label: "Name", name: "name", widget: "string" }
+              - { label: "Amount", name: "amount", widget: "string" }
+              - { label: "Transaction ID", name: "transactionId", widget: "string" }
+              - { label: "Date", name: "date", widget: "datetime" }
