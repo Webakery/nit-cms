@@ -35,7 +35,7 @@
         }
         table {
             width: 100%;
-            max-width: 1000px;
+            max-width: 1200px;
             margin: 0 auto;
             border-collapse: collapse;
             background: white;
@@ -43,6 +43,7 @@
             border-radius: 5px;
             overflow: hidden;
             white-space: nowrap;
+            table-layout: fixed;
         }
         th, td {
             border: 1px solid #ddd;
@@ -61,6 +62,16 @@
         tr:hover {
             background-color: #e0f7fa;
         }
+
+        /* Fixed first column */
+        th:first-child, td:first-child {
+            position: sticky;
+            left: 0;
+            background: white;
+            z-index: 2;
+            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+        }
+
         @media (max-width: 768px) {
             body {
                 padding: 10px;
