@@ -34,30 +34,30 @@
 </head>
 <body>
 
-    <div class="chart-container">
-        <h2 id="year">Yearly Expenditure Chart</h2>
-        <img id="yearlyChart" src="default-chart.jpg" alt="Yearly Expenditure Chart">
-        <p class="chart-description" id="description">Loading description...</p>
-    </div>
+<section id="yearly-expenditure">
+    <h2>Yearly Expenditure</h2>
+    <div id="expenditure-container"></div>
+</section>
 
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            fetch("content/yearly-expenditure/latest.json")
-                .then(response => response.json())
-                .then(data => {
-                    if (data.year) {
-                        document.getElementById("year").innerText = data.year + " Expenditure Chart";
-                    }
-                    if (data.chart) {
-                        document.getElementById("yearlyChart").src = data.chart;
-                    }
-                    if (data.description) {
-                        document.getElementById("description").innerText = data.description;
-                    }
-                })
-                .catch(error => console.error("Error loading chart:", error));
-        });
-    </script>
+<script>
+    fetch('/content/yearly-expenditure/yearly-expenditure.json')
+        .then(response => response.json())
+        .then(data => {
+            const container = document.getElementById('expenditure-container');
+            data.expenditures.forEach(item => {
+                const expenditureHTML = `
+                    <div class="expenditure-item">
+                        <h3>${item.year}</h3>
+                        <img src="${item.chart}" alt="Expenditure Chart for ${item.year}" class="full-width-image"/>
+                        <p>${item.description}</p>
+                    </div>
+                `;
+                container.innerHTML += expenditureHTML;
+            });
+        })
+        .catch(error => console.error('Error loading expenditures:', error));
+</script>
+
 
 </body>
 </html>
