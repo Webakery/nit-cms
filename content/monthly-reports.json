@@ -8,6 +8,15 @@
       "expense": "30,025",
       "remaining": "2,432",
       "familiesHelped": 43
+    },
+    {
+      "monthYear": "2024 February",
+      "donors": 28,
+      "income": "33,757",
+      "distributionMonth": "2024 March",
+      "expense": "33,757",
+      "remaining": "0",
+      "familiesHelped": 40
     }
   ]
 }
