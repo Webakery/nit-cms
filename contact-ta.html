@@ -1,0 +1,457 @@
+
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title>Neravy Islamic Trust | Charity & Community Support</title>
+		<link rel="icon" type="image/png" href="/images/fav.png">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
+		<meta name="description" content="Neravy Islamic Trust is dedicated to charity, religious services, and community welfare. Join us in making a difference.">
+		<meta name="keywords" content="Neravy Islamic Trust, Charity, Islamic Charity, NGO, Religious Trust, Community Welfare, Donations">
+		<meta name="author" content="Neravy Islamic Trust">
+		<meta name="robots" content="index, follow">
+		<meta name="theme-color" content="#008000">
+
+  <!-- 
+	//////////////////////////////////////////////////////
+
+	FREE HTML5 TEMPLATE 
+	DESIGNED & DEVELOPED by FREEHTML5.CO
+		
+	Website: 		http://freehtml5.co/
+	Email: 			info@freehtml5.co
+	Twitter: 		http://twitter.com/fh5co
+	Facebook: 		https://www.facebook.com/fh5co
+
+	//////////////////////////////////////////////////////
+	 -->
+
+  	<!-- Facebook and Twitter integration -->
+	<meta property="og:title" content=""/>
+	<meta property="og:image" content=""/>
+	<meta property="og:url" content=""/>
+	<meta property="og:site_name" content=""/>
+	<meta property="og:description" content=""/>
+	<meta name="twitter:title" content="" />
+	<meta name="twitter:image" content="" />
+	<meta name="twitter:url" content="" />
+	<meta name="twitter:card" content="" />
+
+	<!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+	<link rel="shortcut icon" href="favicon.ico">
+
+	<!-- <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700,300' rel='stylesheet' type='text/css'> -->
+	
+	<!-- Animate.css -->
+	<link rel="stylesheet" href="css/animate.css">
+	<!-- Icomoon Icon Fonts-->
+	<link rel="stylesheet" href="css/icomoon.css">
+	<!-- Bootstrap  -->
+	<link rel="stylesheet" href="css/bootstrap.css">
+	<!-- Superfish -->
+	<link rel="stylesheet" href="css/superfish.css">
+
+	<link rel="stylesheet" href="css/style.css">
+
+	<style>
+		.telegram-float {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 60px;
+    height: 60px;
+    background-color: #0088cc;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0px 0px 10px rgba(0, 136, 204, 0.8);
+    transition: all 0.3s ease;
+    text-decoration: none;
+    animation: glow 1.5s infinite alternate;
+	z-index: 9999; /* Ensures it's always on top */
+}
+
+.telegram-float img {
+    width: 35px;
+    height: 35px;
+    filter: brightness(100%);
+}
+
+.telegram-float:hover {
+    transform: scale(1.1);
+    background-color: #006699;
+    box-shadow: 0px 0px 20px rgba(0, 136, 204, 1);
+}
+
+/* Glow Animation */
+@keyframes glow {
+    0% {
+        box-shadow: 0px 0px 10px rgba(0, 136, 204, 0.8);
+    }
+    100% {
+        box-shadow: 0px 0px 20px rgba(0, 136, 204, 1);
+    }
+}
+
+
+.heart-button {
+    position: fixed;
+    bottom: 100px;
+	right: 20px;
+    width: 60px;
+    height: 60px;
+    background-color:#ffd30f;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 16px;
+    font-weight: bold;
+    text-decoration: none;
+    color: white;
+    border-radius: 50%;
+    box-shadow: 0px 0px 15px rgba(255, 0, 0, 0.7);
+    transition: all 0.3s ease-in-out;
+    text-align: center;
+    animation: glow 1.5s infinite alternate;
+	z-index: 9999; /* Ensures it's always on top */
+
+}
+
+/* Hover effect */
+.heart-button:hover {
+    transform: scale(1.1);
+    background-color: #ffd30f;
+    box-shadow: 0px 0px 20px rgba(255, 0, 0, 1);
+}
+
+/* Glow Animation */
+@keyframes glow {
+    0% {
+        box-shadow: 0px 0px 10px rgba(255, 0, 0, 0.7);
+    }
+    100% {
+        box-shadow: 0px 0px 20px rgba(255, 0, 0, 1);
+    }
+}
+
+
+
+	</style>
+
+	
+<style>
+    #lang-btn {
+        background: linear-gradient(45deg, #cb0690,#cb0690);
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        font-size: 16px;
+        font-weight: bold;
+        border-radius: 25px;
+        cursor: pointer;
+        transition: all 0.3s ease-in-out;
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    #lang-btn:hover {
+        background: linear-gradient(45deg, #cb0690,#cb0690);
+        transform: scale(1.1);
+        box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.3);
+    }
+</style>
+	<script>
+		function toggleLanguage() {
+			// Get the current URL
+			let currentPage = window.location.pathname;
+	  
+			// Check if the page is English or Tamil and switch accordingly
+			if (currentPage.includes("contact-ta.html")) {
+				window.location.href = "contact-en.html"; // Switch to Tamil
+			} else {
+				window.location.href = "contact-ta.html"; // Switch to English
+			}
+		}
+	  </script>
+
+	<!-- Modernizr JS -->
+	<script src="js/modernizr-2.6.2.min.js"></script>
+	<!-- FOR IE9 below -->
+	<!--[if lt IE 9]>
+	<script src="js/respond.min.js"></script>
+	<![endif]-->
+
+	</head>
+	<body>
+		<div id="fh5co-wrapper">
+		<div id="fh5co-page">
+	
+			<header id="fh5co-header-section" class="sticky-banner">
+				<div class="container">
+					<div class="nav-header">
+						<a href="#" class="js-fh5co-nav-toggle fh5co-nav-toggle dark"><i></i></a>
+						<h1 id="fh5co-logo"><a href="index.html">
+							<img src="images/fav.png" alt="NIT" style="height: 60px; vertical-align: middle;">
+						</a>
+					</h1>
+						<!-- START #fh5co-menu-wrap -->
+						<nav id="fh5co-menu-wrap" role="navigation">
+							<ul class="sf-menu" id="fh5co-primary-menu">
+								<li class="active">
+									<a href="index.html">Home</a>
+								</li>
+								<li>
+									<a href="donate.html">Donate</a>
+								</li>
+								<li><a href="index-ta.html">About</a></li>
+								<li><a href="#">Contact</a></li>
+
+								<li>
+									<button id="lang-btn" onclick="toggleLanguage()">English</button>
+								</li>
+							</ul>
+						</nav>
+					</div>
+				</div>
+			</header>
+			
+			
+			<a href="donate.html" class="heart-button" aria-label="Donate Now">
+				❤️
+			</a>
+	
+			<a href="https://t.me/s/neravy_islamic_trust" target="_blank" class="telegram-float">
+				<img src="https://upload.wikimedia.org/wikipedia/commons/8/83/Telegram_2019_Logo.svg" alt="Chat on Telegram">
+			</a>
+			
+		<div class="fh5co-hero">
+			<div class="fh5co-overlay"></div>
+			<div class="fh5co-cover text-center" data-stellar-background-ratio="0.5" style="background-image: url(images/img3.png);">
+				<div class="desc animate-box">
+					<h2><strong>தொடர்பு கொள்ள</strong></h2><br>
+						<span>
+							<a style= "font-size: 14px;" class="btn btn-primary btn-lg" href="donate.html" target="_blank">பொருளாதார உதவி வழங்க</a>
+						</span>
+
+					
+				</div>
+			</div>
+
+		</div>
+	
+		<div id="fh5co-contact" class="animate-box" style="padding: 60px 0; background-color: #f4f7fc;">
+			<div class="container">
+				<form action="#">
+					<div class="row">
+						<!-- Left Column: Contact Information -->
+						<div class="col-md-6"
+							style="padding: 40px; background: white; border-radius: 12px; 
+							box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.1); transition: transform 0.3s ease-in-out;
+							width: 100%; max-width: 100%; margin-bottom: 30px;">
+		
+							<!-- Location Section -->
+							<div style="background-color: #0056b3; padding: 20px; border-radius: 8px; margin-bottom: 20px;">
+								<h3 class="section-title"
+									style="color: white; font-weight: 600; font-size: 26px; text-transform: uppercase;">
+									எங்கள் இருப்பிடம்
+								</h3>
+							</div>
+							<ul class="contact-info" style="list-style: none; padding-left: 0; font-size: 16px;">
+								<li style="margin-bottom: 16px; display: flex; align-items: center;">
+									<i class="icon-location-pin" style="color: #0056b3; font-size: 20px; margin-right: 12px;"></i>
+									<span>நிரவி, தமிழ்நாடு, இந்தியா</span>
+								</li>
+							</ul>
+
+							<br>
+					
+		<!-- END fh5co-contact -->
+		<!-- Google Map Embed for Niravi -->
+		<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31343.692986854785!2d79.77908474845545!3d10.890521141313888!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a55141aae05377d%3A0xebcc83b54984786!2sNeravy!5e0!3m2!1sen!2sin!4v1740463830620!5m2!1sen!2sin" width="100%" height="400px" style="border:0;"  referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+		<br>
+		<br>
+		
+							<!-- Contact Information Section -->
+							<div style="background-color: #007bff; padding: 20px; border-radius: 8px; margin-bottom: 20px;">
+								<h3 style="color: white; font-weight: 600; font-size: 22px;">தொடர்பு எண்கள்</h3>
+							</div>
+							<ul style="list-style: none; padding-left: 0; font-size: 16px;">
+								<li class="contact-item">
+									<i class="icon-phone2">தொடர்புக்கு</i>
+									<span class="name">M. முஹம்மது கலீபா</span>
+									<span class="number">+91 98433 53205</span>
+								</li>
+								<li class="contact-item">
+									<i class="icon-phone2"></i>
+									<span class="name">M. முஹம்மது ஃபைஸல்</span>
+									<span class="number">+91 96984 54446</span>
+								</li>
+								<li class="contact-item">
+									<i class="icon-phone2"></i>
+									<span class="name">M. முஹம்மது அப்துல் ஹலீம்</span>
+									<span class="number">+91 76393 58465</span>
+								</li>
+							</ul>
+		
+							<br>
+							<!-- Donations Section -->
+							<div style="background-color: #ffc107; padding: 20px; border-radius: 8px; margin-bottom: 20px;">
+								<h3 style="color: white; font-weight: 600; font-size: 22px;">பொருளாதார உதவி வழங்க</h3>
+							</div>
+							<p style="font-size: 16px; color: #555;">UPI / PhonePe / Google Pay</p>
+							<ul style="list-style: none; padding-left: 0; font-size: 16px;">
+								<li class="contact-item">
+									<i class="icon-credit-card"></i>
+									<span class="name">M. முஹம்மது கௌஸ்</span>
+									<span class="number">+91 96290 06210</span>
+								</li>
+								<li class="contact-item">
+									<i class="icon-credit-card"></i>
+									<span class="name">M. முஹம்மது அசீம்முதீன்</span>
+									<span class="number">+91 94433 38904</span>
+								</li>
+							</ul>
+							<br>
+		
+							<!-- Advisors Section -->
+							<div style="background-color: #28a745; padding: 20px; border-radius: 8px; margin-bottom: 20px;">
+								<h3 style="color: white; font-weight: 600; font-size: 22px;">ஆலோசகர்கள்</h3>
+							</div>
+							<p style="font-size: 16px; margin-bottom: 15px; color: #555;">
+								<b>
+									இமாம் மற்றும் குழு உறுப்பினர்கள்.
+								</b>
+								</p>
+								
+								<br>
+								<br>
+
+								<div style="background-color: #ffffff; padding: 20px; border-radius: 8px; margin-bottom: 20px;">
+									<h3 class="section-title"
+										style="color: rgb(0, 0, 0); font-weight: 600; font-size: 18px; text-align: left;">
+										உங்களிடம் ஏதேனும் கேள்விகள் இருந்தால், மின்னஞ்சல் மூலம் எங்களை தொடர்பு கொள்ளவும்<br> <br> <strong style="color: rgb(165, 42, 116); font-size: 16px;">nit.neravyislamictrust@gmail.com</strong>
+									</h3>
+								</div>
+		
+					
+								</div>
+								
+						
+
+					</div>
+				</form>
+			</div>
+		</div>
+		
+		<!-- Responsive Fix -->
+		<style>
+			.contact-item {
+				display: flex;
+				flex-direction: column;
+				align-items: flex-start;
+				margin-bottom: 16px;
+			}
+		
+			.contact-item i {
+				color: #28a745;
+				font-size: 20px;
+				margin-bottom: 5px;
+			}
+		
+			.name {
+				font-weight: 600;
+				color: #333;
+			}
+		
+			.number {
+				color: #0056b3;
+				font-weight: bold;
+			}
+		
+			@media (max-width: 768px) {
+				.col-md-6 {
+					width: 100%;
+					max-width: 100%;
+				}
+		
+				.contact-item {
+					flex-direction: column;
+					align-items: flex-start;
+				}
+		
+				.contact-item i {
+					margin-right: 0;
+				}
+		
+				.contact-info li span {
+					width: 100%;
+				}
+			}
+		</style>
+		
+		
+	
+		
+		<footer>
+			<div id="footer">
+				<div class="container">
+					<div class="row">
+						<div class="col-md-6 col-md-offset-3 text-center">
+							<p class="fh5co-social-icons">
+								<a href="https://t.me/neravy_islamic_trust"><i class="icon-telegram"></i></a>
+								<a href="https://www.facebook.com/share/1M2ApVS95G/"><i class="icon-facebook2"></i></a>
+								<a href="https://www.instagram.com/neravy_islamic_trust/"><i class="icon-instagram"></i></a>
+								<a href="#"><i class="icon-youtube"></i></a>
+							</p>							
+							<p>
+								Copyright <script>document.write(new Date().getFullYear());</script> Neravy Islamic Trust. All Rights Reserved. <br>
+								Made with <i class="icon-heart3"></i> by Neravy Islamic Trust<br>
+								Powered by <a href="https://webakery.netlify.app" style="color: rgb(255, 255, 255); text-decoration: underline;" target="_blank">Webakery</a>
+
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</footer>
+	
+
+	</div>
+	<!-- END fh5co-page -->
+
+	</div>
+	<!-- END fh5co-wrapper -->
+
+	<!-- jQuery -->
+
+
+	<script src="js/jquery.min.js"></script>
+	<!-- jQuery Easing -->
+	<script src="js/jquery.easing.1.3.js"></script>
+	<!-- Bootstrap -->
+	<script src="js/bootstrap.min.js"></script>
+	<!-- Waypoints -->
+	<script src="js/jquery.waypoints.min.js"></script>
+	<script src="js/sticky.js"></script>
+
+	<!-- Stellar -->
+	<script src="js/jquery.stellar.min.js"></script>
+	<!-- Superfish -->
+	<script src="js/hoverIntent.js"></script>
+	<script src="js/superfish.js"></script>
+
+	<!-- Google Map -->
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCefOgb1ZWqYtj7raVSmN4PL2WkTrc-KyA&sensor=false"></script>
+	<script src="js/google_map.js"></script>
+	
+	<!-- Main JS -->
+	<script src="js/main.js"></script>
+
+	</body>
+</html>
+

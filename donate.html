@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Give Hope, Change Lives</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap');
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-image: url(images/img3.png);
+            color: white;
+            text-align: center;
+        }
+
+        .container {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 30px;
+            max-width: 400px;
+            min-height: 100%;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px);
+            z-index: 10;
+        }
+
+        h2 {
+            font-size: 24px;
+            font-weight: 700;
+        }
+
+        p {
+            font-size: 16px;
+            opacity: 0.9;
+        }
+
+        .donate-box {
+            background: linear-gradient(45deg,  #b9118f, #b9118f);
+            padding: 15px;
+            border-radius: 12px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease-in-out;
+            color: white;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+        }
+
+        .donate-box:hover {
+            transform: scale(1.1);
+        }
+
+        .flip-container {
+            perspective: 1000px;
+            width: 200px;
+            height: 200px;
+            margin: 20px auto;
+        }
+
+        .flipper {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            transform-style: preserve-3d;
+            transition: transform 0.8s ease-in-out;
+        }
+
+        .flip-container.show .flipper {
+            transform: rotateY(180deg);
+        }
+
+        .front, .back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            border-radius: 12px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 18px;
+            font-weight: bold;
+            text-align: center;
+            cursor: pointer;
+            box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .front {
+            background: rgba(255, 255, 255, 0.3);
+            color: white;
+        }
+
+        .back {
+            background: white;
+            transform: rotateY(180deg);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 10px;
+        }
+
+        .back img {
+            width: 85%;
+            height: auto;
+            border-radius: 10px;
+        }
+
+        html, body {
+    height: 100%;
+    margin: 0;
+    overflow: hidden;
+}
+canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+}
+
+.home-button {
+    background: linear-gradient(45deg, #4CAF50, #2E7D32);
+    padding: 15px;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    color: white;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+    margin-top: 15px;
+}
+
+.home-button:hover {
+    transform: scale(1.1);
+}
+
+
+    </style>
+
+<style>
+    .telegram-float {
+position: fixed;
+bottom: 20px;
+right: 20px;
+width: 60px;
+height: 60px;
+background-color: #0088cc;
+border-radius: 50%;
+display: flex;
+justify-content: center;
+align-items: center;
+box-shadow: 0px 0px 10px rgba(0, 136, 204, 0.8);
+transition: all 0.3s ease;
+text-decoration: none;
+animation: glow 1.5s infinite alternate;
+z-index: 9999; /* Ensures it's always on top */
+}
+
+.telegram-float img {
+width: 35px;
+height: 35px;
+filter: brightness(100%);
+}
+
+.telegram-float:hover {
+transform: scale(1.1);
+background-color: #006699;
+box-shadow: 0px 0px 20px rgba(0, 136, 204, 1);
+}
+
+/* Glow Animation */
+@keyframes glow {
+0% {
+    box-shadow: 0px 0px 10px rgba(0, 136, 204, 0.8);
+}
+100% {
+    box-shadow: 0px 0px 20px rgba(0, 136, 204, 1);
+}
+}
+
+</style>
+
+<script>
+    function toggleLanguage() {
+        const currentUrl = window.location.href;
+        if (currentUrl.includes('donate.html')) {
+            window.location.href = 'donate-en.html';  // Change this to the path of your Tamil version
+        } else {
+            window.location.href = 'donate.html';  // Change this to the path of your English version
+        }
+    }
+</script>
+</head>
+<body>
+    
+    <canvas id="background"></canvas>
+
+
+    <button id="lang-btn" onclick="toggleLanguage()" 
+        style="position: fixed; top: 20px; right: 20px; background: #b9118f; color: white; border: none; padding: 10px 15px; font-size: 16px; cursor: pointer; border-radius: 5px; z-index: 9999;">
+    English
+</button>
+
+
+
+    <div class="container" >
+        <br>
+        <br>
+        
+        <h2>பொருளாதார உதவி வழங்க</h2>
+        <p>உங்கள் சிறிய பங்களிப்பால் பெரிய மாற்றத்தை உருவாக்க முடியும். கீழே உள்ள QR குறியீட்டை காண கிளிக் செய்யவும்</p>
+
+        <div class="donate-box" onclick="flipQR(); dropMoney()">QR ஐ காண கிளிக் செய்யவும் ✨</div>
+
+        <div class="flip-container" onclick="flipQR()">
+            <div class="flipper">
+                <div class="front">
+                    உதவி செய்ய & மாற்றத்தை உருவாக்க❤️
+                </div>
+                <div class="back">
+                    <img src="images/qr.png" alt="Donate via UPI">
+                </div>
+            </div>
+        </div>
+
+        <div class="home-button" onclick="goHome()">முகப்பு பக்கம்</div>
+
+    </div>
+
+    	
+		<a href="https://t.me/s/neravy_islamic_trust" target="_blank" class="telegram-float">
+			<img src="https://upload.wikimedia.org/wikipedia/commons/8/83/Telegram_2019_Logo.svg" alt="Chat on Telegram">
+		</a>
+		
+    <script>
+        function flipQR() {
+            document.querySelector('.flip-container').classList.toggle('show');
+        }
+
+        let scene, camera, renderer, moneyParticles = [];
+
+        function init() {
+    scene = new THREE.Scene();
+    camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+    renderer = new THREE.WebGLRenderer({ canvas: document.getElementById('background'), alpha: true });
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    renderer.setPixelRatio(window.devicePixelRatio);
+    
+    camera.position.z = 5;
+    animate();
+}
+
+// Ensure the background resizes properly
+window.addEventListener("resize", () => {
+    camera.aspect = window.innerWidth / window.innerHeight;
+    camera.updateProjectionMatrix();
+    renderer.setSize(window.innerWidth, window.innerHeight);
+});
+
+window.onload = init;
+
+
+        function dropMoney() {
+            for (let i = 0; i < 10; i++) {
+                let geometry = new THREE.PlaneGeometry(0.5, 0.3);
+                let material = new THREE.MeshBasicMaterial({ color: 0xffd700, side: THREE.DoubleSide });
+                let money = new THREE.Mesh(geometry, material);
+                money.position.set(Math.random() * 4 - 2, Math.random() * 4, -2);
+                scene.add(money);
+                moneyParticles.push(money);
+            }
+        }
+
+        function animate() {
+            requestAnimationFrame(animate);
+            moneyParticles.forEach(money => {
+                money.position.y -= 0.02;
+                if (money.position.y < -2) {
+                    money.position.y = Math.random() * 4;
+                    money.position.x = Math.random() * 4 - 2;
+                }
+            });
+            renderer.render(scene, camera);
+        }
+
+        window.onload = init;
+
+
+        function goHome() {
+    window.location.href = "index.html"; // Change this to your actual home page URL
+}
+
+    </script>
+</body>
+</html>

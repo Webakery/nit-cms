@@ -1,0 +1,469 @@
+
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title>Neravy Islamic Trust | Charity & Community Support</title>
+		<link rel="icon" type="image/png" href="/images/fav.png">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
+		<meta name="description" content="Neravy Islamic Trust is dedicated to charity, religious services, and community welfare. Join us in making a difference.">
+		<meta name="keywords" content="Neravy Islamic Trust, Charity, Islamic Charity, NGO, Religious Trust, Community Welfare, Donations">
+		<meta name="author" content="Neravy Islamic Trust">
+		<meta name="robots" content="index, follow">
+		<meta name="theme-color" content="#008000">
+  <!-- 
+	//////////////////////////////////////////////////////
+
+	FREE HTML5 TEMPLATE 
+	DESIGNED & DEVELOPED by FREEHTML5.CO
+		
+	Website: 		http://freehtml5.co/
+	Email: 			info@freehtml5.co
+	Twitter: 		http://twitter.com/fh5co
+	Facebook: 		https://www.facebook.com/fh5co
+
+	//////////////////////////////////////////////////////
+	 -->
+
+  	<!-- Facebook and Twitter integration -->
+	<meta property="og:title" content=""/>
+	<meta property="og:image" content=""/>
+	<meta property="og:url" content=""/>
+	<meta property="og:site_name" content=""/>
+	<meta property="og:description" content=""/>
+	<meta name="twitter:title" content="" />
+	<meta name="twitter:image" content="" />
+	<meta name="twitter:url" content="" />
+	<meta name="twitter:card" content="" />
+
+	<!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+	<link rel="shortcut icon" href="favicon.ico">
+
+	<!-- <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700,300' rel='stylesheet' type='text/css'> -->
+	
+	<!-- Animate.css -->
+	<link rel="stylesheet" href="css/animate.css">
+	<!-- Icomoon Icon Fonts-->
+	<link rel="stylesheet" href="css/icomoon.css">
+	<!-- Bootstrap  -->
+	<link rel="stylesheet" href="css/bootstrap.css">
+	<!-- Superfish -->
+	<link rel="stylesheet" href="css/superfish.css">
+
+	<link rel="stylesheet" href="css/style.css">
+
+	<style>
+		.telegram-float {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 60px;
+    height: 60px;
+    background-color: #0088cc;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0px 0px 10px rgba(0, 136, 204, 0.8);
+    transition: all 0.3s ease;
+    text-decoration: none;
+    animation: glow 1.5s infinite alternate;
+	z-index: 9999; /* Ensures it's always on top */
+}
+
+.telegram-float img {
+    width: 35px;
+    height: 35px;
+    filter: brightness(100%);
+}
+
+.telegram-float:hover {
+    transform: scale(1.1);
+    background-color: #006699;
+    box-shadow: 0px 0px 20px rgba(0, 136, 204, 1);
+}
+
+/* Glow Animation */
+@keyframes glow {
+    0% {
+        box-shadow: 0px 0px 10px rgba(0, 136, 204, 0.8);
+    }
+    100% {
+        box-shadow: 0px 0px 20px rgba(0, 136, 204, 1);
+    }
+}
+
+
+
+.heart-button {
+    position: fixed;
+    bottom: 100px;
+	right: 20px;
+    width: 60px;
+    height: 60px;
+    background-color:#ffd30f;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 16px;
+    font-weight: bold;
+    text-decoration: none;
+    color: white;
+    border-radius: 50%;
+    box-shadow: 0px 0px 15px rgba(255, 0, 0, 0.7);
+    transition: all 0.3s ease-in-out;
+    text-align: center;
+    animation: glow 1.5s infinite alternate;
+	z-index: 9999; /* Ensures it's always on top */
+
+}
+
+/* Hover effect */
+.heart-button:hover {
+    transform: scale(1.1);
+    background-color: #ffd30f;
+    box-shadow: 0px 0px 20px rgba(255, 0, 0, 1);
+}
+
+/* Glow Animation */
+@keyframes glow {
+    0% {
+        box-shadow: 0px 0px 10px rgba(255, 0, 0, 0.7);
+    }
+    100% {
+        box-shadow: 0px 0px 20px rgba(255, 0, 0, 1);
+    }
+}
+
+
+	</style>
+
+<style>
+    #lang-btn {
+        background: linear-gradient(45deg, #cb0690,#cb0690);
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        font-size: 16px;
+        font-weight: bold;
+        border-radius: 25px;
+        cursor: pointer;
+        transition: all 0.3s ease-in-out;
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    #lang-btn:hover {
+        background: linear-gradient(45deg, #cb0690,#cb0690);
+        transform: scale(1.1);
+        box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.3);
+    }
+</style>
+	<!-- Modernizr JS -->
+	<script src="js/modernizr-2.6.2.min.js"></script>
+
+	<script>
+		function toggleLanguage() {
+			// Get the current URL
+			let currentPage = window.location.pathname;
+	  
+			// Check if the page is English or Tamil and switch accordingly
+			if (currentPage.includes("index-en.html")) {
+				window.location.href = "index-ta.html"; // Switch to Tamil
+			} else {
+				window.location.href = "index-en.html"; // Switch to English
+			}
+		}
+	  </script>
+	  
+	<!-- FOR IE9 below -->
+	<!--[if lt IE 9]>
+	<script src="js/respond.min.js"></script>
+	<![endif]-->
+
+	</head>
+	<body>
+		<div id="fh5co-wrapper">
+		<div id="fh5co-page">
+	
+			<header id="fh5co-header-section" class="sticky-banner">
+				<div class="container">
+					
+					<div class="nav-header">
+						<a href="#" class="js-fh5co-nav-toggle fh5co-nav-toggle dark"><i></i></a>
+						<h1 id="fh5co-logo"><a href="index.html">
+							<img src="images/fav.png" alt="NIT" style="height: 60px; vertical-align: middle;">
+						</a>
+					</h1>
+
+						<!-- START #fh5co-menu-wrap -->
+						<nav id="fh5co-menu-wrap" role="navigation">
+							<ul class="sf-menu" id="fh5co-primary-menu">
+								<li class="active">
+									<a href="index.html">Home</a>
+								</li>
+								<li>
+									<a href="donate.html">Donate</a>
+								</li>
+								<li><a href="#">About</a></li>
+								<li><a href="contact-ta.html">Contact</a></li>
+
+								<li>
+									<button id="lang-btn" onclick="toggleLanguage()">தமிழ்</button>
+								</li>
+								
+
+							</ul>
+						</nav>
+					</div>
+				</div>
+			</header>
+			
+		
+
+		
+		<a href="donate.html" class="heart-button" aria-label="Donate Now">
+			❤️
+		</a>
+
+		<a href="https://t.me/s/neravy_islamic_trust" target="_blank" class="telegram-float">
+			<img src="https://upload.wikimedia.org/wikipedia/commons/8/83/Telegram_2019_Logo.svg" alt="Chat on Telegram">
+		</a>
+		
+		<div class="fh5co-hero">
+			<div class="fh5co-overlay"></div>
+			<div class="fh5co-cover text-center" data-stellar-background-ratio="0.5" style="background-image: url(images/img3.png);">
+				<div class="desc animate-box">
+					<h2><strong>About Us</h2><br>
+						<span>
+							<a class="btn btn-primary btn-lg" href="https://www.instagram.com/neravy_islamic_trust/" target="_blank"> View Instagram</a>
+						</span>
+				</div>
+			</div>
+
+		</div>
+
+	
+		
+		<div style="padding: 20px; max-width: 1200px; margin: auto; font-family: Arial, sans-serif;">
+			<br>
+			<br>
+			<h2 style="color: #007bff; text-align: center;"> 📝 About Us 📬 </h2>
+			<br>
+			<h3 style="text-align:center; background-color:  rgb(72, 235, 72); padding: 20px; border-radius: 5px; color: rgb(0, 0, 0);">
+				🏰 Assalamu Alaikum Warahmatullahi Wabarakatuhu.			</h3>		
+				<br>
+			<img src="images/Background.jpg" About Us Image" style="display: block; margin: 0 auto; width: 90%; border-radius: 10px;">
+
+			<br>
+			
+		
+			<div style="background: #f8f9fa; padding: 20px; border-radius: 10px; box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); margin-bottom: 20px;">
+				<h3 style="color: #007bff;">☪ Introduction to the Group</h3>
+			<p>
+				This is a brief self-introduction about our volunteer-based group known as Neravy Islamic Trust in English and நிரவி தன்னார்வ இஸ்லாமிய இளைஞர் அணி in Tamil.
+			</p>			</div>
+		
+			<div style="background: #e3f2fd; padding: 20px; border-radius: 10px; margin-bottom: 20px;">
+				<h3 style="color: #0d6efd;">🤲🏻 Establishment of the Group</h3>
+			<p>
+				With the immense grace of Allah, the blessings of righteous individuals, the approval of the Muhyiddin Aandavar Jummah Masjid administration, and the guidance of its esteemed Imam, this volunteer group was initiated by dedicated Islamic youth from our village.
+Alhamdulillah.
+			</p>			</div>
+		
+			<div style="background: #fef3c7; padding: 20px; border-radius: 10px; margin-bottom: 20px;">
+				<h3 style="color: #d97706;">🎯 Objective of the Volunteer Group</h3>
+			<p>
+				Witnessing the struggles of some families in extreme poverty, who even find it difficult to afford daily meals, the group was started with the noble intention of providing monthly food assistance to those in need.
+			</p>			</div>
+		
+			<div style="background: #d4edda; padding: 20px; border-radius: 10px; margin-bottom: 20px;">
+				<h3 style="color: #155724;">👨‍👩‍👧 Initial Assistance Efforts</h3>
+				<p>Although many people face financial hardship, our initial focus was on providing support to households where women are struggling without any source of income due to the absence of male earners.
+					</p>			</div>
+		
+			<div style="background: #cce5ff; padding: 20px; border-radius: 10px; margin-bottom: 20px;">
+				<h3 style="color: #004085;">🤝 Volunteer-Based Collection & Growth</h3>
+			<p>
+				Without any compulsion, this initiative is run solely through the voluntary contributions of individuals who willingly support the cause.
+The group started in March 2016 with the contributions of 14 donors.
+Now, with the continued generosity of 54 donors, the initiative is running successfully.
+<br>
+<br>
+Alhamdulillah.
+			</p>			</div>
+		
+			<div style="background: #d1e7dd; padding: 20px; border-radius: 10px; margin-bottom: 20px;">
+				<h3 style="color: #198754;">🏡 Assistance to Families</h3>
+				<p>Initially, we supported 10 families, and gradually, the number was increased. Currently, we are providing assistance to 47 families.</p>
+			</div>
+		
+			<div style="background: #fff3cd; padding: 20px; border-radius: 10px; margin-bottom: 20px;">
+				<h3 style="color: #856404;">🗓 10 Years of Service</h3>
+				<p>Since its inception in March 2016, this initiative has continued without any interruptions, including during the COVID-19 pandemic.
+					<br><br> <strong>Alhamdulillah.</strong></p>
+			</div>
+		
+			<div style="background: #d1ecf1; padding: 20px; border-radius: 10px; margin-bottom: 20px;">
+				<h3 style="color: #0c5460;">🌟 Special Ramadan Assistance</h3>
+				<p>In addition to regular aid, we also extend extra support during Ramadan, benefiting over 200+ families in need. <strong>Alhamdulillah.</strong></p>
+			</div>
+
+			<div style="background: #fff3cd; padding: 20px; border-radius: 10px; margin-bottom: 20px;">
+				<h3 style="color: #856404;">💰 Monthly Financial Assistance</h3>
+				<p>
+					We provide grocery items worth ₹800 - ₹1,000 to needy families.
+All financial transactions and expense details are transparently shared in our Neravy WhatsApp groups every month
+				</p>
+			</div>
+		
+			<div style="background: #cff4fc; padding: 20px; border-radius: 10px; margin-bottom: 20px;">
+				<h3 style="color: #0dcaf0;">🌍 Expanding Support from the Local and Global Community</h3>
+				<p>Seeing our dedicated service, many well-wishers from our village, as well as from different parts of the country and abroad, have started contributing towards this noble cause.</p>
+			</div>
+		
+			<div style="background: #fff3cd; padding: 20px; border-radius: 10px; margin-bottom: 20px;">
+				<h3 style="color: #856404;">🏥 Medical Assistance</h3>
+				<p>At times, individuals in urgent medical need approach us for financial aid.
+					We assist them as much as possible and also raise support from fellow brothers and well-wishers.
+					<strong>Alhamdulillah.</strong></p>
+			</div>
+		
+			
+			<div style="background: #fff3cd; padding: 20px; border-radius: 10px; margin-bottom: 20px;">
+				<h3 style="color: #856404;">🍽 Friday Meal Distribution</h3>
+				<p>Every Friday, we distribute lunch meals to underprivileged families as part of our weekly food relief program.</p>
+			</div>
+		
+			<div style="background: #d4edda; padding: 20px; border-radius: 10px; margin-bottom: 20px;">
+				<h3 style="color: #155724;">🎓 Educational Support</h3>
+				<p>Upon request, financial assistance for education is provided to students from economically weaker families in Neravy.</p>
+			</div>
+		
+			<div style="background: #cce5ff; padding: 20px; border-radius: 10px; margin-bottom: 20px;">
+				<h3 style="color: #004085;">🕊 Core Social Services</h3>
+				<ul>
+					<li> Financial aid for Sunnath (circumcision) for boys from underprivileged families.</li>
+					<li> Food aid and Sadaqah-based mutton meat distribution to the needy.</li>
+					<li> Emergency medical relief fund.</li>
+					<li> Support for small-scale self-employment initiatives.</li>
+					<li> Distribution of Dengue prevention herbal drink.</li>
+					<li> Ensuring Zakat and Sadaqah funds reach the rightful beneficiaries.</li>
+					<li> Providing tarpaulins to homes affected during the monsoon season.</li>
+				</ul>
+				<p><strong>Alhamdulillah.</strong></p>
+			</div>
+		
+			<div style="background: #f8d7da; padding: 20px; border-radius: 10px; margin-bottom: 20px;">
+				<h3 style="color: #721c24;">🕋 Purpose of the Service</h3>
+				<p>All these services are carried out solely for the sake of Allah, without expecting any recognition or rewards from anyone.</p>
+			</div>
+		
+			<div style="background: #fff3cd; padding: 20px; border-radius: 10px; margin-bottom: 20px;">
+				<h3 style="color: #856404;">🚫 No Political Affiliations</h3>
+				<p>Our group is not associated with any political party or external organization.</p>
+				<p>We also have no intentions of using this initiative for political benefits or leadership positions in the future.</p>
+				<p>[If any of our members are involved in any political party or external organization, it is considered their personal choice and not related to this initiative.]</p>
+			</div>
+		
+			<div style="background: #d1ecf1; padding: 20px; border-radius: 10px; margin-bottom: 20px;">
+				<h3 style="color: #0c5460;">💖 Heartfelt Gratitude</h3>
+				<p>A big thank you to all the generous donors who consistently contribute every month to this essential food relief service.</p>
+				<p>May Allah reward you abundantly. <strong>Jazakumullahu Khairan.</strong></p>
+			</div>
+		
+			<div style="background: #d4edda; padding: 20px; border-radius: 10px; margin-bottom: 20px;">
+				<h3 style="color: #155724;">📞 Contact Information</h3>
+				<p>👤 M. Mohamed Kalifa - +91 98433 53205</p>
+				<p>👤 M. Mohamed Faisal - +91 96984 54446</p>
+				<p>👤 M. Mohamed Abdul Haleem - +91 76393 58465</p>
+			</div>
+		
+			<div style="background: #cce5ff; padding: 20px; border-radius: 10px; margin-bottom: 20px;">
+				<h3 style="color: #004085;">💳 For Donations via UPI / Google Pay / PhonePe</h3>
+				<p>📲 M. Mohamed Ghouse - +91 96290 06210</p>
+				<p>📲 M. Mohamed Aseemudheen - +91 94433 38904</p>
+			</div>
+		
+			<div style="background: #f8d7da; padding: 20px; border-radius: 10px; margin-bottom: 20px;">
+				<h3 style="color: #721c24;">🏦 Advisors</h3>
+				<p>📌 Imam and Group Members.</p>
+			</div>		
+		
+			<div style="background: #f8f9fa; padding: 20px; border-radius: 10px; margin-bottom: 20px; text-align: center;">
+				<h3 style="color: #007bff;">🤝 Neravy Islamic Trust🤲</h3>
+			</div>
+		
+			</div>
+		
+		
+		<style>
+			@media screen and (max-width: 768px) {
+				div[style*="padding: 20px"] {
+					padding: 15px;
+				}
+				h3 {
+					font-size: 18px;
+				}
+				p, li {
+					font-size: 14px;
+				}
+			}
+		</style>
+		
+
+
+		<footer>
+			<div id="footer">
+				<div class="container">
+					<div class="row">
+						<div class="col-md-6 col-md-offset-3 text-center">
+							<p class="fh5co-social-icons">
+								<a href="https://t.me/neravy_islamic_trust"><i class="icon-telegram"></i></a>
+								<a href="https://www.facebook.com/share/1M2ApVS95G/"><i class="icon-facebook2"></i></a>
+								<a href="https://www.instagram.com/neravy_islamic_trust/"><i class="icon-instagram"></i></a>
+								<a href="#"><i class="icon-youtube"></i></a>
+							</p>							
+							<p>
+								Copyright <script>document.write(new Date().getFullYear());</script> Neravy Islamic Trust. All Rights Reserved. <br>
+								Made with <i class="icon-heart3"></i> by Neravy Islamic Trust<br>
+								Powered by <a href="https://webakery.netlify.app" style="color: rgb(255, 255, 255); text-decoration: underline;" target="_blank">Webakery</a>
+
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+		</footer>
+	
+
+	<!-- END fh5co-page -->
+
+	<!-- jQuery -->
+
+
+	<script src="js/jquery.min.js"></script>
+	<!-- jQuery Easing -->
+	<script src="js/jquery.easing.1.3.js"></script>
+	<!-- Bootstrap -->
+	<script src="js/bootstrap.min.js"></script>
+	<!-- Waypoints -->
+	<script src="js/jquery.waypoints.min.js"></script>
+	<script src="js/sticky.js"></script>
+
+	<!-- Stellar -->
+	<script src="js/jquery.stellar.min.js"></script>
+	<!-- Superfish -->
+	<script src="js/hoverIntent.js"></script>
+	<script src="js/superfish.js"></script>
+	
+	<!-- Main JS -->
+	<script src="js/main.js"></script>
+
+	</body>
+</html>
+
