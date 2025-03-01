@@ -16,32 +16,32 @@
     <h2>பொருளாதார உதவி வழங்க</h2>
     <p>உங்கள் பங்களிப்பை பதிவு செய்ய கீழே உள்ள விவரங்களை நிரப்பவும்.</p>
 
-    <form id="donationForm">
-        <input type="text" name="name" placeholder="பெயர்" required>
-        <input type="text" name="transaction_id" placeholder="பரிவர்த்தனை ஐடி (Transaction ID)" required>
-        <input type="number" name="amount" placeholder="தொகை (Amount)" required>
-        <button type="submit">தானம் பதிவு செய்ய</button>
-    </form>
+<form id="donationForm">
+  <input type="text" name="name" placeholder="Your Name" required>
+  <input type="text" name="amount" placeholder="Donation Amount" required>
+  <input type="text" name="transactionId" placeholder="UPI Transaction ID" required>
+  <button type="submit">Donate</button>
+</form>
 
-    <script>
-        document.getElementById("donationForm").addEventListener("submit", function(event) {
-            event.preventDefault();
+<script>
+document.getElementById("donationForm").addEventListener("submit", async function(e) {
+  e.preventDefault();
 
-            let formData = new FormData(this);
+  const formData = {
+    name: e.target.name.value,
+    amount: e.target.amount.value,
+    transactionId: e.target.transactionId.value
+  };
 
-            fetch("save.php", {
-                method: "POST",
-                body: formData
-            })
-            .then(response => response.text())
-            .then(data => {
-                alert("உங்கள் பங்களிப்பு பதிவு செய்யப்பட்டது!");
-            })
-            .catch(error => {
-                console.error("Error:", error);
-            });
-        });
-    </script>
+  const response = await fetch("/.netlify/functions/save-donation", {
+    method: "POST",
+    body: JSON.stringify(formData),
+  });
+
+  const result = await response.json();
+  alert(result.message);
+});
+</script>
 
 </body>
 </html>
