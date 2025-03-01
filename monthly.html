@@ -1,1 +1,73 @@
 
+<!DOCTYPE html>
+<html lang="ta">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>மாதாந்திர நிதி அறிக்கை</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            border: 1px solid #000;
+            padding: 10px;
+            text-align: center;
+        }
+        th {
+            background-color: #4CAF50;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>மாதாந்திர நிதி அறிக்கை - Neravy Islamic Trust 2024</h2>
+    
+    <table>
+        <thead>
+            <tr>
+                <th>வரவு வந்த மாதம்</th>
+                <th>நன்கொடை கொடுத்த நபர்கள்</th>
+                <th>வரவு</th>
+                <th>பொருட்கள் கொடுத்த மாதம்</th>
+                <th>செலவு</th>
+                <th>மீதம் (அடுத்த மாதம் வரவில் சேர்க்கப்பட்டுள்ளது)</th>
+                <th>கொடுத்த வீடுகள்</th>
+            </tr>
+        </thead>
+        <tbody id="reportTable">
+            <!-- Dynamic data will be inserted here -->
+        </tbody>
+    </table>
+
+    <script>
+        fetch('content/monthly-reports.json')
+            .then(response => response.json())
+            .then(data => {
+                let tableBody = document.getElementById("reportTable");
+                data.reports.forEach(item => {
+                    let row = `<tr>
+                        <td>${item.monthYear}</td>
+                        <td>${item.donors}</td>
+                        <td>ரூ. ${item.income}/-</td>
+                        <td>${item.distributionMonth}</td>
+                        <td>ரூ. ${item.expense}/-</td>
+                        <td>ரூ. ${item.remaining}/-</td>
+                        <td>${item.familiesHelped}</td>
+                    </tr>`;
+                    tableBody.innerHTML += row;
+                });
+            })
+            .catch(error => console.error("Error loading data:", error));
+    </script>
+
+</body>
+</html>
+s
