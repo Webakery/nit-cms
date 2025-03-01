@@ -1,20 +1,48 @@
 <?php
-// Read existing donations or create an empty array if file doesn't exist
-$data = json_decode(file_get_contents('donations.json'), true) ?: [];
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
 
-// Get user input
-$new_entry = [
-    "name" => $_POST["name"],
-    "transaction_id" => $_POST["transaction_id"],
-    "amount" => $_POST["amount"],
-    "timestamp" => date("Y-m-d H:i:s")
+$dataFile = "donations.json";
+
+// Ensure request method is POST
+if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
+    die("Invalid request");
+}
+
+// Get form data safely
+$name = isset($_POST['name']) ? trim($_POST['name']) : '';
+$amount = isset($_POST['amount']) ? trim($_POST['amount']) : '';
+$transaction_id = isset($_POST['transaction_id']) ? trim($_POST['transaction_id']) : '';
+
+if (empty($name) || empty($amount) || empty($transaction_id)) {
+    die("All fields are required.");
+}
+
+// Check if donations.json exists, else create it
+if (!file_exists($dataFile)) {
+    file_put_contents($dataFile, json_encode([])); // Create empty JSON array
+}
+
+// Load existing data
+$donations = json_decode(file_get_contents($dataFile), true);
+if (!is_array($donations)) {
+    $donations = []; // Reset to empty array if corrupt
+}
+
+// Append new donation
+$newDonation = [
+    "name" => $name,
+    "amount" => $amount,
+    "transaction_id" => $transaction_id,
+    "date" => date("Y-m-d H:i:s")
 ];
 
-// Add new donation to array
-$data[] = $new_entry;
+$donations[] = $newDonation;
 
-// Save updated array to JSON file
-file_put_contents('donations.json', json_encode($data, JSON_PRETTY_PRINT));
+// Save back to JSON (ensure file write success)
+if (file_put_contents($dataFile, json_encode($donations, JSON_PRETTY_PRINT)) === false) {
+    die("Error saving data.");
+}
 
-echo "Success";
+echo "உங்கள் நன்கொடை பதிவு செய்யப்பட்டது!";
 ?>
