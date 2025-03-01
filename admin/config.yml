@@ -72,3 +72,14 @@ collections:
               - { label: "செலவு", name: "expense", widget: "string" }
               - { label: "மீதம் (அடுத்த மாதம் வரவில் சேர்க்கப்பட்டுள்ளது)", name: "remaining", widget: "string" }
               - { label: "கொடுத்த வீடுகள்", name: "familiesHelped", widget: "number" }
+
+
+      - name: "donations"
+        label: "Donations"
+        file: "donations.json"
+        format: "json"
+        fields:
+          - { label: "Name", name: "name", widget: "string" }
+          - { label: "Transaction ID", name: "transaction_id", widget: "string" }
+          - { label: "Amount", name: "amount", widget: "number" }
+          - { label: "Timestamp", name: "timestamp", widget: "datetime" }
