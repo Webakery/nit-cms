@@ -53,17 +53,14 @@ collections:
               - { label: "Image", name: "image", widget: "image" }
               - { label: "Description", name: "description", widget: "text" }
 
-  - name: "monthly-reports"
-    label: "Monthly Reports"
-    folder: "content/monthly-reports"
-    create: true
-    format: "json"
-    slug: "{{slug}}"
-    fields:
-      - { label: "Month & Year", name: "monthYear", widget: "string" }
-      - { label: "People Served", name: "peopleServed", widget: "number" }
-      - { label: "Families Helped", name: "familiesHelped", widget: "number" }
-      - { label: "Distribution Date", name: "distributionDate", widget: "string" }
-      - { label: "Total Contribution (Rs)", name: "totalContribution", widget: "number" }
-      - { label: "Total Expense (Rs)", name: "totalExpense", widget: "number" }
-      - { label: "Remaining Amount (Rs)", name: "remainingAmount", widget: "number" }
+- name: "yearly-expenditure"
+  label: "Yearly Expenditure"
+  folder: "content/yearly-expenditure"
+  create: true
+  format: "json"
+  slug: "{{slug}}"
+  fields:
+    - { label: "Year", name: "year", widget: "string" }
+    - { label: "Expenditure Chart", name: "chart", widget: "image" }
+    - { label: "Description", name: "description", widget: "text" }
+
