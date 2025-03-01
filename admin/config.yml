@@ -54,10 +54,10 @@ collections:
               - { label: "Description", name: "description", widget: "text" }
 
   - name: "monthly-reports"
-    label: "மாதாந்திர அறிக்கைகள்"
+    label: "Monthly reports"
     files:
       - name: "monthly-reports"
-        label: "மாதாந்திர அறிக்கைகள்"
+        label: "Monthly reports"
         file: "content/monthly-reports.json"
         format: "json"
         fields:
