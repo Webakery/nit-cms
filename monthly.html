@@ -1,71 +1,62 @@
 <!DOCTYPE html>
-<html lang="ta">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Monthly Report</title>
+    <title>Yearly Expenditure Report</title>
     <style>
         body {
             font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
             text-align: center;
-            margin: 20px;
-            background-color: #f9f9f9;
         }
-        .container {
-            max-width: 600px;
-            margin: 0 auto;
-            background: white;
+        .chart-container {
+            width: 100%;
+            max-width: 1200px;
+            margin: auto;
             padding: 20px;
+        }
+        .chart-container img {
+            width: 100%;
+            height: auto;
             border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
         }
-        h2 {
-            color: #2c3e50;
-        }
-        p {
-            font-size: 16px;
-            line-height: 1.6;
+        .chart-description {
+            font-size: 18px;
+            color: #555;
+            max-width: 900px;
+            margin: auto;
+            padding: 10px;
         }
     </style>
 </head>
 <body>
 
-    <div class="container">
-        <h2>📌 மாத வரவு செலவு விபரம் 📌</h2>
-        <div id="monthly-report">
-            <p>Loading...</p>
-        </div>
+    <div class="chart-container">
+        <h2 id="year">Yearly Expenditure Chart</h2>
+        <img id="yearlyChart" src="default-chart.jpg" alt="Yearly Expenditure Chart">
+        <p class="chart-description" id="description">Loading description...</p>
     </div>
 
     <script>
-        const reportUrl = "https://yourwebsite.com/content/monthly-reports/monthly-report.json"; 
-
-        fetch(reportUrl)
-            .then(response => response.json())
-            .then(data => {
-                if (!data.months || !Array.isArray(data.months)) {
-                    throw new Error("Invalid data format");
-                }
-
-                const latestMonth = data.months[data.months.length - 1]; // Get the latest month's data
-                const message = `
-                    <p>👆🏾 அல்ஹம்துலில்லாஹ் 👆🏾</p>
-                    <p>"அல்லாஹ்வின் மாபெரும் கிருபையால்"</p>
-                    <p>📌 <strong>${latestMonth.monthYear}</strong> மாதத்திற்கான தகவல்.</p>
-                    <p>✅ <strong>${latestMonth.peopleServed}</strong> தனிநபர்களுக்கு, <strong>${latestMonth.familiesHelped}</strong> குடும்பங்களுக்கு உதவி வழங்கப்பட்டது.</p>
-                    <p>📅 <strong>வழங்கப்பட்ட தேதி:</strong> ${latestMonth.distributionDate}</p>
-                    <p>📚 <strong>மொத்த வரவு:</strong> ரூ.${latestMonth.totalContribution}/-</p>
-                    <p>🛒 <strong>மொத்த செலவு:</strong> ரூ.${latestMonth.totalExpense}/-</p>
-                    <p>💰 <strong>மீதம்:</strong> ரூ.${latestMonth.remainingAmount}/-</p>
-                    <p>☝🏾 அல்ஹம்துலில்லாஹ் ☝🏾</p>
-                `;
-
-                document.getElementById("monthly-report").innerHTML = message;
-            })
-            .catch(error => {
-                document.getElementById("monthly-report").innerHTML = "<p>⚠️ Error loading monthly report.</p>";
-                console.error("Error loading monthly report:", error);
-            });
+        document.addEventListener("DOMContentLoaded", function() {
+            fetch("content/yearly-expenditure/latest.json")
+                .then(response => response.json())
+                .then(data => {
+                    if (data.year) {
+                        document.getElementById("year").innerText = data.year + " Expenditure Chart";
+                    }
+                    if (data.chart) {
+                        document.getElementById("yearlyChart").src = data.chart;
+                    }
+                    if (data.description) {
+                        document.getElementById("description").innerText = data.description;
+                    }
+                })
+                .catch(error => console.error("Error loading chart:", error));
+        });
     </script>
 
 </body>
