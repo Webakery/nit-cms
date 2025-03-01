@@ -14,20 +14,24 @@
         }
         h2 {
             color: #333;
-            font-size: 20px;
+            font-size: 22px;
+            margin-bottom: 15px;
         }
         .filter-container {
             margin-bottom: 20px;
         }
         select {
-            padding: 10px;
+            padding: 12px;
             font-size: 16px;
             width: 100%;
-            max-width: 300px;
+            max-width: 320px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
         }
         .table-container {
             width: 100%;
             overflow-x: auto;
+            padding: 10px;
         }
         table {
             width: 100%;
@@ -42,13 +46,14 @@
         }
         th, td {
             border: 1px solid #ddd;
-            padding: 10px;
+            padding: 14px;
             text-align: center;
-            font-size: 14px;
+            font-size: 15px;
         }
         th {
             background-color: #4CAF50;
             color: white;
+            padding: 16px;
         }
         tr:nth-child(even) {
             background-color: #f9f9f9;
@@ -57,14 +62,32 @@
             background-color: #e0f7fa;
         }
         @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
             h2 {
                 font-size: 18px;
+                margin-bottom: 10px;
+            }
+            .filter-container {
+                margin-bottom: 15px;
+            }
+            select {
+                font-size: 14px;
+                padding: 10px;
+                width: 100%;
+            }
+            .table-container {
+                padding: 5px;
             }
             table {
                 font-size: 12px;
             }
             th, td {
-                padding: 8px;
+                padding: 10px;
+            }
+            th {
+                padding: 12px;
             }
         }
     </style>
