@@ -1,6 +1,7 @@
 [build]
-  publish = "public"
+  publish = "/"
   command = "echo 'No build needed'"
+
 
 [[redirects]]
   from = "/thank-you"
