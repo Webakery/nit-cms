@@ -157,18 +157,48 @@
     }
 }
 
-.lang-toggle {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            background-color: #008CBA;
-            color: white;
-            padding: 10px 20px;
-            border: none;
-            cursor: pointer;
-        }
+
 
 	</style>
+
+	
+<style>
+    #lang-btn {
+        background: linear-gradient(45deg, #cb0690,#cb0690);
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        font-size: 16px;
+        font-weight: bold;
+        border-radius: 25px;
+        cursor: pointer;
+        transition: all 0.3s ease-in-out;
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    #lang-btn:hover {
+        background: linear-gradient(45deg, #cb0690,#cb0690);
+        transform: scale(1.1);
+        box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.3);
+    }
+</style>
+	<!-- Modernizr JS -->
+	<script src="js/modernizr-2.6.2.min.js"></script>
+
+	<script>
+		function toggleLanguage() {
+			// Get the current URL
+			let currentPage = window.location.pathname;
+	  
+			// Check if the page is English or Tamil and switch accordingly
+if (currentPage.includes("index-ta.html") || currentPage.includes("index-ta")) {
+				window.location.href = "index-en.html"; // Switch to Tamil
+			} else {
+				window.location.href = "index-ta.html"; // Switch to English
+			}
+		}
+	  </script>
+
 	<!-- Modernizr JS -->
 	<script src="js/modernizr-2.6.2.min.js"></script>
 
@@ -200,6 +230,10 @@
 							<li><a href="index-ta.html">About</a></li>
 							<li><a href="monthly.html">Expenditure</a></li>
 							<li><a href="contact-ta.html">Contact</a></li>
+
+							<li>
+								<button id="lang-btn" onclick="toggleLanguage()">தமிழ்</button>
+							</li>
 						</ul>
 					</nav>
 				</div>
