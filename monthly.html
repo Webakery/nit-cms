@@ -141,10 +141,53 @@
     transform: scale(1.1);
 }
     </style>
+
+    
+<style>
+    #lang-btn {
+        background: linear-gradient(45deg, #cb0690,#cb0690);
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        font-size: 16px;
+        font-weight: bold;
+        border-radius: 25px;
+        cursor: pointer;
+        transition: all 0.3s ease-in-out;
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    #lang-btn:hover {
+        background: linear-gradient(45deg, #cb0690,#cb0690);
+        transform: scale(1.1);
+        box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.3);
+    }
+</style>
+	<!-- Modernizr JS -->
+	<script src="js/modernizr-2.6.2.min.js"></script>
+
+	<script>
+		function toggleLanguage() {
+			// Get the current URL
+			let currentPage = window.location.pathname;
+	  
+			// Check if the page is English or Tamil and switch accordingly
+if (currentPage.includes("monthly.html") || currentPage.includes("monthly")) {
+				window.location.href = "monthly-en.html"; // Switch to Tamil
+			} else {
+				window.location.href = "monthly.html"; // Switch to English
+			}
+		}
+	  </script>
 </head>
 <body>
 
     <div class="container">
+        <button id="lang-btn" onclick="toggleLanguage()" 
+        style="position: fixed; top: 20px; right: 20px; background: #b9118f; color: white; border: none; padding: 10px 15px; font-size: 16px; cursor: pointer; border-radius: 5px; z-index: 9999;">
+    English
+</button>
+
 
         <div class="message-box">
             <p class="highlight">📌 அஸ்ஸலாமு அலைக்கும் வரஹ்... 📌</p>
