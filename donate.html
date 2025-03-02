@@ -193,7 +193,7 @@ box-shadow: 0px 0px 20px rgba(0, 136, 204, 1);
 <script>
     function toggleLanguage() {
         const currentUrl = window.location.href;
-        if (currentUrl.includes('donate.html')) {
+if (currentUrl.includes('donate') || currentUrl.includes('donate.html')) {
             window.location.href = 'donate-en.html';  // Change this to the path of your Tamil version
         } else {
             window.location.href = 'donate.html';  // Change this to the path of your English version
