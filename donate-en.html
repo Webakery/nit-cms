@@ -178,6 +178,8 @@ background-color: #006699;
 box-shadow: 0px 0px 20px rgba(0, 136, 204, 1);
 }
 
+
+
 /* Glow Animation */
 @keyframes glow {
 0% {
@@ -187,6 +189,26 @@ box-shadow: 0px 0px 20px rgba(0, 136, 204, 1);
     box-shadow: 0px 0px 20px rgba(0, 136, 204, 1);
 }
 }
+
+.home1-button { 
+    background: linear-gradient(45deg, #ff6a00, #e53935); /* Changed to a vibrant gradient of orange and red */
+    padding: 15px;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    color: white;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+    margin-top: 15px;
+    box-shadow: 0 0 15px rgba(255, 105, 0, 0.8); /* Added a soft shadow for the glowing effect */
+}
+
+.home1-button:hover { 
+    transform: scale(1.1);
+    box-shadow: 0 0 20px rgba(255, 69, 0, 1), 0 0 30px rgba(255, 69, 0, 1), 0 0 40px rgba(255, 69, 0, 1); /* Added stronger glow effect */
+}
+
 
 </style>
 
@@ -210,7 +232,7 @@ box-shadow: 0px 0px 20px rgba(0, 136, 204, 1);
         <br>
         <br>
         <br>
-        <h2>Give Hope, Change Lives</h2>
+        <h2 style="font-size: 17px;">Give Hope, Change Lives</h2>
         <p>Your small contribution can make a big impact. Click below to reveal the donation QR code.</p>
 
         <div class="donate-box" onclick="flipQR(); dropMoney()">✨ Tap to View QR ✨</div>
@@ -227,6 +249,7 @@ box-shadow: 0px 0px 20px rgba(0, 136, 204, 1);
         </div>
         <br>
         <br>
+        <div class="home1-button" onclick="goPay()">Get Payment Receipt</div>
         <div class="home-button" onclick="goHome()">Home Page</div>
 
     </div>
@@ -237,6 +260,10 @@ box-shadow: 0px 0px 20px rgba(0, 136, 204, 1);
 		</a>
 		
     <script>
+
+function goPay(){
+            window.location.href="payment.html"
+        }
         function flipQR() {
             document.querySelector('.flip-container').classList.toggle('show');
         }

@@ -144,6 +144,43 @@ canvas {
     transform: scale(1.1);
 }
 
+.home1-button { 
+    background: linear-gradient(45deg, #ff6a00, #e53935); /* Changed to a vibrant gradient of orange and red */
+    padding: 15px;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    color: white;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+    margin-top: 15px;
+    box-shadow: 0 0 15px rgba(255, 105, 0, 0.8); /* Added a soft shadow for the glowing effect */
+}
+
+.home1-button:hover { 
+    transform: scale(1.1);
+    box-shadow: 0 0 20px rgba(255, 69, 0, 1), 0 0 30px rgba(255, 69, 0, 1), 0 0 40px rgba(255, 69, 0, 1); /* Added stronger glow effect */
+}
+
+
+.message-box {
+    background-color: #f8d7da;  /* Light red background color */
+    color: #721c24;             /* Dark red text color */
+    padding: 15px;
+    border-radius: 8px;
+    border: 1px solid #f5c6cb;  /* Border color */
+    margin: 20px 0;
+    font-size: 16px;
+    text-align: center;
+    font-family: Arial, sans-serif;
+}
+
+.message-box p {
+    margin: 0;
+    font-weight: bold;
+}
+
 
     </style>
 
@@ -188,6 +225,8 @@ box-shadow: 0px 0px 20px rgba(0, 136, 204, 1);
 }
 }
 
+
+
 </style>
 
 <script>
@@ -216,10 +255,13 @@ if (currentUrl.includes('donate') || currentUrl.includes('donate.html')) {
     <div class="container" >
         <br>
         <br>
+     
         
-        <h2>பொருளாதார உதவி வழங்க</h2>
+        <h2 style="font-size: 17px;">பொருளாதார உதவி வழங்க</h2>
         <p>உங்கள் சிறிய பங்களிப்பால் பெரிய மாற்றத்தை உருவாக்க முடியும். கீழே உள்ள QR குறியீட்டை காண கிளிக் செய்யவும்</p>
 
+     
+        
         <div class="donate-box" onclick="flipQR(); dropMoney()">QR ஐ காண கிளிக் செய்யவும் ✨</div>
 
         <div class="flip-container" onclick="flipQR()">
@@ -230,11 +272,15 @@ if (currentUrl.includes('donate') || currentUrl.includes('donate.html')) {
                 <div class="back">
                     <img src="images/qr.png" alt="Donate via UPI">
                 </div>
+
+             
+                
             </div>
+          
         </div>
 
         <br>
-        <br>
+        <div class="home1-button" onclick="goPay()">பற்றுச்சீட்டைப் பெறு</div>
         <div class="home-button" onclick="goHome()">முகப்பு பக்கம்</div>
 
     </div>
@@ -245,6 +291,10 @@ if (currentUrl.includes('donate') || currentUrl.includes('donate.html')) {
 		</a>
 		
     <script>
+        function goPay(){
+            window.location.href="payment-ta.html"
+        }
+
         function flipQR() {
             document.querySelector('.flip-container').classList.toggle('show');
         }

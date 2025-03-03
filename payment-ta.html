@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="ta">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Donation Form</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <style>
+        /* Global Styles */
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background: linear-gradient(135deg, #2575fc, #2575fc);
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0;
+        }
+
+        /* Form Container */
+        .form-container {
+            background: white;
+            padding: 25px;
+            margin-left: 15%;
+            border-radius: 12px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            width: 90%;
+            max-width: 400px;
+            animation: fadeIn 0.8s ease-in-out;
+        }
+
+        h2 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        /* Input Container */
+        .input-container {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            background: #f9f9f9;
+            padding: 10px;
+            border-radius: 8px;
+            margin-bottom: 12px;
+            border: 1px solid #ddd;
+            transition: 0.3s;
+        }
+
+        .input-container:hover {
+            border-color: #2575fc;
+        }
+
+        /* Icons */
+        .input-container i {
+            color: #777;
+            font-size: 18px;
+        }
+
+        /* Input Fields */
+        input, select {
+            flex: 1;
+            border: none;
+            background: transparent;
+            font-size: 16px;
+            padding: 8px;
+            outline: none;
+        }
+
+        select {
+            cursor: pointer;
+            width: 90px;
+        }
+
+        /* Submit Button */
+        #s1 {
+            width: 100%;
+            padding: 12px;
+            background: #2575fc;
+            color: white;
+            font-size: 18px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: 0.3s;
+            font-weight: bold;
+        }
+
+        #s1:hover {
+            background: #6a11cb;
+        }
+
+        /* Fade-in Animation */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.9); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        /* Error Message */
+        .error {
+            color: red;
+            font-size: 14px;
+            text-align: left;
+            display: none;
+            margin-top: -8px;
+            margin-bottom: 10px;
+        }
+
+        .home-button {
+    background: linear-gradient(45deg, #4CAF50, #2E7D32);
+    padding: 15px;
+    margin-top: 600px;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    color: white;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+    margin-top: 15px;
+}
+
+.home-button:hover {
+    transform: scale(1.1);
+}
+
+@media (max-width: 480px) {
+    .form-container {
+        width: 85%;
+        padding: 15px;
+        margin-left: 3%;
+
+    }
+
+    .input-container {
+        flex-direction: row;
+        align-items: center;
+        gap: 8px;
+        padding: 10px;
+    }
+
+    select {
+        font-size: 14px;
+        width: auto;
+    }
+
+    input {
+        font-size: 14px;
+        padding: 6px;
+    }
+
+    button {
+        font-size: 16px;
+        padding: 10px;
+    }
+
+    .home-button{
+        width: 80%;
+        margin-left: 5%;
+    }
+}
+
+
+.telegram-float {
+position: fixed;
+bottom: 20px;
+right: 20px;
+width: 60px;
+height: 60px;
+background-color: #0088cc;
+border-radius: 50%;
+display: flex;
+justify-content: center;
+align-items: center;
+box-shadow: 0px 0px 10px rgba(0, 136, 204, 0.8);
+transition: all 0.3s ease;
+text-decoration: none;
+animation: glow 1.5s infinite alternate;
+z-index: 9999; /* Ensures it's always on top */
+}
+
+.telegram-float img {
+width: 35px;
+height: 35px;
+filter: brightness(100%);
+}
+
+.telegram-float:hover {
+transform: scale(1.1);
+background-color: #006699;
+box-shadow: 0px 0px 20px rgba(0, 136, 204, 1);
+}
+
+/* Glow Animation */
+@keyframes glow {
+0% {
+    box-shadow: 0px 0px 10px rgba(0, 136, 204, 0.8);
+}
+100% {
+    box-shadow: 0px 0px 20px rgba(0, 136, 204, 1);
+}
+}
+
+/* General Button Styles */
+#lang-btn {
+    padding: 10px 20px;  /* Add sufficient padding */
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    background-color: #b9118f;
+    color: white;
+    border: none;
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 9999;
+    text-align: center; /* Center the text inside the button */
+    display: inline-block; /* Adjust to content */
+    box-sizing: border-box; /* Includes padding/border in width/height calculation */
+    width: auto; /* Let the width be automatically adjusted */
+    min-width: 100px; /* Ensure a minimum width */
+    white-space: nowrap; /* Prevent text wrapping inside the button */
+}
+
+/* Mobile View Adjustments */
+@media (max-width: 480px) {
+    #lang-btn {
+        padding: 12px 25px; /* Ensure enough padding for mobile */
+        font-size: 16px; /* Adjust font size for mobile */
+        top: 10px; /* Adjust top margin */
+        right: 10px; /* Adjust right margin */
+        background-color: #b9118f;
+        min-width: 100px; /* Ensure a minimum width */
+    }
+}
+
+
+
+</style>
+
+<script>
+    function toggleLanguage() {
+        const currentUrl = window.location.href;
+if (currentUrl.includes('payment-ta') || currentUrl.includes('payment-ta.html')) {
+            window.location.href = 'payment.html';  // Change this to the path of your Tamil version
+        } else {
+            window.location.href = 'payment-ta.html';  // Change this to the path of your English version
+        }
+    }
+</script>
+
+</head>
+<body>
+    <div>
+        <button id="lang-btn" onclick="toggleLanguage()" 
+        style="width:10%; position: fixed; top: 20px; right: 20px; background: #b9118f; color: white; border: none; padding: 10px 15px; font-size: 16px; cursor: pointer; border-radius: 5px; z-index: 9999;">
+        English
+</button>
+<br><br>
+<br><br>
+<br><br>
+<br><br>
+
+<div style="background-color: #f0f8ff; padding: 20px; border-radius: 8px; border: 1px solid #ddd; font-size: 16px; text-align: center; margin: 20px auto; width: 80%; max-width: 600px;">
+    பண உதவி செய்தவர்கள், கீழே உள்ள படிவத்தை நிரப்பவும், அதன் மூலம் பற்றுச்சீட்டைப் பெறுவீர்கள்.
+</div>
+<br><br>
+
+<style>
+    @media (max-width: 480px) {
+        div {
+            width: 90%; /* Adjust width for smaller screens */
+            font-size: 14px; /* Reduce font size for better readability on mobile */
+            padding: 15px; /* Adjust padding for mobile */
+        }
+    }
+</style>
+
+    <div class="form-container">
+        <h2>நன்கொடை படிவம்</h2>
+        <form id="donationForm">
+
+            <div class="input-container">
+                <i class="fas fa-user"></i>
+                <input type="text" id="name" placeholder="பெயர்" required>
+            </div>
+
+            <div class="input-container">
+                <i class="fas fa-envelope"></i>
+                <input type="email" id="email" placeholder="மின்னஞ்சல்" required>
+            </div>
+
+            <!-- WhatsApp Number Row -->
+            <div class="input-container">
+                <i class="fab fa-whatsapp"></i>
+                <select id="countryCode">
+                    <option value="+91">🇮🇳 +91</option>
+                    <option value="+1">🇺🇸 +1</option>
+                    <option value="+44">🇬🇧 +44</option>
+                    <option value="+61">🇦🇺 +61</option>
+                    <option value="+971">🇦🇪 +971</option>
+                    <option value="+49">🇩🇪 +49</option>
+                    <option value="+33">🇫🇷 +33</option>
+                    <option value="+81">🇯🇵 +81</option>
+                    <option value="+86">🇨🇳 +86</option>
+                    <option value="+7">🇷🇺 +7</option>
+                </select>
+                <input type="text" id="whatsapp" placeholder="வாட்ஸ்அப் எண்" maxlength="10" required>
+            </div>
+            <p class="error" id="whatsappError">சரியான 10 இலக்க எண் உள்ளிடவும்</p>
+
+            <div class="input-container">
+                <i class="fas fa-receipt"></i>
+                <input type="text" id="txnId" placeholder="UPI பரிவர்த்தனை எண்" required>
+            </div>
+
+            <div class="input-container">
+                <i class="fas fa-rupee-sign"></i>
+                <input type="number" id="amount" placeholder="தொகை (₹)" required>
+            </div>
+
+            <button id="s1" type="submit">சமர்ப்பிக்க</button>
+        </form>
+    </div>
+
+    <br>
+    <br>
+    <div class="home-button" onclick="goHome()">முகப்பு பக்கம்</div> <br>
+    <br>
+    </div>
+
+   
+
+    <script>
+
+function goHome() {
+    window.location.href = "index.html"; // Change this to your actual home page URL
+}
+
+
+        document.getElementById("donationForm").addEventListener("submit", async function(event) {
+            event.preventDefault();
+
+            // Validate Inputs
+            const countryCode = document.getElementById("countryCode").value;
+            const phoneNumber = document.getElementById("whatsapp").value.trim();
+            const whatsappError = document.getElementById("whatsappError");
+
+            if (!/^\d{10}$/.test(phoneNumber)) {
+                whatsappError.style.display = "block";
+                return;
+            } else {
+                whatsappError.style.display = "none";
+            }
+
+            const fullPhoneNumber = countryCode + phoneNumber; // Store country code + number
+
+            let donation = {
+                name: document.getElementById("name").value,
+                email: document.getElementById("email").value,
+                whatsapp: fullPhoneNumber, // Store as one value
+                txnId: document.getElementById("txnId").value.trim(),
+                amount: document.getElementById("amount").value,
+                date: new Date().toISOString().split("T")[0],
+                verified: "No"
+            };
+
+            try {
+                let response = await fetch(`https://api.jsonbin.io/v3/b/${BIN_ID}/latest`, {
+                    method: "GET",
+                    headers: { "X-Master-Key": API_KEY }
+                });
+
+                let existingData = await response.json();
+                let donations = existingData.record || [];
+
+                donations.push(donation);
+
+                let updateResponse = await fetch(`https://api.jsonbin.io/v3/b/${BIN_ID}`, {
+                    method: "PUT",
+                    headers: {
+                        "Content-Type": "application/json",
+                        "X-Master-Key": API_KEY
+                    },
+                    body: JSON.stringify(donations)
+                });
+
+                if (updateResponse.ok) {
+                    alert("✅ நன்கொடை வெற்றிகரமாக பதிவு செய்யப்பட்டது! தகவல்கள் சரிபார்க்கப்பட்டு, நாங்கள் உங்கள் WhatsApp எண்ணிற்கு பற்றுச்சீட்டை அனுப்புவோம்");
+                    document.getElementById("donationForm").reset();
+                } else {
+                    alert("❌ பதிவதில் சிக்கல் ஏற்பட்டுள்ளது!");
+                }
+            } catch (error) {
+                console.error("Error:", error);
+                alert("⚠️ சர்வர் பிழை! மீண்டும் முயற்சிக்கவும்.");
+            }
+        });
+    </script>
+</body>
+</html>
