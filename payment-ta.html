@@ -339,6 +339,11 @@ function goHome() {
 }
 
 
+const API_KEY = "$2a$10$KSrJlxWhmWwdb9ekq4mxg.i3ida6tgbpa1ClUt8M.OSg3eBZ4ym1y";
+        const BIN_ID = "67c5357ae41b4d34e49fbc93";
+        const BIN_URL = `https://api.jsonbin.io/v3/b/${BIN_ID}`;
+        const BIN_URL_LATEST = `${BIN_URL}/latest`;
+
         document.getElementById("donationForm").addEventListener("submit", async function(event) {
             event.preventDefault();
 

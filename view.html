@@ -79,6 +79,13 @@
         .pagination button:disabled {
             background-color: #ccc;
         }
+        .change-password-container {
+            margin-top: 20px;
+        }
+        .change-password-container input {
+            padding: 8px;
+            margin: 5px;
+        }
 
         /* Responsive Design */
         @media (max-width: 768px) {
@@ -95,6 +102,15 @@
 <body>
 
     <h2>Donation Records</h2>
+
+    <!-- Change Password Form -->
+    <div class="change-password-container">
+        <h3>Change Admin Password</h3>
+        <input type="password" id="currentPassword" placeholder="Current Password">
+        <input type="password" id="newPassword" placeholder="New Password">
+        <button onclick="changePassword()">Change Password</button>
+        <p id="passwordMessage" style="color: red;"></p>
+    </div>
 
     <div class="filter-container">
         <label for="filterDate">Filter by Date:</label>
@@ -135,15 +151,56 @@
     </div>
 
     <script>
-        const API_KEY = "$2a$10$KSrJlxWhmWwdb9ekq4mxg.i3ida6tgbpa1ClUt8M.OSg3eBZ4ym1y";
         const BIN_ID = "67c5357ae41b4d34e49fbc93";
         const BIN_URL = `https://api.jsonbin.io/v3/b/${BIN_ID}`;
         const BIN_URL_LATEST = `${BIN_URL}/latest`;
 
+        const API_KEY = "$2a$10$KSrJlxWhmWwdb9ekq4mxg.i3ida6tgbpa1ClUt8M.OSg3eBZ4ym1y";
+            
+
         let currentPage = 1;
-        let rowsPerPage = 5;
+        let rowsPerPage = 50;
         let records = [];
 
+        // Check if there's a stored password, otherwise ask for one.
+        let adminPassword = localStorage.getItem('adminPassword');
+        if (!adminPassword) {
+            // Set a default password if it doesn't exist.
+            adminPassword = "admin123";
+            localStorage.setItem('adminPassword', adminPassword);
+        }
+
+        // Password protection prompt
+        const enteredPassword = prompt("Enter the admin password to access the dashboard:");
+        if (enteredPassword !== adminPassword) {
+            alert("Incorrect password. You do not have access to this page.");
+            window.location.href = "/"; // Redirect to home page if incorrect password
+        }
+
+        // Function to change the password
+        function changePassword() {
+            const currentPassword = document.getElementById("currentPassword").value;
+            const newPassword = document.getElementById("newPassword").value;
+            const passwordMessage = document.getElementById("passwordMessage");
+
+            if (currentPassword === adminPassword) {
+                if (newPassword.length >= 6) {
+                    localStorage.setItem('adminPassword', newPassword);
+                    passwordMessage.style.color = 'green';
+                    passwordMessage.textContent = 'Password changed successfully!';
+                    // Update the password variable
+                    adminPassword = newPassword;
+                } else {
+                    passwordMessage.style.color = 'red';
+                    passwordMessage.textContent = 'New password must be at least 6 characters long.';
+                }
+            } else {
+                passwordMessage.style.color = 'red';
+                passwordMessage.textContent = 'Current password is incorrect.';
+            }
+        }
+
+        // Fetch data from the server
         async function fetchData() {
             let response = await fetch(BIN_URL_LATEST, {
                 headers: { "X-Master-Key": API_KEY }
@@ -214,7 +271,7 @@
 
         async function updateVerification(txnId, status) {
             let response = await fetch(BIN_URL_LATEST, {
-                headers: { "X-Master-Key": API_KEY }
+                headers: { "X-Master-Key": "" }
             });
             let data = await response.json();
             records = data.record.map(record => {
@@ -227,7 +284,7 @@
                 method: "PUT",
                 headers: {
                     "Content-Type": "application/json",
-                    "X-Master-Key": API_KEY
+                    "X-Master-Key": "your-api-key"
                 },
                 body: JSON.stringify(records)
             });
