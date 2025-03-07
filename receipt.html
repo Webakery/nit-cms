@@ -156,8 +156,9 @@
     </style>
   </head>
   <body>
+
     <!-- Sidebar with Change Password Form -->
-    <div class="sidebar" id="sidebar">
+    <div class="sidebar" id="sidebar" style="display: none;">
       <h3>Change Admin Password</h3>
       <input
         type="password"
@@ -170,7 +171,7 @@
     </div>
 
     <!-- Main Content Area -->
-    <div class="content" id="content">
+    <div class="content" id="content" style="display: none;">
       <h2 style="margin-left: 10%">Donation Records</h2>
 
       <div class="filter-container">
@@ -227,7 +228,7 @@
       let records = [];
 
  
-      const ADMIN_BIN_ID = "67caf790ad19ca34f81824aa"; // Use your actual Admin Bin ID here
+      const ADMIN_BIN_ID = "67caf995acd3cb34a8f69d55"; // Use your actual Admin Bin ID here
 const ADMIN_BIN_URL = `https://api.jsonbin.io/v3/b/${ADMIN_BIN_ID}`; // Admin Bin URL
 const ADMIN_API_KEY = "$2a$10$KSrJlxWhmWwdb9ekq4mxg.i3ida6tgbpa1ClUt8M.OSg3eBZ4ym1y"; // Use your actual Admin Bin API Key here
 
@@ -275,15 +276,44 @@ async function verifyAdminPassword() {
   await fetchAdminPassword(); // Fetch the password from the admin password JSONBin
 
   const enteredPassword = prompt("Enter the admin password to access the dashboard:");
+  
   if (enteredPassword !== adminPassword) {
     alert("Incorrect password. You do not have access to this page.");
     window.location.href = "/"; // Redirect to home page if incorrect password
+  } else {
+    // If password is correct, show the content
+    document.getElementById("content").style.display = "block";
+    document.getElementById("sidebar").style.display = "block"; // Ensure sidebar is visible too
   }
 }
 
 // Call the verifyAdminPassword function to check password at the beginning
 verifyAdminPassword();
 
+
+async function changePassword() {
+  const currentPassword = document.getElementById("currentPassword").value;
+  const newPassword = document.getElementById("newPassword").value;
+
+  // Validate inputs
+  if (!currentPassword || !newPassword) {
+    document.getElementById("passwordMessage").textContent = "Both fields are required!";
+    return;
+  }
+
+  // Check if the entered current password is correct
+  if (currentPassword !== adminPassword) {
+    document.getElementById("passwordMessage").textContent = "Current password is incorrect!";
+    return;
+  }
+
+  // Save the new password to JSONBin
+  await saveAdminPassword(newPassword);
+  
+  // Clear the password fields
+  document.getElementById("currentPassword").value = '';
+  document.getElementById("newPassword").value = '';
+}
 
 
       // Fetch data from the server
@@ -370,11 +400,10 @@ verifyAdminPassword();
   // Create the message with the correct string interpolation
   const message = `Hello ${name},\n\nThank you for your donation of Rs. ${amount}.\nTransaction ID: ${txnId}\nDate: ${date}\n\nThank you for contributing towards a great social cause! Your donation is making a real difference.\n\nFor any queries, feel free to reach out.`;
 
-  // Create the WhatsApp link
-  const url = `https://wa.me/${whatsapp}?text=${encodeURIComponent(message)}`;
+  const url = `https://api.whatsapp.com/send?phone=${whatsapp}&text=${encodeURIComponent(message)}`;
+window.open(url, "_blank");
 
-  // Open the WhatsApp link
-  window.open(url, "_blank");
+
 }
 
 
