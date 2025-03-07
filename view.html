@@ -285,7 +285,7 @@
 function sendWhatsApp(whatsapp, name, amount, txnId, date) {
 
     // Create the message with the PDF download instruction (no link)
-    const message = `Hello ${name},\n\nThank you for your donation of Rs. ${amount} (${toWords(amount)}).\nTransaction ID: ${txnId}\nDate: ${date}\n\nThank you for contributing towards a great social cause! Your donation is making a real difference.\n\nFor any queries, feel free to reach out.`;
+    const message = `Hello ${name},\n\nThank you for your donation of Rs. ${amount} .\nTransaction ID: ${txnId}\nDate: ${date}\n\nThank you for contributing towards a great social cause! Your donation is making a real difference.\n\nFor any queries, feel free to reach out.`;
 
     // Create the WhatsApp link
     const url = `https://wa.me/${whatsapp}?text=${encodeURIComponent(message)}`;
@@ -472,7 +472,8 @@ function toWords(amount) {
 
       async function updateVerification(txnId, status) {
         let response = await fetch(BIN_URL_LATEST, {
-          headers: { "X-Master-Key": "" },
+          headers: { "X-Master-Key": API_KEY
+           },
         });
         let data = await response.json();
         records = data.record.map((record) => {
