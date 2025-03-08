@@ -1,301 +1,317 @@
 <!DOCTYPE html>
 <html class="no-js">
+
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Neravy Islamic Trust | Charity & Community Support</title>
-    <meta name="theme-color" content="#66258f">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Neravy Islamic Trust | Charity & Community Support</title>
+  <meta name="theme-color" content="#66258f">
 
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
-    <link rel="icon" type="image/png" href="/images/fav.png">
-    <link rel="shortcut icon" href="favicon.ico">
-    
-    <!-- Stylesheets -->
-    <link rel="stylesheet" href="css/animate.css">
-    <link rel="stylesheet" href="css/icomoon.css">
-    <link rel="stylesheet" href="css/bootstrap.css">
-    <link rel="stylesheet" href="css/superfish.css">
-    <link rel="stylesheet" href="css/style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
+  <link rel="icon" type="image/png" href="/images/fav.png">
+  <link rel="shortcut icon" href="favicon.ico">
 
-    <!-- Scripts -->
-    <script src="js/modernizr-2.6.2.min.js"></script>
-    
-    <!-- Responsive Design -->
-    <style>
-        @media screen and (max-width: 768px) {
-            .fh5co-cover {
-                display: flex;
-                align-items: flex-start;
-                justify-content: center;
-                margin-top: -40px;
-            }
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/animate.css">
+  <link rel="stylesheet" href="css/icomoon.css">
+  <link rel="stylesheet" href="css/bootstrap.css">
+  <link rel="stylesheet" href="css/superfish.css">
+  <link rel="stylesheet" href="css/style.css">
 
-            #fh5co-menu-wrap ul#fh5co-primary-menu li a {
-                font-size: 18px !important;
-            }
-        }
+  <!-- Scripts -->
+  <script src="js/modernizr-2.6.2.min.js"></script>
 
-        /* Telegram Floating Button */
-        .telegram-float {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            width: 60px;
-            height: 60px;
-            background-color: #0088cc;
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            box-shadow: 0 0 10px rgba(0, 136, 204, 0.8);
-            transition: all 0.3s ease;
-            animation: glow 1.5s infinite alternate;
-            z-index: 9999;
-        }
+  <!-- Responsive Design -->
+  <style>
+    @media screen and (max-width: 768px) {
+      .fh5co-cover {
+        display: flex;
+        align-items: flex-start;
+        justify-content: center;
+        margin-top: -40px;
+      }
 
-        .telegram-float img {
-            width: 35px;
-            height: 35px;
-        }
+      #fh5co-menu-wrap ul#fh5co-primary-menu li a {
+        font-size: 18px !important;
+      }
+    }
 
-        .telegram-float:hover {
-            transform: scale(1.1);
-            background-color: #006699;
-            box-shadow: 0 0 20px rgba(0, 136, 204, 1);
-        }
+    /* Telegram Floating Button */
+    .telegram-float {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      width: 60px;
+      height: 60px;
+      background-color: #0088cc;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      box-shadow: 0 0 10px rgba(0, 136, 204, 0.8);
+      transition: all 0.3s ease;
+      animation: glow 1.5s infinite alternate;
+      z-index: 9999;
+    }
 
-        /* Heart Button */
-        .heart-button {
-            position: fixed;
-            bottom: 100px;
-            right: 20px;
-            width: 60px;
-            height: 60px;
-            background-color: #ffd30f;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 16px;
-            font-weight: bold;
-            color: white;
-            border-radius: 50%;
-            box-shadow: 0 0 15px rgba(255, 0, 0, 0.7);
-            transition: all 0.3s ease-in-out;
-            animation: glow 1.5s infinite alternate;
-            z-index: 9999;
-        }
+    .telegram-float img {
+      width: 35px;
+      height: 35px;
+    }
 
-        .heart-button:hover {
-            transform: scale(1.1);
-            box-shadow: 0 0 20px rgba(255, 0, 0, 1);
-        }
+    .telegram-float:hover {
+      transform: scale(1.1);
+      background-color: #006699;
+      box-shadow: 0 0 20px rgba(0, 136, 204, 1);
+    }
 
-        /* Glow Animation */
-        @keyframes glow {
-            0% { box-shadow: 0 0 10px rgba(255, 0, 0, 0.7); }
-            100% { box-shadow: 0 0 20px rgba(255, 0, 0, 1); }
-        }
+    /* Heart Button */
+    .heart-button {
+      position: fixed;
+      bottom: 100px;
+      right: 20px;
+      width: 60px;
+      height: 60px;
+      background-color: #ffd30f;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 16px;
+      font-weight: bold;
+      color: white;
+      border-radius: 50%;
+      box-shadow: 0 0 15px rgba(255, 0, 0, 0.7);
+      transition: all 0.3s ease-in-out;
+      animation: glow 1.5s infinite alternate;
+      z-index: 9999;
+    }
 
-        /* Language Toggle Button */
-        #lang-btn {
-            background: #66258f;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            font-size: 16px;
-            font-weight: bold;
-            border-radius: 25px;
-            cursor: pointer;
-            transition: all 0.3s ease-in-out;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-        }
+    .heart-button:hover {
+      transform: scale(1.1);
+      box-shadow: 0 0 20px rgba(255, 0, 0, 1);
+    }
 
-        #lang-btn:hover {
-            transform: scale(1.1);
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
-        }
-    </style>
+    /* Glow Animation */
+    @keyframes glow {
+      0% {
+        box-shadow: 0 0 10px rgba(255, 0, 0, 0.7);
+      }
 
-    <script>
-        function toggleLanguage() {
-            let currentPage = window.location.pathname;
-            window.location.href = currentPage.includes("inden") ? "index.html" : "inden.html";
-        }
-    </script>
+      100% {
+        box-shadow: 0 0 20px rgba(255, 0, 0, 1);
+      }
+    }
+
+    /* Language Toggle Button */
+    #lang-btn {
+      background: #66258f;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      font-size: 16px;
+      font-weight: bold;
+      border-radius: 25px;
+      cursor: pointer;
+      transition: all 0.3s ease-in-out;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    #lang-btn:hover {
+      transform: scale(1.1);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    }
+  </style>
+
+  <script>
+    function toggleLanguage() {
+      let currentPage = window.location.pathname;
+      window.location.href = currentPage.includes("inden") ? "index.html" : "inden.html";
+    }
+  </script>
 
 
-  
+
 </head>
+
 </html>
 
-	<body>
-		<div id="fh5co-wrapper">
-		<div id="fh5co-page">
-		<header id="fh5co-header-section" class="sticky-banner">
-			<div class="container">
-				<div class="nav-header">
-					<a href="#" class="js-fh5co-nav-toggle fh5co-nav-toggle dark"><i></i></a>
-					<h1 id="fh5co-logo"><a href="index.html">
-						<img src="images/fav.png" alt="NIT" style="height: 60px; vertical-align: middle;">
-					</a>
-				</h1>
-					<!-- START #fh5co-menu-wrap -->
-					<nav id="fh5co-menu-wrap" role="navigation">
-						<ul class="sf-menu" id="fh5co-primary-menu">
-							<li class="active">
-								<a href="index.html">Home</a>
-							</li>
-							<li>
-								<a href="donate.html">Donate</a>
-							</li>
-							<li><a href="index-ta.html">About</a></li>
-							<li><a href="monthly.html">Expenditure</a></li>
-							<li><a href="contact-ta.html">Contact</a></li>
+<body>
+  <div id="fh5co-wrapper">
+    <div id="fh5co-page">
+      <header id="fh5co-header-section" class="sticky-banner">
+        <div class="container">
+          <div class="nav-header">
+            <a href="#" class="js-fh5co-nav-toggle fh5co-nav-toggle dark"><i></i></a>
+            <h1 id="fh5co-logo"><a href="index.html">
+                <img src="images/fav.png" alt="NIT" style="height: 60px; vertical-align: middle;">
+              </a>
+            </h1>
+            <!-- START #fh5co-menu-wrap -->
+            <nav id="fh5co-menu-wrap" role="navigation">
+              <ul class="sf-menu" id="fh5co-primary-menu">
+                <li class="active">
+                  <a href="index.html">Home</a>
+                </li>
+                <li>
+                  <a href="donate.html">Donate</a>
+                </li>
+                <li><a href="index-ta.html">About</a></li>
+                <li><a href="monthly.html">Expenditure</a></li>
+                <li><a href="contact-ta.html">Contact</a></li>
 
-							<li>
-								<button id="lang-btn" onclick="toggleLanguage()">தமிழ்</button>
-							</li>
-						</ul>
-					</nav>
-				</div>
-			</div>
-		</header>
-		
-		<a href="donate.html" class="heart-button" aria-label="Donate Now">
-			❤️
-		</a>
-		
-		<a href="https://t.me/s/neravy_islamic_trust" target="_blank" class="telegram-float">
-			<img src="https://upload.wikimedia.org/wikipedia/commons/8/83/Telegram_2019_Logo.svg" alt="Chat on Telegram">
-		</a>
-	
+                <li>
+                  <button id="lang-btn" onclick="toggleLanguage()">தமிழ்</button>
+                </li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+      </header>
 
-		<div class="fh5co-hero">
-			<div class="fh5co-overlay"></div>
-			<div class="fh5co-cover text-center" data-stellar-background-ratio="0.5" style="background-image: url(images/img3.png);">
-				<div class="desc animate-box" >
-					<h2><strong>Neravy Islamic Trust</strong><i></i></h2>
-					<br>
-					<h4 style="color: white;">
-					</h4><br>
-					<span><a class="btn btn-primary" style="background-color: #66258f;" href="index-en.html">What we do</a></span>
-				</div>
-			</div>
+      <a href="donate.html" class="heart-button" aria-label="Donate Now">
+        ❤️
+      </a>
 
-			
-
-		</div>
-
-	
-		<!-- Feature Content with data-ta and data-eng attributes -->
-		<div id="fh5co-features">
-			<div class="container">
-				<div class="row">
-					<div class="col-md-4">
-						<div class="feature-left">
-							<span class="icon">
-								<i class="icon-profile-male"></i>
-							</span>
-							<div class="feature-copy">
-								<h3 data-eng="Become a Volunteer" data-ta="ஒரு பொறுப்பாளராக ஆகுங்கள்">Become a Volunteer</h3>
-								<p data-eng="Join hands with us to make a difference. Your time and effort can change lives and bring hope to those in need." data-ta="எங்களுடன் கைகோர்க்கவும். உங்கள் நேரம் மற்றும் முயற்சி வாழ்க்கையை மாற்றி, தேவைப்படுபவர்களுக்கு நம்பிக்கையை கொண்டு வர முடியும்.">
-									Join hands with us to make a difference. Your time and effort can change lives and bring hope to those in need.
-								</p>
-							</div>
-						</div>
-					</div>
-		
-					<div class="col-md-4">
-						<div class="feature-left">
-							<span class="icon">
-								<i class="icon-happy"></i>
-							</span>
-							<div class="feature-copy">
-								<h3 data-eng="Joy of Giving" data-ta="பகிர்வின் மகிழ்ச்சி">Joy of Giving</h3>
-								<p data-eng="True happiness lies in sharing. Your generosity brings hope and smiles to those in need." data-ta="உண்மையான மகிழ்ச்சி பகிர்வில் உள்ளது. உங்கள் பரிசுத்த மனம், தேவைப்படுபவர்களுக்கு நம்பிக்கையும், புன்னகைகளையும் கொண்டு வருகிறது.">
-									True happiness lies in sharing. Your generosity brings hope and smiles to those in need.
-								</p>
-							</div>
-						</div>
-					</div>
-		
-					<div class="col-md-4">
-						<div class="feature-left">
-							<span class="icon">
-								<i class="icon-wallet"></i>
-							</span>
-							<div class="feature-copy">
-								<h3 data-eng="Make a Difference" data-ta="மாற்றத்தை உருவாக்கவும்">Make a Difference</h3>
-								<p data-eng="Your donation transforms lives, providing food, shelter, and support to the less fortunate." data-ta="உங்கள் பணம் வாழ்க்கைகளை மாற்றுகிறது, உணவு, shelter மற்றும் ஆதரவை தகர்கின்றவர்களுக்கு வழங்குகிறது.">
-									Your donation transforms lives, providing food, shelter, and support to the less fortunate.
-								</p>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-
-		
-		<div id="fh5co-feature-product" class="fh5co-section-gray">
-			<div class="container">
-				<div class="row">
-					<div class="col-md-12 text-center heading-section">
-						<h3>Giving is Virtue 🩷</h3>
-						<br/>
-						<div style="width: 100%; text-align: center; background: linear-gradient(45deg, #66258f, #66258f); padding: 20px; border-radius: 8px; box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);">
-							<p style="font-size: 24px; font-weight: bold; color: #fff; margin: 0; line-height: 1.6;">
-								ஒரு மனிதரை வாழ வைத்தவர் எல்லா மனிதர்களையும் வாழ வைத்தவர் போலாவார்.  
-								<br><span style="font-size: 18px; font-weight: normal;">(திருக்குர்ஆன் - 5:32)</span>
-								<br/>
-							</p>
-						</div>
-											</div>
-				</div>
-
-				
-
-				<div class="row row-bottom-padded-md">
-					<div class="col-md-12 text-center animate-box">
-						<p><img src="images/ss.png" width="100%" alt="Free HTML5 Bootstrap Template" class="img-responsive"></p>
-					</div>
-				
-				</div>
-				<div class="row">
-					<div class="col-md-4">
-						<div class="feature-text">
-							<h3>Love</h3>
-							<p>Love is the foundation of kindness, bridging hearts and creating a world of warmth and care.</p>
-						</div>
-					</div>
-					<div class="col-md-4">
-						<div class="feature-text">
-							<h3>Compassion</h3>
-							<p>True compassion is not just feeling for others, but taking action to uplift and support those in need.</p>
-						</div>
-					</div>
-					<div class="col-md-4">
-						<div class="feature-text">
-							<h3>Charity</h3>
-							<p>Charity is not just giving, but sharing hope, dignity, and a better future with those less fortunate.</p>
-						</div>
-					</div>
-				</div>
-				
-				
-			</div>
-		</div>
+      <a href="https://t.me/s/neravy_islamic_trust" target="_blank" class="telegram-float">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/8/83/Telegram_2019_Logo.svg" alt="Chat on Telegram">
+      </a>
 
 
-		
-				
- <div class="container">
-  <div class="row">
-    <div class="col-md-12 text-center heading-section">
-      <br><br><br>
-      
-      <!-- Stylish Title -->
-      <h3 style="
+      <div class="fh5co-hero">
+        <div class="fh5co-overlay"></div>
+        <div class="fh5co-cover text-center" data-stellar-background-ratio="0.5"
+          style="background-image: url(images/img3.png);">
+          <div class="desc animate-box">
+            <h2><strong>Neravy Islamic Trust</strong><i></i></h2>
+            <br>
+            <h4 style="color: white;">
+            </h4><br>
+            <span><a class="btn btn-primary" style="background-color: #66258f;" href="index-en.html">What we
+                do</a></span>
+          </div>
+        </div>
+
+
+
+      </div>
+
+
+      <!-- Feature Content with data-ta and data-eng attributes -->
+      <div id="fh5co-features">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-4">
+              <div class="feature-left">
+                <span class="icon">
+                  <i class="icon-profile-male"></i>
+                </span>
+                <div class="feature-copy">
+                  <h3 data-eng="Become a Volunteer" data-ta="ஒரு பொறுப்பாளராக ஆகுங்கள்">Become a Volunteer</h3>
+                  <p data-eng="Join hands with us to make a difference. Your time and effort can change lives and bring hope to those in need."
+                    data-ta="எங்களுடன் கைகோர்க்கவும். உங்கள் நேரம் மற்றும் முயற்சி வாழ்க்கையை மாற்றி, தேவைப்படுபவர்களுக்கு நம்பிக்கையை கொண்டு வர முடியும்.">
+                    Join hands with us to make a difference. Your time and effort can change lives and bring hope to
+                    those in need.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-4">
+              <div class="feature-left">
+                <span class="icon">
+                  <i class="icon-happy"></i>
+                </span>
+                <div class="feature-copy">
+                  <h3 data-eng="Joy of Giving" data-ta="பகிர்வின் மகிழ்ச்சி">Joy of Giving</h3>
+                  <p data-eng="True happiness lies in sharing. Your generosity brings hope and smiles to those in need."
+                    data-ta="உண்மையான மகிழ்ச்சி பகிர்வில் உள்ளது. உங்கள் பரிசுத்த மனம், தேவைப்படுபவர்களுக்கு நம்பிக்கையும், புன்னகைகளையும் கொண்டு வருகிறது.">
+                    True happiness lies in sharing. Your generosity brings hope and smiles to those in need.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-4">
+              <div class="feature-left">
+                <span class="icon">
+                  <i class="icon-wallet"></i>
+                </span>
+                <div class="feature-copy">
+                  <h3 data-eng="Make a Difference" data-ta="மாற்றத்தை உருவாக்கவும்">Make a Difference</h3>
+                  <p data-eng="Your donation transforms lives, providing food, shelter, and support to the less fortunate."
+                    data-ta="உங்கள் பணம் வாழ்க்கைகளை மாற்றுகிறது, உணவு, shelter மற்றும் ஆதரவை தகர்கின்றவர்களுக்கு வழங்குகிறது.">
+                    Your donation transforms lives, providing food, shelter, and support to the less fortunate.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <div id="fh5co-feature-product" class="fh5co-section-gray">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12 text-center heading-section">
+              <h3>Giving is Virtue 🩷</h3>
+              <br />
+              <div
+                style="width: 100%; text-align: center; background: linear-gradient(45deg, #66258f, #66258f); padding: 20px; border-radius: 8px; box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);">
+                <p style="font-size: 24px; font-weight: bold; color: #fff; margin: 0; line-height: 1.6;">
+                  ஒரு மனிதரை வாழ வைத்தவர் எல்லா மனிதர்களையும் வாழ வைத்தவர் போலாவார்.
+                  <br><span style="font-size: 18px; font-weight: normal;">(திருக்குர்ஆன் - 5:32)</span>
+                  <br />
+                </p>
+              </div>
+            </div>
+          </div>
+
+
+
+          <div class="row row-bottom-padded-md">
+            <div class="col-md-12 text-center animate-box">
+              <p><img src="images/ss.png" width="100%" alt="Free HTML5 Bootstrap Template" class="img-responsive"></p>
+            </div>
+
+          </div>
+          <div class="row">
+            <div class="col-md-4">
+              <div class="feature-text">
+                <h3>Love</h3>
+                <p>Love is the foundation of kindness, bridging hearts and creating a world of warmth and care.</p>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="feature-text">
+                <h3>Compassion</h3>
+                <p>True compassion is not just feeling for others, but taking action to uplift and support those in
+                  need.</p>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="feature-text">
+                <h3>Charity</h3>
+                <p>Charity is not just giving, but sharing hope, dignity, and a better future with those less fortunate.
+                </p>
+              </div>
+            </div>
+          </div>
+
+
+        </div>
+      </div>
+
+
+
+
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12 text-center heading-section">
+            <br><br><br>
+
+            <!-- Stylish Title -->
+            <h3 style="
         font-size: 28px; 
         font-weight: bold; 
         text-transform: uppercase; 
@@ -304,200 +320,202 @@
         display: inline-block;
         padding-bottom: 8px;
         border-bottom: 3px solid #ff5722;">
-        Featured
-      </h3>
-      
-      <br><br>
+              Featured
+            </h3>
 
-      <!-- Featured Highlights Section -->
-      <div id="featured-highlights" style="
+            <br><br>
+
+            <!-- Featured Highlights Section -->
+            <div id="featured-highlights" style="
         display: flex; 
         flex-wrap: wrap; 
         gap: 20px; 
         justify-content: center;">
-        <!-- Dynamic highlights will be loaded here -->
+              <!-- Dynamic highlights will be loaded here -->
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
-  </div>
-</div>
 
-<style>
-  /* Featured Highlight Box */
-  .highlight-box {
-    background: rgba(255, 255, 255, 0.9);
-    border-radius: 12px;
-    padding: 20px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-  }
+      <style>
+        /* Featured Highlight Box */
+        .highlight-box {
+          background: rgba(255, 255, 255, 0.9);
+          border-radius: 12px;
+          padding: 20px;
+          box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+          transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        }
 
-  .highlight-box:hover {
-    transform: translateY(-5px);
-    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.15);
-  }
+        .highlight-box:hover {
+          transform: translateY(-5px);
+          box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.15);
+        }
 
-  /* Responsive Adjustments */
-  @media (max-width: 768px) {
-    .highlight-box {
-      padding: 15px;
-    }
-  }
-</style>
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+          .highlight-box {
+            padding: 15px;
+          }
+        }
+      </style>
 
-				  
-<script>
-  const featuredBaseUrl = "https://neravy-islamic-trust.netlify.app/public"; // Unique Base URL for Featured
 
-  fetch("https://neravy-islamic-trust.netlify.app/content/featured/featured.json")
-    .then(response => {
-      if (!response.ok) {
-        throw new Error("Failed to load featured highlights");
-      }
-      return response.json();
-    })
-    .then(data => {
-      const featuredContainer = document.getElementById("featured-highlights");
+      <script>
+        const featuredBaseUrl = "https://neravy-islamic-trust.netlify.app/public"; // Unique Base URL for Featured
 
-      if (!data.highlights || !Array.isArray(data.highlights) || data.highlights.length === 0) {
-        // If no highlights, show a fallback message
-        featuredContainer.innerHTML = `
+        fetch("https://neravy-islamic-trust.netlify.app/content/featured/featured.json")
+          .then(response => {
+            if (!response.ok) {
+              throw new Error("Failed to load featured highlights");
+            }
+            return response.json();
+          })
+          .then(data => {
+            const featuredContainer = document.getElementById("featured-highlights");
+
+            if (!data.highlights || !Array.isArray(data.highlights) || data.highlights.length === 0) {
+              // If no highlights, show a fallback message
+              featuredContainer.innerHTML = `
           <p class="no-featured-message">
             📝 No featured updates at the moment. Stay tuned!
           </p>
         `;
-        return;
-      }
+              return;
+            }
 
-      let highlightsHTML = '';
+            let highlightsHTML = '';
 
-      // Loop through all featured highlights
-      data.highlights.forEach(item => {
-        const title = item.title || "Untitled";
-        const description = item.description || "No description available";
-        const imageUrl = item.image ? `${featuredBaseUrl}${item.image}` : '';  
+            // Loop through all featured highlights
+            data.highlights.forEach(item => {
+              const title = item.title || "Untitled";
+              const description = item.description || "No description available";
+              const imageUrl = item.image ? `${featuredBaseUrl}${item.image}` : '';
 
-        highlightsHTML += `
+              highlightsHTML += `
           <div class="highlight-box">
             <p class="highlight-text">
               <strong>${title}</strong><br><br>
               ${description}
             </p>
-            ${imageUrl 
-              ? `<img src="${imageUrl}" class="highlight-image">` 
-              : ''} <!-- No image handling -->
+            ${imageUrl
+                  ? `<img src="${imageUrl}" class="highlight-image">`
+                  : ''} <!-- No image handling -->
           </div>
         `;
-      });
+            });
 
-      // Insert into HTML
-      featuredContainer.innerHTML = highlightsHTML;
-    })
-    .catch(error => {
-      console.error("Error loading featured highlights:", error);
-      document.getElementById("featured-highlights").innerHTML = `
+            // Insert into HTML
+            featuredContainer.innerHTML = highlightsHTML;
+          })
+          .catch(error => {
+            console.error("Error loading featured highlights:", error);
+            document.getElementById("featured-highlights").innerHTML = `
         <p class="no-featured-message">
           📝 No featured updates at the moment. Stay tuned!
         </p>
       `;
-    });
-</script>
+          });
+      </script>
 
-<style>
-  /* Featured Highlight Box */
-  .highlight-box {
-    background: rgba(255, 255, 255, 0.95);
-    border-radius: 12px;
-    padding: 20px;
-    text-align: center;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-    width: 100%;
-  }
+      <style>
+        /* Featured Highlight Box */
+        .highlight-box {
+          background: rgba(255, 255, 255, 0.95);
+          border-radius: 12px;
+          padding: 20px;
+          text-align: center;
+          box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+          transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+          width: 100%;
+        }
 
-  .highlight-box:hover {
-    transform: translateY(-5px);
-    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.15);
-  }
+        .highlight-box:hover {
+          transform: translateY(-5px);
+          box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.15);
+        }
 
-  /* Featured Image */
-  .highlight-image {
-    display: block;
-    margin: 15px auto 0;
-    width: 90%;
-    border-radius: 10px;
-  }
+        /* Featured Image */
+        .highlight-image {
+          display: block;
+          margin: 15px auto 0;
+          width: 90%;
+          border-radius: 10px;
+        }
 
-  /* No-Feature Message */
-  .no-featured-message {
-    font-size: 16px;
-    color: #666;
-    background: #f9f9f9;
-    padding: 12px 20px;
-    border-radius: 8px;
-    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
-    text-align: center;
-  }
+        /* No-Feature Message */
+        .no-featured-message {
+          font-size: 16px;
+          color: #666;
+          background: #f9f9f9;
+          padding: 12px 20px;
+          border-radius: 8px;
+          box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+          text-align: center;
+        }
 
-  /* Responsive Adjustments */
-  @media (max-width: 768px) {
-    .highlight-box {
-      padding: 15px;
-    }
-  }
-</style>
-
-  
-
-		<div id="fh5co-portfolio">
-			<div class="container">
-				<section id="gallery">
-
-				<div class="row">
-					<div class="col-md-6 col-md-offset-3 text-center heading-section animate-box">
-						<h3>Our Gallery</h3>
-						<p style="text-align: center">
-
-							"உங்களுக்குப் பிரியமான பொருளிலிருந்து நீங்கள் (தானமாக) செலவு செய்யாத வரையில் நிச்சயமாக நீங்கள் நன்மையடைய மாட்டீர்கள். ஒரு சொற்பத்தை நீங்கள் தானம் செய்தபோதிலும் நிச்சயமாக அல்லாஹ் அதனையும் நன்கறிவான்."
-							(அல்குர்ஆன் : 3:92)	
-					</div>
-
-				</div>
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+          .highlight-box {
+            padding: 15px;
+          }
+        }
+      </style>
 
 
-				<div class="row row-bottom-padded-md">
-					<div class="col-md-12">
-						<ul id="fh5co-portfolio-list">
-							<!-- Images will be dynamically inserted here -->
-						</ul>
-					</div>
-				</div>
 
-<script>
-const baseUrl = "https://neravy-islamic-trust.netlify.app/public"; // Base URL for images
+      <div id="fh5co-portfolio">
+        <div class="container">
+          <section id="gallery">
 
-fetch("https://neravy-islamic-trust.netlify.app/content/gallery/gallery.json")
-  .then(response => {
-    if (!response.ok) {
-      throw new Error("Failed to load gallery data");
-    }
-    return response.json();
-  })
-  .then(data => {
-    if (!data.gallery || !Array.isArray(data.gallery)) {
-      throw new Error("Invalid gallery format.");
-    }
+            <div class="row">
+              <div class="col-md-6 col-md-offset-3 text-center heading-section animate-box">
+                <h3>Our Gallery</h3>
+                <p style="text-align: center">
 
-    let galleryHTML = '';
+                  "உங்களுக்குப் பிரியமான பொருளிலிருந்து நீங்கள் (தானமாக) செலவு செய்யாத வரையில் நிச்சயமாக நீங்கள்
+                  நன்மையடைய மாட்டீர்கள். ஒரு சொற்பத்தை நீங்கள் தானம் செய்தபோதிலும் நிச்சயமாக அல்லாஹ் அதனையும்
+                  நன்கறிவான்."
+                  (அல்குர்ஆன் : 3:92)
+              </div>
 
-    // Loop through all gallery items
-    data.gallery.forEach(item => {
-      const title = item.title || "Untitled";
-      const imageUrl = item.image
-        ? `${baseUrl}${item.image}`  // Ensure full URL
-        : "https://via.placeholder.com/300";  
-      const description = item.description || "No description available";
+            </div>
 
-      galleryHTML += `
+
+            <div class="row row-bottom-padded-md">
+              <div class="col-md-12">
+                <ul id="fh5co-portfolio-list">
+                  <!-- Images will be dynamically inserted here -->
+                </ul>
+              </div>
+            </div>
+
+            <script>
+              const baseUrl = "https://neravy-islamic-trust.netlify.app/public"; // Base URL for images
+
+              fetch("https://neravy-islamic-trust.netlify.app/content/gallery/gallery.json")
+                .then(response => {
+                  if (!response.ok) {
+                    throw new Error("Failed to load gallery data");
+                  }
+                  return response.json();
+                })
+                .then(data => {
+                  if (!data.gallery || !Array.isArray(data.gallery)) {
+                    throw new Error("Invalid gallery format.");
+                  }
+
+                  let galleryHTML = '';
+
+                  // Loop through all gallery items
+                  data.gallery.forEach(item => {
+                    const title = item.title || "Untitled";
+                    const imageUrl = item.image
+                      ? `${baseUrl}${item.image}`  // Ensure full URL
+                      : "https://via.placeholder.com/300";
+                    const description = item.description || "No description available";
+
+                    galleryHTML += `
         <li class="one-third animate-box" style="background-image: url(${imageUrl});">
           <a class="color-4">
             <div class="case-studies-summary">
@@ -517,286 +535,297 @@ fetch("https://neravy-islamic-trust.netlify.app/content/gallery/gallery.json")
           </a>
         </li>
       `;
-    });
+                  });
 
-    // Insert into HTML
-    document.getElementById("fh5co-portfolio-list").innerHTML = galleryHTML;
-  })
-  .catch(error => console.error("Error loading gallery:", error));
-
-
-</script>
+                  // Insert into HTML
+                  document.getElementById("fh5co-portfolio-list").innerHTML = galleryHTML;
+                })
+                .catch(error => console.error("Error loading gallery:", error));
 
 
-				<div class="row">
-					<div class="col-md-4 col-md-offset-4 text-center animate-box">
-						<a href="https://www.instagram.com/neravy_islamic_trust/" target="_blank" class="btn btn-primary btn-lg">See More</a>
-					</div>
-				</div>
-			</section>
+            </script>
 
 
-			</div>
-		</div>
-
-		
-		<div id="fh5co-content-section" class="fh5co-section-gray">
-			<div class="container">
-				<div class="row text-center">
-					<div class="col-md-8 col-md-offset-2">
-						<h2 style="font-weight: bold; color: #333;">Making a Difference Together</h2>
-						<p style="font-size: 18px; color: #666;">
-							Every small effort creates a big impact. Join us in our mission to support the underprivileged through 
-							education, healthcare, financial aid, and community-driven initiatives.
-						</p>
-
-						<p><strong>“அல்லாஹ்வுடைய நிழலைத் தவிர வேறு நிழல் இல்லாத நாளான மறுமை நாளில் அல்லாஹ் தனது நிழலை ஏழு பேருக்கு அளிக்கின்றான். அவர்களில் ஒருவர்: தம்முடைய வலக்கரம் செய்யும் தர்மத்தை இடக்கரம் அறியாதவாறு இரகசியமாக தர்மம் செய்பவர்.”</strong></p>  
-<p><strong>அறிவிப்பவர்:</strong> அபூஹுரைரா (ரலி)</p>  
-<p><strong>நூல்:</strong> புகாரி 660</p>
-
-					</div>
-					<span><a class="btn btn-primary btn-lg" href="donate.html">Want to Contibute?</a></span>
-
-				</div>
-			</div>
-		</div>
-		
-		<!-- fh5co-content-section -->
-
-		<div id="fh5co-services-section">
-			<div class="container">
-				<div class="row">
-					<div class="col-md-8 col-md-offset-2 text-center heading-section animate-box">
-						<h3>Our Donations</h3>
-					<p>“பேரீச்சம் பழத்தின் சிறு துண்டையேனும் (தர்மம் செய்வதை) கொண்டாவது நரக நெருப்பில் இருந்து (உங்களை) பாதுகாத்துக்கொள்ளுங்கள்.”</p>  
-<p><strong>அறிவிப்பவர்:</strong> அதீ இப்னு ஹாத்திம் (ரலி) | <strong>நூல்:</strong> புகாரி 1417</p>
-					</div>
-				</div>
-			</div>
-			<div class="container">
-				<div class="row text-center">
-					<div class="col-md-4 col-sm-4">
-						<div class="services animate-box">
-							<span><i class="icon-leaf"></i></span>
-							<h3>Tree Plantation Initiative</h3>
-							<p>Promoting a greener future by planting trees to combat deforestation and climate change.</p>
-						</div>
-						
-					</div>
-					<div class="col-md-4 col-sm-4">
-						<div class="services animate-box">
-							<span><i class="icon-bowl"></i></span>
-							<h3>Food & Meal Distribution</h3>
-							<p>Providing nutritious meals to those in need, ensuring no one goes hungry.</p>
-						</div>
-						
-					</div>
-					<div class="col-md-4 col-sm-4">
-						<div class="services animate-box">
-							<span><i class="icon-graduation-cap"></i></span>
-							<h3>Educational & Financial Assistance</h3>
-							<p>Supporting students with learning materials, scholarships, and financial aid for a brighter future.</p>
-						</div>
-						
-					</div>
-					<div class="col-md-4 col-sm-4">
-						<div class="services animate-box">
-							<span><i class="icon-heart3"></i></span>
-							<h3>Medical Emergency Fundraising</h3>
-							<p>Raising funds to provide urgent medical care, treatment, and support for those in critical need.</p>
-						</div>
-						
-					</div>
-					<div class="col-md-4 col-sm-4">
-						<div class="services animate-box">
-							<span><i class="icon-wallet"></i></span>
-							<h3>Financial Support</h3>
-							<p>Providing essential financial aid to individuals and families facing hardships, ensuring stability and hope.</p>
-						</div>
-						
-					</div>
-					<div class="col-md-4 col-sm-4">
-						<div class="services animate-box">
-							<span><i class="icon-lifesaver"></i></span>
-							<h3>Flood & Disaster Relief</h3>
-							<p>Providing urgent financial assistance to support victims of floods and natural disasters, helping them rebuild their lives.</p>
-						</div>
-						
-					</div>
-				</div>
-			</div>
-		</div>
-
-		<!-- END What we do -->
+            <div class="row">
+              <div class="col-md-4 col-md-offset-4 text-center animate-box">
+                <a href="https://www.instagram.com/neravy_islamic_trust/" target="_blank"
+                  class="btn btn-primary btn-lg">See More</a>
+              </div>
+            </div>
+          </section>
 
 
-			
-
-
-
-<div id="fh5co-recent-works">
-  <div class="container">
-    <section id="recent-works">
-      <div class="row">
-        <div class="col-md-6 col-md-offset-3 text-center heading-section animate-box">
-          <h3>Recent Works</h3>
-          <p style="text-align: center">
-            “நீ (தர்மம் செய்யாமல்) முடிந்து வைத்துக் கொள்ளாதே! அவ்வாறு செய்தால் (இறைவனின் அருள்) உனக்கு (வழங்கப் படாமல்) முடிந்து வைத்துக் கொள்ளப்படும்.”
-            <br><br>
-            <strong>அறிவிப்பவர்:</strong> அஸ்மா (ரலி)<br>
-            <strong>நூல்:</strong> புகாரி 1433, 1434
-          </p>
         </div>
       </div>
 
-      <div class="row row-bottom-padded-md">
-        <div class="col-md-12">
-          <ul id="fh5co-recent-works-list" class="recent-works-grid"></ul>
+
+      <div id="fh5co-content-section" class="fh5co-section-gray">
+        <div class="container">
+          <div class="row text-center">
+            <div class="col-md-8 col-md-offset-2">
+              <h2 style="font-weight: bold; color: #333;">Making a Difference Together</h2>
+              <p style="font-size: 18px; color: #666;">
+                Every small effort creates a big impact. Join us in our mission to support the underprivileged through
+                education, healthcare, financial aid, and community-driven initiatives.
+              </p>
+
+              <p><strong>“அல்லாஹ்வுடைய நிழலைத் தவிர வேறு நிழல் இல்லாத நாளான மறுமை நாளில் அல்லாஹ் தனது நிழலை ஏழு பேருக்கு
+                  அளிக்கின்றான். அவர்களில் ஒருவர்: தம்முடைய வலக்கரம் செய்யும் தர்மத்தை இடக்கரம் அறியாதவாறு இரகசியமாக
+                  தர்மம் செய்பவர்.”</strong></p>
+              <p><strong>அறிவிப்பவர்:</strong> அபூஹுரைரா (ரலி)</p>
+              <p><strong>நூல்:</strong> புகாரி 660</p>
+
+            </div>
+            <span><a class="btn btn-primary btn-lg" href="donate.html">Want to Contibute?</a></span>
+
+          </div>
         </div>
       </div>
-    </section>
-  </div>
-</div>
 
-<style>
+      <!-- fh5co-content-section -->
 
-	.section-title {
-				font-size: 30px;
-				font-weight: bold;
-				margin-bottom: 20px;
-				color: #66258f;
-			}
-	
-			.section-description {
-				font-size: 18px;
-				margin-bottom: 20px;
-				color: #333;
-				line-height: 1.6;
-				max-width: 800px;
-				margin-left: auto;
-				margin-right: auto;
-			}
-	
-			.redirect-button {
-				color: #66258f;
-				font-size: 18px;
-				padding: 12px 25px;
-				border: 3px solid #66258f;
-				border-radius: 5px;
-				cursor: pointer;
-				text-decoration: none;
-				transition: background-color 0.3s ease;
-			}
-	
-	
-	
-			/* Responsive Design */
-			@media (max-width: 768px) {
-				.container {
-					padding: 30px;
-				}
-	
-				.section-title {
-					font-size: 24px;
-				}
-	
-				.section-description {
-					font-size: 16px;
-				}
-			}
-			</style>
-<!-- Prophet Sayings Section -->
-<br>
-<br>
-<div class="container">
-    <h2 class="section-title">Hadhees Reflections</h2>
-    <p class="section-description">
+      <div id="fh5co-services-section">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-8 col-md-offset-2 text-center heading-section animate-box">
+              <h3>Our Donations</h3>
+              <p>“பேரீச்சம் பழத்தின் சிறு துண்டையேனும் (தர்மம் செய்வதை) கொண்டாவது நரக நெருப்பில் இருந்து (உங்களை)
+                பாதுகாத்துக்கொள்ளுங்கள்.”</p>
+              <p><strong>அறிவிப்பவர்:</strong> அதீ இப்னு ஹாத்திம் (ரலி) | <strong>நூல்:</strong> புகாரி 1417</p>
+            </div>
+          </div>
+        </div>
+        <div class="container">
+          <div class="row text-center">
+            <div class="col-md-4 col-sm-4">
+              <div class="services animate-box">
+                <span><i class="icon-leaf"></i></span>
+                <h3>Tree Plantation Initiative</h3>
+                <p>Promoting a greener future by planting trees to combat deforestation and climate change.</p>
+              </div>
 
-        The sayings of Prophet guide us to help others and fulfill their needs. These teachings inspire us to act with kindness and show us the true reasons to engage in charity. <br><br> Let us transform these teachings into actions, share love and help, and create change in the world.
-    </p>
-    <br>
-    <br> <br>
-    <a href="sayings.html" class="redirect-button">Read the Sayings</a>
-</div>
-<br>
-<br>
-<br>
-<br>
+            </div>
+            <div class="col-md-4 col-sm-4">
+              <div class="services animate-box">
+                <span><i class="icon-bowl"></i></span>
+                <h3>Food & Meal Distribution</h3>
+                <p>Providing nutritious meals to those in need, ensuring no one goes hungry.</p>
+              </div>
 
-<style>
-  .recent-works-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsive 3 per row */
-    gap: 20px;
-    padding: 0;
-    list-style: none;
-  }
+            </div>
+            <div class="col-md-4 col-sm-4">
+              <div class="services animate-box">
+                <span><i class="icon-graduation-cap"></i></span>
+                <h3>Educational & Financial Assistance</h3>
+                <p>Supporting students with learning materials, scholarships, and financial aid for a brighter future.
+                </p>
+              </div>
 
-  .recent-work-item {
-    background: #fff;
-    border-radius: 10px;
-    overflow: hidden;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
-    transition: transform 0.3s ease-in-out;
-  }
+            </div>
+            <div class="col-md-4 col-sm-4">
+              <div class="services animate-box">
+                <span><i class="icon-heart3"></i></span>
+                <h3>Medical Emergency Fundraising</h3>
+                <p>Raising funds to provide urgent medical care, treatment, and support for those in critical need.</p>
+              </div>
 
-  .recent-work-item:hover {
-    transform: translateY(-5px);
-  }
+            </div>
+            <div class="col-md-4 col-sm-4">
+              <div class="services animate-box">
+                <span><i class="icon-wallet"></i></span>
+                <h3>Financial Support</h3>
+                <p>Providing essential financial aid to individuals and families facing hardships, ensuring stability
+                  and hope.</p>
+              </div>
 
-  .recent-work-item img {
-    width: 100%;
-    height: 600px; /* Keeps images elongated */
-    object-fit: cover;
-    display: block;
-  }
+            </div>
+            <div class="col-md-4 col-sm-4">
+              <div class="services animate-box">
+                <span><i class="icon-lifesaver"></i></span>
+                <h3>Flood & Disaster Relief</h3>
+                <p>Providing urgent financial assistance to support victims of floods and natural disasters, helping
+                  them rebuild their lives.</p>
+              </div>
 
-  .recent-work-content {
-    padding: 15px;
-    text-align: center;
-  }
+            </div>
+          </div>
+        </div>
+      </div>
 
-  .recent-work-title {
-    font-size: 18px;
-    font-weight: bold;
-    color: #333;
-    margin-bottom: 8px;
-  }
-
-  .recent-work-description {
-    font-size: 14px;
-    color: #666;
-  }
-</style>
+      <!-- END What we do -->
 
 
 
 
-<script>
-const recentWorksBaseUrl = "https://neravy-islamic-trust.netlify.app/public"; 
 
-fetch("https://neravy-islamic-trust.netlify.app/content/recent-works/recent-works.json")
-  .then(response => {
-    if (!response.ok) {
-      throw new Error("Failed to load recent works data");
-    }
-    return response.json();
-  })
-  .then(data => {
-    if (!data.works || !Array.isArray(data.works)) {
-      throw new Error("Invalid recent works format.");
-    }
 
-    let worksHTML = '';
+      <div id="fh5co-recent-works">
+        <div class="container">
+          <section id="recent-works">
+            <div class="row">
+              <div class="col-md-6 col-md-offset-3 text-center heading-section animate-box">
+                <h3>Recent Works</h3>
+                <p style="text-align: center">
+                  “நீ (தர்மம் செய்யாமல்) முடிந்து வைத்துக் கொள்ளாதே! அவ்வாறு செய்தால் (இறைவனின் அருள்) உனக்கு (வழங்கப்
+                  படாமல்) முடிந்து வைத்துக் கொள்ளப்படும்.”
+                  <br><br>
+                  <strong>அறிவிப்பவர்:</strong> அஸ்மா (ரலி)<br>
+                  <strong>நூல்:</strong> புகாரி 1433, 1434
+                </p>
+              </div>
+            </div>
 
-    data.works.forEach(item => {
-      const title = item.title || "Untitled";
-      const description = item.description || "No description available.";
-      const imageUrl = item.image
-        ? `${recentWorksBaseUrl}${item.image}`  
-        : "https://via.placeholder.com/300";  
+            <div class="row row-bottom-padded-md">
+              <div class="col-md-12">
+                <ul id="fh5co-recent-works-list" class="recent-works-grid"></ul>
+              </div>
+            </div>
+          </section>
+        </div>
+      </div>
 
-      worksHTML += `
+      <style>
+        .section-title {
+          font-size: 30px;
+          font-weight: bold;
+          margin-bottom: 20px;
+          color: #66258f;
+        }
+
+        .section-description {
+          font-size: 18px;
+          margin-bottom: 20px;
+          color: #333;
+          line-height: 1.6;
+          max-width: 800px;
+          margin-left: auto;
+          margin-right: auto;
+        }
+
+        .redirect-button {
+          color: #66258f;
+          font-size: 18px;
+          padding: 12px 25px;
+          border: 3px solid #66258f;
+          border-radius: 5px;
+          cursor: pointer;
+          text-decoration: none;
+          transition: background-color 0.3s ease;
+        }
+
+
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+          .container {
+            padding: 30px;
+          }
+
+          .section-title {
+            font-size: 24px;
+          }
+
+          .section-description {
+            font-size: 16px;
+          }
+        }
+      </style>
+      <!-- Prophet Sayings Section -->
+      <br>
+      <br>
+      <div class="container">
+        <h2 class="section-title">Hadhees Reflections</h2>
+        <p class="section-description">
+
+          The sayings of Prophet guide us to help others and fulfill their needs. These teachings inspire us to act with
+          kindness and show us the true reasons to engage in charity. <br><br> Let us transform these teachings into
+          actions, share love and help, and create change in the world.
+        </p>
+        <br>
+        <br> <br>
+        <a href="sayings.html" class="redirect-button">Read the Sayings</a>
+      </div>
+      <br>
+      <br>
+      <br>
+      <br>
+
+      <style>
+        .recent-works-grid {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+          /* Responsive 3 per row */
+          gap: 20px;
+          padding: 0;
+          list-style: none;
+        }
+
+        .recent-work-item {
+          background: #fff;
+          border-radius: 10px;
+          overflow: hidden;
+          box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
+          transition: transform 0.3s ease-in-out;
+        }
+
+        .recent-work-item:hover {
+          transform: translateY(-5px);
+        }
+
+        .recent-work-item img {
+          width: 100%;
+          height: 600px;
+          /* Keeps images elongated */
+          object-fit: cover;
+          display: block;
+        }
+
+        .recent-work-content {
+          padding: 15px;
+          text-align: center;
+        }
+
+        .recent-work-title {
+          font-size: 18px;
+          font-weight: bold;
+          color: #333;
+          margin-bottom: 8px;
+        }
+
+        .recent-work-description {
+          font-size: 14px;
+          color: #666;
+        }
+      </style>
+
+
+
+
+      <script>
+        const recentWorksBaseUrl = "https://neravy-islamic-trust.netlify.app/public";
+
+        fetch("https://neravy-islamic-trust.netlify.app/content/recent-works/recent-works.json")
+          .then(response => {
+            if (!response.ok) {
+              throw new Error("Failed to load recent works data");
+            }
+            return response.json();
+          })
+          .then(data => {
+            if (!data.works || !Array.isArray(data.works)) {
+              throw new Error("Invalid recent works format.");
+            }
+
+            let worksHTML = '';
+
+            data.works.forEach(item => {
+              const title = item.title || "Untitled";
+              const description = item.description || "No description available.";
+              const imageUrl = item.image
+                ? `${recentWorksBaseUrl}${item.image}`
+                : "https://via.placeholder.com/300";
+
+              worksHTML += `
         <li class="recent-work-item">
           <img src="${imageUrl}" alt="${title}">
           <div class="recent-work-content">
@@ -805,64 +834,67 @@ fetch("https://neravy-islamic-trust.netlify.app/content/recent-works/recent-work
           </div>
         </li>
       `;
-    });
+            });
 
-    document.getElementById("fh5co-recent-works-list").innerHTML = worksHTML;
-  })
-  .catch(error => console.error("Error loading recent works:", error));
-</script>
-
-
-
-		<footer>
-			<div id="footer">
-				<div class="container">
-					<div class="row">
-						<div class="col-md-6 col-md-offset-3 text-center">
-							<p class="fh5co-social-icons">
-								<a href="https://t.me/neravy_islamic_trust"><i class="icon-telegram"></i></a>
-								<a href="https://www.facebook.com/share/1M2ApVS95G/"><i class="icon-facebook2"></i></a>
-								<a href="https://www.instagram.com/neravy_islamic_trust/"><i class="icon-instagram"></i></a>
-								<a href="#"><i class="icon-youtube"></i></a>
-							</p>							
-							<p>
-								Copyright <script>document.write(new Date().getFullYear());</script> Neravy Islamic Trust. All Rights Reserved. <br>
-								Made with <i class="icon-heart3"></i> by Neravy Islamic Trust <br>
-								Powered by <a href="https://webakery.netlify.app" style="color: rgb(255, 255, 255); text-decoration: underline;" target="_blank">Webakery</a>
-							</p>
-							
-						</div>
-					</div>
-				</div>
-			</div>
-			
-		</footer>
-	
-
-	<!-- END fh5co-page -->
-
-	<!-- jQuery -->
+            document.getElementById("fh5co-recent-works-list").innerHTML = worksHTML;
+          })
+          .catch(error => console.error("Error loading recent works:", error));
+      </script>
 
 
-	<script src="js/jquery.min.js"></script>
-	<!-- jQuery Easing -->
-	<script src="js/jquery.easing.1.3.js"></script>
-	<!-- Bootstrap -->
-	<script src="js/bootstrap.min.js"></script>
-	<!-- Waypoints -->
-	<script src="js/jquery.waypoints.min.js"></script>
-	<script src="js/sticky.js"></script>
 
-	<!-- Stellar -->
-	<script src="js/jquery.stellar.min.js"></script>
-	<!-- Superfish -->
-	<script src="js/hoverIntent.js"></script>
-	<script src="js/superfish.js"></script>
-	
-	<!-- Main JS -->
-	<script src="js/main.js"></script>
+      <footer>
+        <div id="footer">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-6 col-md-offset-3 text-center">
+                <p class="fh5co-social-icons">
+                  <a href="https://t.me/neravy_islamic_trust"><i class="icon-telegram"></i></a>
+                  <a href="https://www.facebook.com/share/1M2ApVS95G/"><i class="icon-facebook2"></i></a>
+                  <a href="https://www.instagram.com/neravy_islamic_trust/"><i class="icon-instagram"></i></a>
+                  <a href="#"><i class="icon-youtube"></i></a>
+                </p>
+                <p>
+                  Copyright
+                  <script>document.write(new Date().getFullYear());</script> Neravy Islamic Trust. All Rights Reserved.
+                  <br>
+                  Made with <i class="icon-heart3"></i> by Neravy Islamic Trust <br>
+                  Powered by <a href="https://webakery.netlify.app"
+                    style="color: rgb(255, 255, 255); text-decoration: underline;" target="_blank">Webakery</a>
+                </p>
 
-	
-	</body>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </footer>
+
+
+      <!-- END fh5co-page -->
+
+      <!-- jQuery -->
+
+
+      <script src="js/jquery.min.js"></script>
+      <!-- jQuery Easing -->
+      <script src="js/jquery.easing.1.3.js"></script>
+      <!-- Bootstrap -->
+      <script src="js/bootstrap.min.js"></script>
+      <!-- Waypoints -->
+      <script src="js/jquery.waypoints.min.js"></script>
+      <script src="js/sticky.js"></script>
+
+      <!-- Stellar -->
+      <script src="js/jquery.stellar.min.js"></script>
+      <!-- Superfish -->
+      <script src="js/hoverIntent.js"></script>
+      <script src="js/superfish.js"></script>
+
+      <!-- Main JS -->
+      <script src="js/main.js"></script>
+
+
+</body>
+
 </html>
-

@@ -1,355 +1,382 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Admin Dashboard</title>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-    <style>
-      body {
-        font-family: Arial, sans-serif;
-        margin: 0;
-        padding: 0;
-        display: flex;
-        min-height: 100vh;
-        background-color: #f8f9fa;
-      }
-      h2 {
-        color: #333;
-        margin-bottom: 20px;
-      }
-      .sidebar {
-        width: 250px;
-        background-color: #ffffff;
-        position: fixed;
-        top: 0;
-        left: 0;
-        bottom: 0;
-        padding: 20px;
-        box-shadow: 4px 0 6px rgba(0, 0, 0, 0.1);
-        z-index: 1000;
-        transition: all 0.3s ease;
-      }
-      .sidebar h3 {
-        color: #333;
-        margin-bottom: 20px;
-      }
-      .sidebar input,
-      .sidebar button {
-        width: 60%;
-        padding: 10px;
-        margin: 10px 0;
-        border: 1px solid #ddd;
-        border-radius: 5px;
-      }
-      .sidebar button {
-        background-color: #28a745;
-        color: white;
-        font-size: 16px;
-        cursor: pointer;
-      }
-      .sidebar button:hover {
-        background-color: #218838;
-      }
-      .content {
-        margin-left: 250px;
-        padding: 20px;
-        flex-grow: 1;
-        transition: all 0.3s ease;
-      }
-      .filter-container {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 10px;
-        margin-bottom: 20px;
-      }
-      .filter-container label {
-        font-weight: bold;
-      }
-      .filter-container input,
-      .filter-container select,
-      .filter-container button {
-        padding: 10px;
-        border: 1px solid #ddd;
-        border-radius: 5px;
-      }
-      .filter-container button {
-        background-color: #007bff;
-        color: white;
-        cursor: pointer;
-        border: none;
-      }
-      .table-container {
-        overflow-x: auto;
-      }
-      table {
-        width: 80%;
-        min-width: 800px;
-        border-collapse: collapse;
-        background: white;
-        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-        border-radius: 10px;
-        overflow: hidden;
-        margin-left: 10%;
-      }
-      th,
-      td {
-        padding: 10px;
-        border: 1px solid #ddd;
-        text-align: center;
-      }
-      th {
-        background-color: #007bff;
-        color: white;
-      }
-      tr.verified {
-        background-color: #d4edda; /* Light Green */
-      }
-      tr.unverified {
-        background-color: #f8d7da; /* Light Red */
-      }
-      .pagination {
-        margin-top: 20px;
-        margin-left: 10%;
-      }
-      .pagination button {
-        padding: 10px;
-        margin: 5px;
-        border: none;
-        border-radius: 5px;
-        background-color: #007bff;
-        color: white;
-        cursor: pointer;
-      }
-      .pagination button:disabled {
-        background-color: #ccc;
-      }
-      .sidebar-toggle {
-        position: absolute;
-        top: 20px;
-        right: -40px;
-        color: white;
-        font-size: 20px;
-        width: 10px;
-        height: 30px;
-        border: none;
-        border-radius: 50%;
-        cursor: pointer;
-      }
-      /* Responsive Design */
-      @media (max-width: 768px) {
-        .sidebar {
-          width: 200px;
-        }
-        .content {
-          margin-left: 200px;
-        }
-        .filter-container {
-          flex-direction: column;
-          align-items: center;
-        }
-        table {
-          min-width: 100%;
-        }
-      }
-    </style>
-  </head>
-  <body>
 
-    <!-- Sidebar with Change Password Form -->
-    <div class="sidebar" id="sidebar" style="display: none;">
-      <h3>Change Admin Password</h3>
-      <input
-        type="password"
-        id="currentPassword"
-        placeholder="Current Password"
-      />
-      <input type="password" id="newPassword" placeholder="New Password" />
-      <button onclick="changePassword()">Change Password</button>
-      <p id="passwordMessage" style="color: red"></p>
-    </div>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="theme-color" content="#66258f">
 
-    <!-- Main Content Area -->
-    <div class="content" id="content" style="display: none;">
-      <h2 style="margin-left: 10%">Donation Records</h2>
-
-      <div class="filter-container">
-        <label for="filterDate">Filter by Date:</label>
-        <input type="date" id="filterDate" />
-        <br /><br />
-        <label for="filterVerified">Filter by Verification:</label>
-        <select id="filterVerified">
-          <option value="">All</option>
-          <option value="Yes">Verified</option>
-          <option value="No">Unverified</option>
-        </select>
-
-        <button onclick="fetchData()">Filter</button>
-      </div>
-
-      <div class="table-container">
-        <table>
-          <thead>
-            <tr>
-              <th>Name</th>
-              <th>Email</th>
-              <th>WhatsApp</th>
-              <th>Transaction ID</th>
-              <th>Amount</th>
-              <th>Date</th>
-              <th>Verified</th>
-              <th>Get Receipt</th>
-              <th>Actions</th>
-              <th>Delete</th>
-            </tr>
-          </thead>
-          <tbody id="donationTable"></tbody>
-        </table>
-      </div>
-
-      <div class="pagination">
-        <button id="prevPage" onclick="prevPage()" disabled>Previous</button>
-        <span id="pageNumber">Page 1</span>
-        <button id="nextPage" onclick="nextPage()" disabled>Next</button>
-      </div>
-    </div>
-
-    <script>
-      const BIN_ID = "67c5357ae41b4d34e49fbc93";
-      const BIN_URL = `https://api.jsonbin.io/v3/b/${BIN_ID}`;
-      const BIN_URL_LATEST = `${BIN_URL}/latest`;
-
-      const API_KEY =
-        "$2a$10$KSrJlxWhmWwdb9ekq4mxg.i3ida6tgbpa1ClUt8M.OSg3eBZ4ym1y";
-
-      let currentPage = 1;
-      let rowsPerPage = 50;
-      let records = [];
-
- 
-      const ADMIN_BIN_ID = "67caf995acd3cb34a8f69d55"; // Use your actual Admin Bin ID here
-const ADMIN_BIN_URL = `https://api.jsonbin.io/v3/b/${ADMIN_BIN_ID}`; // Admin Bin URL
-const ADMIN_API_KEY = "$2a$10$KSrJlxWhmWwdb9ekq4mxg.i3ida6tgbpa1ClUt8M.OSg3eBZ4ym1y"; // Use your actual Admin Bin API Key here
-
-let adminPassword = "";
-
-// Fetch the password from the admin password JSONBin
-async function fetchAdminPassword() {
-  try {
-    let response = await fetch(ADMIN_BIN_URL, {
-      headers: { "X-Master-Key": ADMIN_API_KEY },
-    });
-    let data = await response.json();
-    adminPassword = data.record.adminPassword || "admin@123"; // Default password if not set
-  } catch (error) {
-    console.error("Error fetching admin password: ", error);
-    adminPassword = "admin@123"; // Fallback to default password if error occurs
-  }
-}
-
-// Save the password to JSONBin (admin password bin)
-async function saveAdminPassword(newPassword) {
-  try {
-    let response = await fetch(ADMIN_BIN_URL, {
-      method: "PUT",
-      headers: {
-        "Content-Type": "application/json",
-        "X-Master-Key": ADMIN_API_KEY,
-      },
-      body: JSON.stringify({ adminPassword: newPassword }),
-    });
-    if (response.ok) {
-      adminPassword = newPassword; // Update in-memory password after successful save
-      alert("Password changed successfully!");
-    } else {
-      alert("Failed to change password.");
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin Dashboard</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      min-height: 100vh;
+      background-color: #f8f9fa;
     }
-  } catch (error) {
-    console.error("Error saving admin password: ", error);
-    alert("Error saving password. Please try again.");
-  }
-}
 
-// Password protection prompt on page load
-async function verifyAdminPassword() {
-  await fetchAdminPassword(); // Fetch the password from the admin password JSONBin
+    h2 {
+      color: #333;
+      margin-bottom: 20px;
+    }
 
-  const enteredPassword = prompt("Enter the admin password to access the dashboard:");
-  
-  if (enteredPassword !== adminPassword) {
-    alert("Incorrect password. You do not have access to this page.");
-    window.location.href = "/"; // Redirect to home page if incorrect password
-  } else {
-    // If password is correct, show the content
-    document.getElementById("content").style.display = "block";
-    document.getElementById("sidebar").style.display = "block"; // Ensure sidebar is visible too
-  }
-}
+    .sidebar {
+      width: 250px;
+      background-color: #ffffff;
+      position: fixed;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      padding: 20px;
+      box-shadow: 4px 0 6px rgba(0, 0, 0, 0.1);
+      z-index: 1000;
+      transition: all 0.3s ease;
+    }
 
-// Call the verifyAdminPassword function to check password at the beginning
-verifyAdminPassword();
+    .sidebar h3 {
+      color: #333;
+      margin-bottom: 20px;
+    }
+
+    .sidebar input,
+    .sidebar button {
+      width: 60%;
+      padding: 10px;
+      margin: 10px 0;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+    }
+
+    .sidebar button {
+      background-color: #28a745;
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    .sidebar button:hover {
+      background-color: #218838;
+    }
+
+    .content {
+      margin-left: 250px;
+      padding: 20px;
+      flex-grow: 1;
+      transition: all 0.3s ease;
+    }
+
+    .filter-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+
+    .filter-container label {
+      font-weight: bold;
+    }
+
+    .filter-container input,
+    .filter-container select,
+    .filter-container button {
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+    }
+
+    .filter-container button {
+      background-color: #007bff;
+      color: white;
+      cursor: pointer;
+      border: none;
+    }
+
+    .table-container {
+      overflow-x: auto;
+    }
+
+    table {
+      width: 80%;
+      min-width: 800px;
+      border-collapse: collapse;
+      background: white;
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+      border-radius: 10px;
+      overflow: hidden;
+      margin-left: 10%;
+    }
+
+    th,
+    td {
+      padding: 10px;
+      border: 1px solid #ddd;
+      text-align: center;
+    }
+
+    th {
+      background-color: #007bff;
+      color: white;
+    }
+
+    tr.verified {
+      background-color: #d4edda;
+      /* Light Green */
+    }
+
+    tr.unverified {
+      background-color: #f8d7da;
+      /* Light Red */
+    }
+
+    .pagination {
+      margin-top: 20px;
+      margin-left: 10%;
+    }
+
+    .pagination button {
+      padding: 10px;
+      margin: 5px;
+      border: none;
+      border-radius: 5px;
+      background-color: #007bff;
+      color: white;
+      cursor: pointer;
+    }
+
+    .pagination button:disabled {
+      background-color: #ccc;
+    }
+
+    .sidebar-toggle {
+      position: absolute;
+      top: 20px;
+      right: -40px;
+      color: white;
+      font-size: 20px;
+      width: 10px;
+      height: 30px;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .sidebar {
+        width: 200px;
+      }
+
+      .content {
+        margin-left: 200px;
+      }
+
+      .filter-container {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      table {
+        min-width: 100%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Sidebar with Change Password Form -->
+  <div class="sidebar" id="sidebar" style="display: none;">
+    <h3>Change Admin Password</h3>
+    <input type="password" id="currentPassword" placeholder="Current Password" />
+    <input type="password" id="newPassword" placeholder="New Password" />
+    <button onclick="changePassword()">Change Password</button>
+    <p id="passwordMessage" style="color: red"></p>
+  </div>
+
+  <!-- Main Content Area -->
+  <div class="content" id="content" style="display: none;">
+    <h2 style="margin-left: 10%">Donation Records</h2>
+
+    <div class="filter-container">
+      <label for="filterDate">Filter by Date:</label>
+      <input type="date" id="filterDate" />
+      <br /><br />
+      <label for="filterVerified">Filter by Verification:</label>
+      <select id="filterVerified">
+        <option value="">All</option>
+        <option value="Yes">Verified</option>
+        <option value="No">Unverified</option>
+      </select>
+
+      <button onclick="fetchData()">Filter</button>
+    </div>
+
+    <div class="table-container">
+      <table>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>WhatsApp</th>
+            <th>Transaction ID</th>
+            <th>Amount</th>
+            <th>Date</th>
+            <th>Verified</th>
+            <th>Get Receipt</th>
+            <th>Actions</th>
+            <th>Delete</th>
+          </tr>
+        </thead>
+        <tbody id="donationTable"></tbody>
+      </table>
+    </div>
+
+    <div class="pagination">
+      <button id="prevPage" onclick="prevPage()" disabled>Previous</button>
+      <span id="pageNumber">Page 1</span>
+      <button id="nextPage" onclick="nextPage()" disabled>Next</button>
+    </div>
+  </div>
+
+  <script>
+    const BIN_ID = "67c5357ae41b4d34e49fbc93";
+    const BIN_URL = `https://api.jsonbin.io/v3/b/${BIN_ID}`;
+    const BIN_URL_LATEST = `${BIN_URL}/latest`;
+
+    const API_KEY =
+      "$2a$10$KSrJlxWhmWwdb9ekq4mxg.i3ida6tgbpa1ClUt8M.OSg3eBZ4ym1y";
+
+    let currentPage = 1;
+    let rowsPerPage = 50;
+    let records = [];
 
 
-async function changePassword() {
-  const currentPassword = document.getElementById("currentPassword").value;
-  const newPassword = document.getElementById("newPassword").value;
+    const ADMIN_BIN_ID = "67caf995acd3cb34a8f69d55"; // Use your actual Admin Bin ID here
+    const ADMIN_BIN_URL = `https://api.jsonbin.io/v3/b/${ADMIN_BIN_ID}`; // Admin Bin URL
+    const ADMIN_API_KEY = "$2a$10$KSrJlxWhmWwdb9ekq4mxg.i3ida6tgbpa1ClUt8M.OSg3eBZ4ym1y"; // Use your actual Admin Bin API Key here
 
-  // Validate inputs
-  if (!currentPassword || !newPassword) {
-    document.getElementById("passwordMessage").textContent = "Both fields are required!";
-    return;
-  }
+    let adminPassword = "";
 
-  // Check if the entered current password is correct
-  if (currentPassword !== adminPassword) {
-    document.getElementById("passwordMessage").textContent = "Current password is incorrect!";
-    return;
-  }
-
-  // Save the new password to JSONBin
-  await saveAdminPassword(newPassword);
-  
-  // Clear the password fields
-  document.getElementById("currentPassword").value = '';
-  document.getElementById("newPassword").value = '';
-}
-
-
-      // Fetch data from the server
-      async function fetchData() {
-        let response = await fetch(BIN_URL_LATEST, {
-          headers: { "X-Master-Key": API_KEY },
+    // Fetch the password from the admin password JSONBin
+    async function fetchAdminPassword() {
+      try {
+        let response = await fetch(ADMIN_BIN_URL, {
+          headers: { "X-Master-Key": ADMIN_API_KEY },
         });
         let data = await response.json();
-        records = data.record || [];
+        adminPassword = data.record.adminPassword || "admin@123"; // Default password if not set
+      } catch (error) {
+        console.error("Error fetching admin password: ", error);
+        adminPassword = "admin@123"; // Fallback to default password if error occurs
+      }
+    }
 
-        // Sort records by date (Descending Order)
-        records.sort((a, b) => new Date(b.date) - new Date(a.date));
+    // Save the password to JSONBin (admin password bin)
+    async function saveAdminPassword(newPassword) {
+      try {
+        let response = await fetch(ADMIN_BIN_URL, {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+            "X-Master-Key": ADMIN_API_KEY,
+          },
+          body: JSON.stringify({ adminPassword: newPassword }),
+        });
+        if (response.ok) {
+          adminPassword = newPassword; // Update in-memory password after successful save
+          alert("Password changed successfully!");
+        } else {
+          alert("Failed to change password.");
+        }
+      } catch (error) {
+        console.error("Error saving admin password: ", error);
+        alert("Error saving password. Please try again.");
+      }
+    }
 
-        renderTable();
+    // Password protection prompt on page load
+    async function verifyAdminPassword() {
+      await fetchAdminPassword(); // Fetch the password from the admin password JSONBin
+
+      const enteredPassword = prompt("Enter the admin password to access the dashboard:");
+
+      if (enteredPassword !== adminPassword) {
+        alert("Incorrect password. You do not have access to this page.");
+        window.location.href = "/"; // Redirect to home page if incorrect password
+      } else {
+        // If password is correct, show the content
+        document.getElementById("content").style.display = "block";
+        document.getElementById("sidebar").style.display = "block"; // Ensure sidebar is visible too
+      }
+    }
+
+    // Call the verifyAdminPassword function to check password at the beginning
+    verifyAdminPassword();
+
+
+    async function changePassword() {
+      const currentPassword = document.getElementById("currentPassword").value;
+      const newPassword = document.getElementById("newPassword").value;
+
+      // Validate inputs
+      if (!currentPassword || !newPassword) {
+        document.getElementById("passwordMessage").textContent = "Both fields are required!";
+        return;
       }
 
-      function renderTable() {
-        let table = document.getElementById("donationTable");
-        table.innerHTML = "";
+      // Check if the entered current password is correct
+      if (currentPassword !== adminPassword) {
+        document.getElementById("passwordMessage").textContent = "Current password is incorrect!";
+        return;
+      }
 
-        let filterDate = document.getElementById("filterDate").value;
-        let filterVerified = document.getElementById("filterVerified").value;
+      // Save the new password to JSONBin
+      await saveAdminPassword(newPassword);
 
-        let filteredRecords = records.filter(
-          (record) =>
-            (!filterDate || record.date === filterDate) &&
-            (!filterVerified || record.verified === filterVerified)
-        );
+      // Clear the password fields
+      document.getElementById("currentPassword").value = '';
+      document.getElementById("newPassword").value = '';
+    }
 
-        let start = (currentPage - 1) * rowsPerPage;
-        let end = start + rowsPerPage;
-        let paginatedRecords = filteredRecords.slice(start, end);
 
-        paginatedRecords.forEach((record) => {
-          let rowClass = record.verified === "Yes" ? "verified" : "unverified";
-          let row = `<tr class="${rowClass}">
+    // Fetch data from the server
+    async function fetchData() {
+      let response = await fetch(BIN_URL_LATEST, {
+        headers: { "X-Master-Key": API_KEY },
+      });
+      let data = await response.json();
+      records = data.record || [];
+
+      // Sort records by date (Descending Order)
+      records.sort((a, b) => new Date(b.date) - new Date(a.date));
+
+      renderTable();
+    }
+
+    function renderTable() {
+      let table = document.getElementById("donationTable");
+      table.innerHTML = "";
+
+      let filterDate = document.getElementById("filterDate").value;
+      let filterVerified = document.getElementById("filterVerified").value;
+
+      let filteredRecords = records.filter(
+        (record) =>
+          (!filterDate || record.date === filterDate) &&
+          (!filterVerified || record.verified === filterVerified)
+      );
+
+      let start = (currentPage - 1) * rowsPerPage;
+      let end = start + rowsPerPage;
+      let paginatedRecords = filteredRecords.slice(start, end);
+
+      paginatedRecords.forEach((record) => {
+        let rowClass = record.verified === "Yes" ? "verified" : "unverified";
+        let row = `<tr class="${rowClass}">
                     <td>${record.name}</td>
                     <td>${record.email}</td>
                     <td>${record.whatsapp}</td>
@@ -357,15 +384,12 @@ async function changePassword() {
                     <td>₹${record.amount}</td>
                     <td>${record.date}</td>
                     <td>
-                        <select onchange="updateVerification('${
-                          record.txnId
-                        }', this.value)">
-                            <option value="No" ${
-                              record.verified === "No" ? "selected" : ""
-                            }>No</option>
-                            <option value="Yes" ${
-                              record.verified === "Yes" ? "selected" : ""
-                            }>Yes</option>
+                        <select onchange="updateVerification('${record.txnId
+          }', this.value)">
+                            <option value="No" ${record.verified === "No" ? "selected" : ""
+          }>No</option>
+                            <option value="Yes" ${record.verified === "Yes" ? "selected" : ""
+          }>Yes</option>
                         </select>
                     </td>
                     <td>
@@ -374,10 +398,8 @@ async function changePassword() {
                         </button>
                     </td>
                     <td>
-                        <button class="btn-whatsapp" onclick="sendWhatsApp('${
-                          record.whatsapp
-                        }', '${record.name}', '${record.amount}', '${
-            record.txnId
+                        <button class="btn-whatsapp" onclick="sendWhatsApp('${record.whatsapp
+          }', '${record.name}', '${record.amount}', '${record.txnId
           }', '${record.date}')">
                             Send WhatsApp
                         </button>
@@ -387,137 +409,154 @@ async function changePassword() {
                       <button onclick="deleteRecord('${record.txnId}')">Delete</button>
                       </td>
                 </tr>`;
-          table.innerHTML += row;
+        table.innerHTML += row;
+      });
+
+      document.getElementById("pageNumber").innerText = `Page ${currentPage}`;
+      document.getElementById("prevPage").disabled = currentPage === 1;
+      document.getElementById("nextPage").disabled =
+        end >= filteredRecords.length;
+    }
+
+    function sendWhatsApp(whatsapp, name, amount, txnId, date) {
+      // Remove non-numeric characters (ensures proper phone format)
+
+      // Create the message
+      const message = `Hello ${name},\n\nThank you for your donation of Rs. ${amount}.\nTransaction ID: ${txnId}\nDate: ${date}\n\nThank you for contributing towards a great social cause! Your donation is making a real difference.\n\nFor any queries, feel free to reach out.`;
+
+      // Encode the message properly
+      const encodedMessage = encodeURIComponent(message);
+
+      // Use wa.me format
+      const url = `https://wa.me/${whatsapp}?text=${encodedMessage}`;
+
+      console.log("Opening URL:", url); // Debugging
+
+
+    }
+
+
+    function generateReceipt(name, amount, txnId, date) {
+      const canvas = document.createElement('canvas');
+      const ctx = canvas.getContext('2d');
+
+      const width = 600;
+      const height = 450;
+      canvas.width = width;
+      canvas.height = height;
+
+      ctx.fillStyle = '#ffffff';
+      ctx.fillRect(0, 0, width, height);
+
+      const logoUrl = "https://i.ibb.co/PZzgMhkn/fav.png";
+      const logo = new Image();
+      logo.crossOrigin = 'Anonymous';
+      logo.src = logoUrl;
+
+      logo.onload = function () {
+        ctx.drawImage(logo, 20, 15, 50, 50);
+
+        ctx.font = '26px Helvetica';
+        ctx.fillStyle = '#0066CC';
+        ctx.fillText("NERAVY ISLAMIC TRUST", 80, 45);
+
+        ctx.font = '14px Helvetica';
+        ctx.fillStyle = '#003366';
+        ctx.fillText("Thank you for your generous donation towards the social cause.", 20, 80);
+        ctx.fillText("Your contribution is helping make a difference in the community.", 20, 100);
+
+        ctx.strokeStyle = '#000000';
+        ctx.lineWidth = 1;
+        ctx.strokeRect(10, 10, width - 20, height - 20);
+
+        ctx.font = '16px Helvetica';
+        ctx.fillStyle = '#000000';
+        ctx.fillText("Donation Receipt", 20, 130);
+
+        ctx.fillStyle = '#0066CC';
+        ctx.fillRect(20, 150, 560, 25);
+        ctx.fillStyle = '#FFFFFF';
+        ctx.fillText("Details", 30, 167);
+        ctx.fillText("Value", 320, 167);
+
+        ctx.fillStyle = '#000000';
+        ctx.fillText("Donor Name:", 30, 200);
+        ctx.fillText(name, 320, 200);
+        ctx.fillText("Transaction ID:", 30, 230);
+        ctx.fillText(txnId, 320, 230);
+        ctx.fillText("Amount:", 30, 260);
+        ctx.fillText(`Rs. ${amount}`, 320, 260);
+        ctx.fillText("Date:", 30, 290);
+        ctx.fillText(date, 320, 290);
+
+        ctx.strokeRect(20, 150, 560, 150);
+
+        ctx.fillStyle = '#003366';
+        ctx.fillText("For any queries, please contact:", 20, 330);
+
+        let footerY = 355;
+        ctx.fillStyle = '#000000';
+        const contacts = [
+          { name: "M. Mohamed Kalifa", phone: "+91 98433 53205" },
+          { name: "M. Mohamed Faisal", phone: "+91 96984 54446" },
+          { name: "M. Mohamed Abdul Haleem", phone: "+91 76393 58465" }
+        ];
+        contacts.forEach(contact => {
+          ctx.fillText(contact.name, 20, footerY);
+          ctx.fillText(contact.phone, 320, footerY);
+          footerY += 25;
         });
 
-        document.getElementById("pageNumber").innerText = `Page ${currentPage}`;
-        document.getElementById("prevPage").disabled = currentPage === 1;
-        document.getElementById("nextPage").disabled =
-          end >= filteredRecords.length;
-      }
+        const imageUrl = canvas.toDataURL('image/png');
+        const link = document.createElement('a');
+        link.href = imageUrl;
+        link.download = `${name}_receipt.png`;
+        link.click();
+      };
 
-      function sendWhatsApp(whatsapp, name, amount, txnId, date) {
-  // Remove non-numeric characters (ensures proper phone format)
+      logo.onerror = function () {
+        console.error("Failed to load image, check CORS settings or image URL.");
+      };
+    }
 
-  // Create the message
-  const message = `Hello ${name},\n\nThank you for your donation of Rs. ${amount}.\nTransaction ID: ${txnId}\nDate: ${date}\n\nThank you for contributing towards a great social cause! Your donation is making a real difference.\n\nFor any queries, feel free to reach out.`;
+    function nextPage() {
+      currentPage++;
+      renderTable();
+    }
 
-  // Encode the message properly
-  const encodedMessage = encodeURIComponent(message);
+    function prevPage() {
+      currentPage--;
+      renderTable();
+    }
 
-  // Use wa.me format
-  const url = `https://wa.me/${whatsapp}?text=${encodedMessage}`;
+    async function updateVerification(txnId, status) {
+      let response = await fetch(BIN_URL_LATEST, {
+        headers: { "X-Master-Key": API_KEY },
+      });
+      let data = await response.json();
+      records = data.record.map((record) => {
+        if (record.txnId === txnId) {
+          record.verified = status;
+        }
+        return record;
+      });
 
-  console.log("Opening URL:", url); // Debugging
+      // Update the records in the JSON
+      await fetch(BIN_URL, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+          "X-Master-Key": API_KEY,
+        },
+        body: JSON.stringify(records),
+      });
+      alert("Verification status updated!");
+      fetchData();
+    }
 
-
-}
-
-
-function generateReceipt(name, amount, txnId, date) {
-const canvas = document.createElement('canvas');
-const ctx = canvas.getContext('2d');
-
-const width = 600;
-const height = 450;
-canvas.width = width;
-canvas.height = height;
-
-ctx.fillStyle = '#ffffff';
-ctx.fillRect(0, 0, width, height);
-
-const logoUrl = "https://i.ibb.co/PZzgMhkn/fav.png";
-const logo = new Image();
-logo.crossOrigin = 'Anonymous';
-logo.src = logoUrl;
-
-logo.onload = function () {
-    ctx.drawImage(logo, 20, 15, 50, 50);
-
-    ctx.font = '26px Helvetica';
-    ctx.fillStyle = '#0066CC';
-    ctx.fillText("NERAVY ISLAMIC TRUST", 80, 45);
-
-    ctx.font = '14px Helvetica';
-    ctx.fillStyle = '#003366';
-    ctx.fillText("Thank you for your generous donation towards the social cause.", 20, 80);
-    ctx.fillText("Your contribution is helping make a difference in the community.", 20, 100);
-
-    ctx.strokeStyle = '#000000';
-    ctx.lineWidth = 1;
-    ctx.strokeRect(10, 10, width - 20, height - 20);
-
-    ctx.font = '16px Helvetica';
-    ctx.fillStyle = '#000000';
-    ctx.fillText("Donation Receipt", 20, 130);
-
-    ctx.fillStyle = '#0066CC';
-    ctx.fillRect(20, 150, 560, 25);
-    ctx.fillStyle = '#FFFFFF';
-    ctx.fillText("Details", 30, 167);
-    ctx.fillText("Value", 320, 167);
-
-    ctx.fillStyle = '#000000';
-    ctx.fillText("Donor Name:", 30, 200);
-    ctx.fillText(name, 320, 200);
-    ctx.fillText("Transaction ID:", 30, 230);
-    ctx.fillText(txnId, 320, 230);
-    ctx.fillText("Amount:", 30, 260);
-    ctx.fillText(`Rs. ${amount}`, 320, 260);
-    ctx.fillText("Date:", 30, 290);
-    ctx.fillText(date, 320, 290);
-
-    ctx.strokeRect(20, 150, 560, 150);
-
-    ctx.fillStyle = '#003366';
-    ctx.fillText("For any queries, please contact:", 20, 330);
-
-    let footerY = 355;
-    ctx.fillStyle = '#000000';
-    const contacts = [
-        { name: "M. Mohamed Kalifa", phone: "+91 98433 53205" },
-        { name: "M. Mohamed Faisal", phone: "+91 96984 54446" },
-        { name: "M. Mohamed Abdul Haleem", phone: "+91 76393 58465" }
-    ];
-    contacts.forEach(contact => {
-        ctx.fillText(contact.name, 20, footerY);
-        ctx.fillText(contact.phone, 320, footerY);
-        footerY += 25;
-    });
-
-    const imageUrl = canvas.toDataURL('image/png');
-    const link = document.createElement('a');
-    link.href = imageUrl;
-    link.download = `${name}_receipt.png`;
-    link.click();
-};
-
-logo.onerror = function () {
-    console.error("Failed to load image, check CORS settings or image URL.");
-};
-}
-  
-function nextPage() {
-        currentPage++;
-        renderTable();
-      }
-
-      function prevPage() {
-        currentPage--;
-        renderTable();
-      }
-
-      async function updateVerification(txnId, status) {
-        let response = await fetch(BIN_URL_LATEST, {
-          headers: { "X-Master-Key": API_KEY },
-        });
-        let data = await response.json();
-        records = data.record.map((record) => {
-          if (record.txnId === txnId) {
-            record.verified = status;
-          }
-          return record;
-        });
+    async function deleteRecord(txnId) {
+      if (confirm("Are you sure you want to delete this record?")) {
+        records = records.filter((record) => record.txnId !== txnId);
 
         // Update the records in the JSON
         await fetch(BIN_URL, {
@@ -528,31 +567,15 @@ function nextPage() {
           },
           body: JSON.stringify(records),
         });
-        alert("Verification status updated!");
+        alert("Record deleted!");
         fetchData();
       }
+    }
 
-      async function deleteRecord(txnId) {
-        if (confirm("Are you sure you want to delete this record?")) {
-          records = records.filter((record) => record.txnId !== txnId);
-          
-          // Update the records in the JSON
-          await fetch(BIN_URL, {
-            method: "PUT",
-            headers: {
-              "Content-Type": "application/json",
-              "X-Master-Key": API_KEY,
-            },
-            body: JSON.stringify(records),
-          });
-          alert("Record deleted!");
-          fetchData();
-        }
-      }
 
-      
 
-      fetchData();
-    </script>
-  </body>
+    fetchData();
+  </script>
+</body>
+
 </html>

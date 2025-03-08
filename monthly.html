@@ -1,7 +1,10 @@
 <!DOCTYPE html>
 <html lang="ta">
+
 <head>
     <meta charset="UTF-8">
+    <meta name="theme-color" content="#66258f">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Neravy Islamic Trust | Charity & Community Support</title>
     <style>
@@ -12,6 +15,7 @@
             padding: 30px;
             margin: 0;
         }
+
         .container {
             max-width: 1000px;
             margin: auto;
@@ -20,16 +24,19 @@
             border-radius: 10px;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
         }
+
         h2 {
             color: #333;
             font-size: 24px;
             margin-bottom: 20px;
         }
+
         .filter-container {
             margin-bottom: 20px;
             display: flex;
             justify-content: center;
         }
+
         select {
             padding: 12px;
             font-size: 16px;
@@ -38,9 +45,11 @@
             border: 1px solid #ccc;
             background: white;
         }
+
         .table-container {
             overflow-x: auto;
         }
+
         table {
             width: 100%;
             border-collapse: collapse;
@@ -49,26 +58,34 @@
             overflow: hidden;
             box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
         }
-        th, td {
+
+        th,
+        td {
             border: 1px solid #ddd;
             padding: 16px;
             text-align: center;
             font-size: 16px;
         }
+
         th {
             background-color: #66258f;
             color: white;
         }
+
         tr:nth-child(even) {
             background-color: #f9f9f9;
         }
+
         tr:hover {
             background-color: #e3f2fd;
         }
-        th:first-child, td:first-child {
+
+        th:first-child,
+        td:first-child {
             text-align: left;
             padding-left: 20px;
         }
+
         .message-box {
             background: #fff;
             padding: 20px;
@@ -76,19 +93,23 @@
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
             margin-bottom: 30px;
         }
+
         .message-box p {
             font-size: 18px;
             color: #333;
             margin: 8px 0;
         }
+
         .message-box strong {
             color: #d9534f;
         }
+
         .highlight {
             font-size: 20px;
             font-weight: bold;
             color: #66258f;
         }
+
         blockquote {
             font-size: 16px;
             color: #333;
@@ -100,100 +121,107 @@
             border-radius: 5px;
             margin-top: 15px;
         }
+
         @media (max-width: 768px) {
             body {
                 padding: 15px;
             }
+
             .container {
                 padding: 15px;
             }
+
             h2 {
                 font-size: 20px;
             }
+
             select {
                 font-size: 14px;
                 width: 100%;
             }
-            th, td {
+
+            th,
+            td {
                 padding: 12px;
                 font-size: 14px;
             }
         }
 
         .home-button {
-    background: linear-gradient(45deg, #66258f,#66258f);
-    padding: 15px;
-    border-radius: 12px;
-    font-size: 16px;
-    margin-left: 40%;
-            margin-right:40%;
-    font-weight: bold;
-    cursor: pointer;
-    width: 20%;
-    transition: all 0.3s ease-in-out;
-    color: white;
-    text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
-    margin-top: 15px;
-            
-}
+            background: linear-gradient(45deg, #66258f, #66258f);
+            padding: 15px;
+            border-radius: 12px;
+            font-size: 16px;
+            margin-left: 40%;
+            margin-right: 40%;
+            font-weight: bold;
+            cursor: pointer;
+            width: 20%;
+            transition: all 0.3s ease-in-out;
+            color: white;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+            margin-top: 15px;
 
-.home-button:hover {
-    transform: scale(1.1);
-}
+        }
+
+        .home-button:hover {
+            transform: scale(1.1);
+        }
     </style>
 
-    
-<style>
-    #lang-btn {
-        background: linear-gradient(45deg, #66258f, #66258f);
-        color: white;
-        border: none;
-        padding: 10px 20px;
-        font-size: 16px;
-        font-weight: bold;
-        border-radius: 25px;
-        cursor: pointer;
-        transition: all 0.3s ease-in-out;
-        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
-    }
 
-    #lang-btn:hover {
-        background: linear-gradient(45deg, #66258f, #66258f);
-        transform: scale(1.1);
-        box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.3);
-    }
-</style>
-	<!-- Modernizr JS -->
-	<script src="js/modernizr-2.6.2.min.js"></script>
+    <style>
+        #lang-btn {
+            background: linear-gradient(45deg, #66258f, #66258f);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            font-weight: bold;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease-in-out;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+        }
 
-	<script>
-		function toggleLanguage() {
-			// Get the current URL
-			let currentPage = window.location.pathname;
-	  
-			// Check if the page is English or Tamil and switch accordingly
-if (currentPage.includes("monthly.html") || currentPage.includes("monthly")) {
-				window.location.href = "monthly-en.html"; // Switch to Tamil
-			} else {
-				window.location.href = "monthly.html"; // Switch to English
-			}
-		}
-	  </script>
+        #lang-btn:hover {
+            background: linear-gradient(45deg, #66258f, #66258f);
+            transform: scale(1.1);
+            box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.3);
+        }
+    </style>
+    <!-- Modernizr JS -->
+    <script src="js/modernizr-2.6.2.min.js"></script>
+
+    <script>
+        function toggleLanguage() {
+            // Get the current URL
+            let currentPage = window.location.pathname;
+
+            // Check if the page is English or Tamil and switch accordingly
+            if (currentPage.includes("monthly.html") || currentPage.includes("monthly")) {
+                window.location.href = "monthly-en.html"; // Switch to Tamil
+            } else {
+                window.location.href = "monthly.html"; // Switch to English
+            }
+        }
+    </script>
 </head>
+
 <body>
 
     <div class="container">
-        <button id="lang-btn" onclick="toggleLanguage()" 
-        style="position: fixed; top: 20px; right: 20px; background: #66258f; color: white; border: none; padding: 10px 15px; font-size: 16px; cursor: pointer; border-radius: 5px; z-index: 9999;">
-    English
-</button>
-<br>
-<br>
+        <button id="lang-btn" onclick="toggleLanguage()"
+            style="position: fixed; top: 20px; right: 20px; background: #66258f; color: white; border: none; padding: 10px 15px; font-size: 16px; cursor: pointer; border-radius: 5px; z-index: 9999;">
+            English
+        </button>
+        <br>
+        <br>
 
         <div class="message-box">
             <p class="highlight"> அஸ்ஸலாமு அலைக்கும் வரஹ்... </p>
             <p class="highlight"> அல்ஹம்துலில்லாஹ் </p>
-          
+
             <p style="font-size: 18px; color: #007bff;">
                 மாதாந்திர மளிகை பொருட்கள் - வரவு-செலவு விபரம் 📙📚
             </p>
@@ -201,10 +229,10 @@ if (currentPage.includes("monthly.html") || currentPage.includes("monthly")) {
             <hr>
             <br>
             <p style="font-size: 15px; font-weight: bold; color: #dc3545;">இன்ஷா அல்லாஹ்...</p>
-  
+
             <blockquote style="font-size: 14px;">
-                "(கணவனை இழந்த) கைம்பெண்ணுக்காகவும் ஏழைக்காகவும் பாடுபடுகிறவர், 
-                'இறைவழியில் அறப்போர் புரிபவரைப் போன்றவராவார்' 
+                "(கணவனை இழந்த) கைம்பெண்ணுக்காகவும் ஏழைக்காகவும் பாடுபடுகிறவர்,
+                'இறைவழியில் அறப்போர் புரிபவரைப் போன்றவராவார்'
                 அல்லது 'இரவில் நின்று வணங்கிப் பகலில் நோன்பு நோற்பவரைப் போன்றவராவார்'."
             </blockquote>
             <p style="font-size: 14px; font-weight: bold; color: #007bff;">
@@ -237,15 +265,15 @@ if (currentPage.includes("monthly.html") || currentPage.includes("monthly")) {
         </div>
 
     </div><br>
-        <div  class="home-button" onclick="goHome()">முகப்பு பக்கம்</div>
+    <div class="home-button" onclick="goHome()">முகப்பு பக்கம்</div>
 
 
     <script>
 
-        
+
         function goHome() {
-    window.location.href = "index.html"; // Change this to your actual home page URL
-}
+            window.location.href = "index.html"; // Change this to your actual home page URL
+        }
         let reportsData = [];
 
         fetch('content/monthly-reports.json')
@@ -299,7 +327,8 @@ if (currentPage.includes("monthly.html") || currentPage.includes("monthly")) {
         }
 
     </script>
-    
+
 
 </body>
+
 </html>

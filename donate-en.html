@@ -1,13 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
+    <meta name="theme-color" content="#66258f">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Neravy Islamic Trust | Charity & Community Support</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap');
-        
+
         body {
             font-family: 'Poppins', sans-serif;
             margin: 0;
@@ -44,7 +47,7 @@
         }
 
         .donate-box {
-            background: linear-gradient(45deg,  #66258f,#66258f);
+            background: linear-gradient(45deg, #66258f, #66258f);
             padding: 15px;
             border-radius: 12px;
             font-size: 18px;
@@ -78,7 +81,8 @@
             transform: rotateY(180deg);
         }
 
-        .front, .back {
+        .front,
+        .back {
             position: absolute;
             width: 100%;
             height: 100%;
@@ -114,119 +118,123 @@
             border-radius: 10px;
         }
 
-        html, body {
-    height: 100%;
-    margin: 0;
-    overflow: hidden;
-}
-canvas {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-}
+        html,
+        body {
+            height: 100%;
+            margin: 0;
+            overflow: hidden;
+        }
 
-.home-button {
-    background: linear-gradient(45deg, #4CAF50, #2E7D32);
-    padding: 15px;
-    border-radius: 12px;
-    font-size: 16px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: all 0.3s ease-in-out;
-    color: white;
-    text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
-    margin-top: 15px;
-}
+        canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+        }
 
-.home-button:hover {
-    transform: scale(1.1);
-}
+        .home-button {
+            background: linear-gradient(45deg, #4CAF50, #2E7D32);
+            padding: 15px;
+            border-radius: 12px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease-in-out;
+            color: white;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+            margin-top: 15px;
+        }
 
-
+        .home-button:hover {
+            transform: scale(1.1);
+        }
     </style>
 
-<style>
-    .telegram-float {
-position: fixed;
-bottom: 20px;
-right: 20px;
-width: 60px;
-height: 60px;
-background-color: #0088cc;
-border-radius: 50%;
-display: flex;
-justify-content: center;
-align-items: center;
-box-shadow: 0px 0px 10px rgba(0, 136, 204, 0.8);
-transition: all 0.3s ease;
-text-decoration: none;
-animation: glow 1.5s infinite alternate;
-z-index: 9999; /* Ensures it's always on top */
-}
-
-.telegram-float img {
-width: 35px;
-height: 35px;
-filter: brightness(100%);
-}
-
-.telegram-float:hover {
-transform: scale(1.1);
-background-color: #006699;
-box-shadow: 0px 0px 20px rgba(0, 136, 204, 1);
-}
-
-
-
-/* Glow Animation */
-@keyframes glow {
-0% {
-    box-shadow: 0px 0px 10px rgba(0, 136, 204, 0.8);
-}
-100% {
-    box-shadow: 0px 0px 20px rgba(0, 136, 204, 1);
-}
-}
-
-.home1-button { 
-    background: linear-gradient(45deg, #ff6a00, #e53935); /* Changed to a vibrant gradient of orange and red */
-    padding: 15px;
-    border-radius: 12px;
-    font-size: 16px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: all 0.3s ease-in-out;
-    color: white;
-    text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
-    margin-top: 15px;
-    box-shadow: 0 0 15px rgba(255, 105, 0, 0.8); /* Added a soft shadow for the glowing effect */
-}
-
-.home1-button:hover { 
-    transform: scale(1.1);
-    box-shadow: 0 0 20px rgba(255, 69, 0, 1), 0 0 30px rgba(255, 69, 0, 1), 0 0 40px rgba(255, 69, 0, 1); /* Added stronger glow effect */
-}
-
-
-</style>
-
-<script>
-    function toggleLanguage() {
-        const currentUrl = window.location.href;
-        if (currentUrl.includes('donate.html')) {
-            window.location.href = 'donate-en.html';  // Change this to the path of your Tamil version
-        } else {
-            window.location.href = 'donate.html';  // Change this to the path of your English version
+    <style>
+        .telegram-float {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 60px;
+            height: 60px;
+            background-color: #0088cc;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0px 0px 10px rgba(0, 136, 204, 0.8);
+            transition: all 0.3s ease;
+            text-decoration: none;
+            animation: glow 1.5s infinite alternate;
+            z-index: 9999;
+            /* Ensures it's always on top */
         }
-    }
-</script>
+
+        .telegram-float img {
+            width: 35px;
+            height: 35px;
+            filter: brightness(100%);
+        }
+
+        .telegram-float:hover {
+            transform: scale(1.1);
+            background-color: #006699;
+            box-shadow: 0px 0px 20px rgba(0, 136, 204, 1);
+        }
+
+
+
+        /* Glow Animation */
+        @keyframes glow {
+            0% {
+                box-shadow: 0px 0px 10px rgba(0, 136, 204, 0.8);
+            }
+
+            100% {
+                box-shadow: 0px 0px 20px rgba(0, 136, 204, 1);
+            }
+        }
+
+        .home1-button {
+            background: linear-gradient(45deg, #ff6a00, #e53935);
+            /* Changed to a vibrant gradient of orange and red */
+            padding: 15px;
+            border-radius: 12px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease-in-out;
+            color: white;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+            margin-top: 15px;
+            box-shadow: 0 0 15px rgba(255, 105, 0, 0.8);
+            /* Added a soft shadow for the glowing effect */
+        }
+
+        .home1-button:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 20px rgba(255, 69, 0, 1), 0 0 30px rgba(255, 69, 0, 1), 0 0 40px rgba(255, 69, 0, 1);
+            /* Added stronger glow effect */
+        }
+    </style>
+
+    <script>
+        function toggleLanguage() {
+            const currentUrl = window.location.href;
+            if (currentUrl.includes('donate.html')) {
+                window.location.href = 'donate-en.html';  // Change this to the path of your Tamil version
+            } else {
+                window.location.href = 'donate.html';  // Change this to the path of your English version
+            }
+        }
+    </script>
 </head>
+
 <body>
-    <button id="lang-btn" onclick="toggleLanguage()" 
-    style="position: fixed; top: 20px; right: 20px; background:  #66258f; color: white; border: none; padding: 10px 15px; font-size: 16px; cursor: pointer; border-radius: 5px; z-index: 9999;">
-    தமிழ்</button>
+    <button id="lang-btn" onclick="toggleLanguage()"
+        style="position: fixed; top: 20px; right: 20px; background:  #66258f; color: white; border: none; padding: 10px 15px; font-size: 16px; cursor: pointer; border-radius: 5px; z-index: 9999;">
+        தமிழ்</button>
     <canvas id="background"></canvas>
     <div class="container">
         <br>
@@ -254,15 +262,15 @@ box-shadow: 0px 0px 20px rgba(0, 136, 204, 1);
 
     </div>
 
-    	
-		<a href="https://t.me/s/neravy_islamic_trust" target="_blank" class="telegram-float">
-			<img src="https://upload.wikimedia.org/wikipedia/commons/8/83/Telegram_2019_Logo.svg" alt="Chat on Telegram">
-		</a>
-		
+
+    <a href="https://t.me/s/neravy_islamic_trust" target="_blank" class="telegram-float">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/8/83/Telegram_2019_Logo.svg" alt="Chat on Telegram">
+    </a>
+
     <script>
 
-function goPay(){
-            window.location.href="payment.html"
+        function goPay() {
+            window.location.href = "payment.html"
         }
         function flipQR() {
             document.querySelector('.flip-container').classList.toggle('show');
@@ -271,24 +279,24 @@ function goPay(){
         let scene, camera, renderer, moneyParticles = [];
 
         function init() {
-    scene = new THREE.Scene();
-    camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-    renderer = new THREE.WebGLRenderer({ canvas: document.getElementById('background'), alpha: true });
-    renderer.setSize(window.innerWidth, window.innerHeight);
-    renderer.setPixelRatio(window.devicePixelRatio);
-    
-    camera.position.z = 5;
-    animate();
-}
+            scene = new THREE.Scene();
+            camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+            renderer = new THREE.WebGLRenderer({ canvas: document.getElementById('background'), alpha: true });
+            renderer.setSize(window.innerWidth, window.innerHeight);
+            renderer.setPixelRatio(window.devicePixelRatio);
 
-// Ensure the background resizes properly
-window.addEventListener("resize", () => {
-    camera.aspect = window.innerWidth / window.innerHeight;
-    camera.updateProjectionMatrix();
-    renderer.setSize(window.innerWidth, window.innerHeight);
-});
+            camera.position.z = 5;
+            animate();
+        }
 
-window.onload = init;
+        // Ensure the background resizes properly
+        window.addEventListener("resize", () => {
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(window.innerWidth, window.innerHeight);
+        });
+
+        window.onload = init;
 
 
         function dropMoney() {
@@ -318,9 +326,10 @@ window.onload = init;
 
 
         function goHome() {
-    window.location.href = "index.html"; // Change this to your actual home page URL
-}
+            window.location.href = "index.html"; // Change this to your actual home page URL
+        }
 
     </script>
 </body>
+
 </html>

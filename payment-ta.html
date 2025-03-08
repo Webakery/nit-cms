@@ -1,7 +1,10 @@
 <!DOCTYPE html>
 <html lang="ta">
+
 <head>
     <meta charset="UTF-8">
+    <meta name="theme-color" content="#66258f">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Donation Form</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
@@ -59,7 +62,8 @@
         }
 
         /* Input Fields */
-        input, select {
+        input,
+        select {
             flex: 1;
             border: none;
             background: transparent;
@@ -93,8 +97,15 @@
 
         /* Fade-in Animation */
         @keyframes fadeIn {
-            from { opacity: 0; transform: scale(0.9); }
-            to { opacity: 1; transform: scale(1); }
+            from {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
         }
 
         /* Error Message */
@@ -108,242 +119,258 @@
         }
 
         .home-button {
-    background: linear-gradient(45deg, #4CAF50, #2E7D32);
-    padding: 15px;
-    margin-top: 600px;
-    border-radius: 12px;
-    font-size: 16px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: all 0.3s ease-in-out;
-    color: white;
-    text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
-    margin-top: 15px;
-}
-
-.home-button:hover {
-    transform: scale(1.1);
-}
-
-@media (max-width: 480px) {
-    .form-container {
-        width: 85%;
-        padding: 15px;
-        margin-left: 3%;
-
-    }
-
-    .input-container {
-        flex-direction: row;
-        align-items: center;
-        gap: 8px;
-        padding: 10px;
-    }
-
-    select {
-        font-size: 14px;
-        width: auto;
-    }
-
-    input {
-        font-size: 14px;
-        padding: 6px;
-    }
-
-    button {
-        font-size: 16px;
-        padding: 10px;
-    }
-
-    .home-button{
-        width: 80%;
-        margin-left: 5%;
-    }
-}
-
-
-.telegram-float {
-position: fixed;
-bottom: 20px;
-right: 20px;
-width: 60px;
-height: 60px;
-background-color: #0088cc;
-border-radius: 50%;
-display: flex;
-justify-content: center;
-align-items: center;
-box-shadow: 0px 0px 10px rgba(0, 136, 204, 0.8);
-transition: all 0.3s ease;
-text-decoration: none;
-animation: glow 1.5s infinite alternate;
-z-index: 9999; /* Ensures it's always on top */
-}
-
-.telegram-float img {
-width: 35px;
-height: 35px;
-filter: brightness(100%);
-}
-
-.telegram-float:hover {
-transform: scale(1.1);
-background-color: #006699;
-box-shadow: 0px 0px 20px rgba(0, 136, 204, 1);
-}
-
-/* Glow Animation */
-@keyframes glow {
-0% {
-    box-shadow: 0px 0px 10px rgba(0, 136, 204, 0.8);
-}
-100% {
-    box-shadow: 0px 0px 20px rgba(0, 136, 204, 1);
-}
-}
-
-/* General Button Styles */
-#lang-btn {
-    padding: 10px 20px;  /* Add sufficient padding */
-    font-size: 16px;
-    cursor: pointer;
-    border-radius: 5px;
-    background-color: #66258f;
-    color: white;
-    border: none;
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    z-index: 9999;
-    text-align: center; /* Center the text inside the button */
-    display: inline-block; /* Adjust to content */
-    box-sizing: border-box; /* Includes padding/border in width/height calculation */
-    width: auto; /* Let the width be automatically adjusted */
-    min-width: 100px; /* Ensure a minimum width */
-    white-space: nowrap; /* Prevent text wrapping inside the button */
-}
-
-/* Mobile View Adjustments */
-@media (max-width: 480px) {
-    #lang-btn {
-        padding: 12px 25px; /* Ensure enough padding for mobile */
-        font-size: 16px; /* Adjust font size for mobile */
-        top: 10px; /* Adjust top margin */
-        right: 10px; /* Adjust right margin */
-        background-color: #66258f;
-        min-width: 100px; /* Ensure a minimum width */
-    }
-}
-
-
-
-</style>
-
-<script>
-    function toggleLanguage() {
-        const currentUrl = window.location.href;
-if (currentUrl.includes('payment-ta') || currentUrl.includes('payment-ta.html')) {
-            window.location.href = 'payment.html';  // Change this to the path of your Tamil version
-        } else {
-            window.location.href = 'payment-ta.html';  // Change this to the path of your English version
+            background: linear-gradient(45deg, #4CAF50, #2E7D32);
+            padding: 15px;
+            margin-top: 600px;
+            border-radius: 12px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease-in-out;
+            color: white;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+            margin-top: 15px;
         }
-    }
-</script>
+
+        .home-button:hover {
+            transform: scale(1.1);
+        }
+
+        @media (max-width: 480px) {
+            .form-container {
+                width: 85%;
+                padding: 15px;
+                margin-left: 3%;
+
+            }
+
+            .input-container {
+                flex-direction: row;
+                align-items: center;
+                gap: 8px;
+                padding: 10px;
+            }
+
+            select {
+                font-size: 14px;
+                width: auto;
+            }
+
+            input {
+                font-size: 14px;
+                padding: 6px;
+            }
+
+            button {
+                font-size: 16px;
+                padding: 10px;
+            }
+
+            .home-button {
+                width: 80%;
+                margin-left: 5%;
+            }
+        }
+
+
+        .telegram-float {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 60px;
+            height: 60px;
+            background-color: #0088cc;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0px 0px 10px rgba(0, 136, 204, 0.8);
+            transition: all 0.3s ease;
+            text-decoration: none;
+            animation: glow 1.5s infinite alternate;
+            z-index: 9999;
+            /* Ensures it's always on top */
+        }
+
+        .telegram-float img {
+            width: 35px;
+            height: 35px;
+            filter: brightness(100%);
+        }
+
+        .telegram-float:hover {
+            transform: scale(1.1);
+            background-color: #006699;
+            box-shadow: 0px 0px 20px rgba(0, 136, 204, 1);
+        }
+
+        /* Glow Animation */
+        @keyframes glow {
+            0% {
+                box-shadow: 0px 0px 10px rgba(0, 136, 204, 0.8);
+            }
+
+            100% {
+                box-shadow: 0px 0px 20px rgba(0, 136, 204, 1);
+            }
+        }
+
+        /* General Button Styles */
+        #lang-btn {
+            padding: 10px 20px;
+            /* Add sufficient padding */
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+            background-color: #66258f;
+            color: white;
+            border: none;
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 9999;
+            text-align: center;
+            /* Center the text inside the button */
+            display: inline-block;
+            /* Adjust to content */
+            box-sizing: border-box;
+            /* Includes padding/border in width/height calculation */
+            width: auto;
+            /* Let the width be automatically adjusted */
+            min-width: 100px;
+            /* Ensure a minimum width */
+            white-space: nowrap;
+            /* Prevent text wrapping inside the button */
+        }
+
+        /* Mobile View Adjustments */
+        @media (max-width: 480px) {
+            #lang-btn {
+                padding: 12px 25px;
+                /* Ensure enough padding for mobile */
+                font-size: 16px;
+                /* Adjust font size for mobile */
+                top: 10px;
+                /* Adjust top margin */
+                right: 10px;
+                /* Adjust right margin */
+                background-color: #66258f;
+                min-width: 100px;
+                /* Ensure a minimum width */
+            }
+        }
+    </style>
+
+    <script>
+        function toggleLanguage() {
+            const currentUrl = window.location.href;
+            if (currentUrl.includes('payment-ta') || currentUrl.includes('payment-ta.html')) {
+                window.location.href = 'payment.html';  // Change this to the path of your Tamil version
+            } else {
+                window.location.href = 'payment-ta.html';  // Change this to the path of your English version
+            }
+        }
+    </script>
 
 </head>
+
 <body>
     <div>
-        <button id="lang-btn" onclick="toggleLanguage()" 
-        style="width:10%; position: fixed; top: 20px; right: 20px; background: #66258f; color: white; border: none; padding: 10px 15px; font-size: 16px; cursor: pointer; border-radius: 5px; z-index: 9999;">
-        English
-</button>
-<br><br>
-<br><br>
-<br><br>
-<br><br><br>
+        <button id="lang-btn" onclick="toggleLanguage()"
+            style="width:10%; position: fixed; top: 20px; right: 20px; background: #66258f; color: white; border: none; padding: 10px 15px; font-size: 16px; cursor: pointer; border-radius: 5px; z-index: 9999;">
+            English
+        </button>
+        <br><br>
+        <br><br>
+        <br><br>
+        <br><br><br>
 
-<div style="background-color: #f0f8ff; padding: 20px; border-radius: 8px; border: 1px solid #ddd; font-size: 16px; text-align: center; margin: 20px auto; width: 80%; max-width: 600px;">
-    QR மூலம் பண உதவி செய்தவர்கள், கீழே உள்ள படிவத்தை நிரப்பி, பற்றுச்சீட்டை (receipt) பெற்று கொள்ளுங்கள்.
-</div>
-<br><br>
+        <div
+            style="background-color: #f0f8ff; padding: 20px; border-radius: 8px; border: 1px solid #ddd; font-size: 16px; text-align: center; margin: 20px auto; width: 80%; max-width: 600px;">
+            QR மூலம் பண உதவி செய்தவர்கள், கீழே உள்ள படிவத்தை நிரப்பி, பற்றுச்சீட்டை (receipt) பெற்று கொள்ளுங்கள்.
+        </div>
+        <br><br>
 
-<style>
-    @media (max-width: 480px) {
-        div {
-            width: 90%; /* Adjust width for smaller screens */
-            font-size: 14px; /* Reduce font size for better readability on mobile */
-            padding: 15px; /* Adjust padding for mobile */
-        }
-    }
-</style>
+        <style>
+            @media (max-width: 480px) {
+                div {
+                    width: 90%;
+                    /* Adjust width for smaller screens */
+                    font-size: 14px;
+                    /* Reduce font size for better readability on mobile */
+                    padding: 15px;
+                    /* Adjust padding for mobile */
+                }
+            }
+        </style>
 
-    <div class="form-container">
-        <form id="donationForm">
+        <div class="form-container">
+            <form id="donationForm">
 
-            <div class="input-container">
-                <i class="fas fa-user"></i>
-                <input type="text" id="name" placeholder="பெயர்" required>
-            </div>
+                <div class="input-container">
+                    <i class="fas fa-user"></i>
+                    <input type="text" id="name" placeholder="பெயர்" required>
+                </div>
 
-            <div class="input-container">
-                <i class="fas fa-envelope"></i>
-                <input type="email" id="email" placeholder="மின்னஞ்சல்" required>
-            </div>
+                <div class="input-container">
+                    <i class="fas fa-envelope"></i>
+                    <input type="email" id="email" placeholder="மின்னஞ்சல்" required>
+                </div>
 
-            <!-- WhatsApp Number Row -->
-            <div class="input-container">
-                <i class="fab fa-whatsapp"></i>
-                <select id="countryCode">
-                    <option value="+91">🇮🇳 +91</option>
-                    <option value="+1">🇺🇸 +1</option>
-                    <option value="+44">🇬🇧 +44</option>
-                    <option value="+61">🇦🇺 +61</option>
-                    <option value="+971">🇦🇪 +971</option>
-                    <option value="+49">🇩🇪 +49</option>
-                    <option value="+33">🇫🇷 +33</option>
-                    <option value="+81">🇯🇵 +81</option>
-                    <option value="+86">🇨🇳 +86</option>
-                    <option value="+7">🇷🇺 +7</option>
-                </select>
-                <input type="text" id="whatsapp" placeholder="வாட்ஸ்அப் எண்" maxlength="10" required>
-            </div>
-            <p class="error" id="whatsappError">சரியான 10 இலக்க எண் உள்ளிடவும்</p>
+                <!-- WhatsApp Number Row -->
+                <div class="input-container">
+                    <i class="fab fa-whatsapp"></i>
+                    <select id="countryCode">
+                        <option value="+91">🇮🇳 +91</option>
+                        <option value="+1">🇺🇸 +1</option>
+                        <option value="+44">🇬🇧 +44</option>
+                        <option value="+61">🇦🇺 +61</option>
+                        <option value="+971">🇦🇪 +971</option>
+                        <option value="+49">🇩🇪 +49</option>
+                        <option value="+33">🇫🇷 +33</option>
+                        <option value="+81">🇯🇵 +81</option>
+                        <option value="+86">🇨🇳 +86</option>
+                        <option value="+7">🇷🇺 +7</option>
+                    </select>
+                    <input type="text" id="whatsapp" placeholder="வாட்ஸ்அப் எண்" maxlength="10" required>
+                </div>
+                <p class="error" id="whatsappError">சரியான 10 இலக்க எண் உள்ளிடவும்</p>
 
-            <div class="input-container">
-                <i class="fas fa-receipt"></i>
-                <input type="text" id="txnId" placeholder="UPI பரிவர்த்தனை எண்" required>
-            </div>
+                <div class="input-container">
+                    <i class="fas fa-receipt"></i>
+                    <input type="text" id="txnId" placeholder="UPI பரிவர்த்தனை எண்" required>
+                </div>
 
-            <div class="input-container">
-                <i class="fas fa-rupee-sign"></i>
-                <input type="number" id="amount" placeholder="தொகை (₹)" required>
-            </div>
+                <div class="input-container">
+                    <i class="fas fa-rupee-sign"></i>
+                    <input type="number" id="amount" placeholder="தொகை (₹)" required>
+                </div>
 
-            <button id="s1" type="submit">சமர்ப்பிக்க</button>
-        </form>
+                <button id="s1" type="submit">சமர்ப்பிக்க</button>
+            </form>
+        </div>
+
+        <br>
+        <br>
+        <div class="home-button" onclick="goHome()">முகப்பு பக்கம்</div> <br>
+        <br>
     </div>
 
-    <br>
-    <br>
-    <div class="home-button" onclick="goHome()">முகப்பு பக்கம்</div> <br>
-    <br>
-    </div>
 
-   
 
     <script>
 
-function goHome() {
-    window.location.href = "index.html"; // Change this to your actual home page URL
-}
+        function goHome() {
+            window.location.href = "index.html"; // Change this to your actual home page URL
+        }
 
 
-const API_KEY = "$2a$10$KSrJlxWhmWwdb9ekq4mxg.i3ida6tgbpa1ClUt8M.OSg3eBZ4ym1y";
+        const API_KEY = "$2a$10$KSrJlxWhmWwdb9ekq4mxg.i3ida6tgbpa1ClUt8M.OSg3eBZ4ym1y";
         const BIN_ID = "67c5357ae41b4d34e49fbc93";
         const BIN_URL = `https://api.jsonbin.io/v3/b/${BIN_ID}`;
         const BIN_URL_LATEST = `${BIN_URL}/latest`;
 
-        document.getElementById("donationForm").addEventListener("submit", async function(event) {
+        document.getElementById("donationForm").addEventListener("submit", async function (event) {
             event.preventDefault();
 
             // Validate Inputs
@@ -403,4 +430,5 @@ const API_KEY = "$2a$10$KSrJlxWhmWwdb9ekq4mxg.i3ida6tgbpa1ClUt8M.OSg3eBZ4ym1y";
         });
     </script>
 </body>
+
 </html>
