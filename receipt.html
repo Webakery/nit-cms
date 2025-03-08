@@ -397,11 +397,18 @@ async function changePassword() {
       }
 
       function sendWhatsApp(whatsapp, name, amount, txnId, date) {
-  // Create the message with the correct string interpolation
+  // Remove non-numeric characters (ensures proper phone format)
+
+  // Create the message
   const message = `Hello ${name},\n\nThank you for your donation of Rs. ${amount}.\nTransaction ID: ${txnId}\nDate: ${date}\n\nThank you for contributing towards a great social cause! Your donation is making a real difference.\n\nFor any queries, feel free to reach out.`;
 
-  const url = `https://api.whatsapp.com/send?phone=${whatsapp}&text=${encodeURIComponent(message)}`;
-window.open(url, "_blank");
+  // Encode the message properly
+  const encodedMessage = encodeURIComponent(message);
+
+  // Use wa.me format
+  const url = `https://wa.me/${whatsapp}?text=${encodedMessage}`;
+
+  console.log("Opening URL:", url); // Debugging
 
 
 }

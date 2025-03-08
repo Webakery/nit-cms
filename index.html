@@ -171,10 +171,19 @@
 			box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.3);
 		}
 
-		#fh5co-menu-wrap {
-    margin: 0;
-    padding: 0;
+		#fh5co-features {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
 }
+
+#fh5co-features {
+    position: relative;
+    background: rgba(255, 255, 255, 0.9); /* Optional: Adds slight opacity */
+    padding: 50px 0;
+    z-index: 2; /* Ensures it stays above the background */
+}
+
+
 
 	</style>
 	<!-- Modernizr JS -->
@@ -250,7 +259,7 @@
 			<div class="fh5co-hero">
 				<div class="fh5co-overlay"></div>
 				<div class="fh5co-cover text-center" data-stellar-background-ratio="0.5"
-					style="background-image: url(images/img3.png);">
+					style="background-image: url(images/img3.png);" >
 					<div class="desc animate-box" style="margin-top: -120px; ">
 						<h2 style="font-size: 37px;"><strong>நிரவி தன்னார்வ இஸ்லாமிய<br>இளைஞர் அணி</strong><i></i></h2>
 						<br>
@@ -264,17 +273,24 @@
 
 
 			</div>
+			<marquee>
+				hello
+			</marquee>
 
 
 			<!-- Feature Content with data-ta and data-eng attributes -->
 			<div id="fh5co-features">
 				<div class="container">
 					<div class="row">
+						<br>
+						<br>
 						<div class="col-md-4">
+							
 							<div class="feature-left">
 								<span class="icon">
 									<i class="icon-profile-male"></i>
 								</span>
+							
 								<div class="feature-copy">
 									<h3 data-eng="Become a Volunteer" data-ta="ஒரு பொறுப்பாளராக ஆகுங்கள்">இணைந்து
 										செயல்படுவோம்</h3>
@@ -823,26 +839,47 @@
 			<br>
 
 			<style>
-				.recent-works-grid {
-					display: grid;
-					grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-					/* Responsive 3 per row */
-					gap: 20px;
-					padding: 0;
-					list-style: none;
-				}
+	.recent-works-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Adjusts dynamically */
+    gap: 20px;
+    padding: 0;
+    list-style: none;
+}
 
-				.recent-work-item {
-					background: #fff;
-					border-radius: 10px;
-					overflow: hidden;
-					box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
-					transition: transform 0.3s ease-in-out;
-				}
+.recent-work-item {
+    background: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease-in-out;
+}
 
-				.recent-work-item:hover {
-					transform: translateY(-5px);
-				}
+.recent-work-item:hover {
+    transform: translateY(-5px);
+}
+
+.recent-work-item img {
+    width: 100%;
+    height: auto; /* Makes it responsive */
+    aspect-ratio: 16/9; /* Maintains a good proportion */
+    object-fit: cover; /* Ensures proper fit */
+    display: block;
+}
+
+/* 🔥 Mobile Optimization */
+@media (max-width: 768px) {
+    .recent-works-grid {
+        grid-template-columns: 1fr; /* Single column on small screens */
+    }
+
+    .recent-work-item img {
+        height: auto; /* No fixed height */
+        aspect-ratio: 4/3; /* Adjusted ratio for mobile */
+        object-fit: contain; /* Prevents cropping */
+    }
+}
+
 
 				.recent-work-item img {
 					width: 100%;
