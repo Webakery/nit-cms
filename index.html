@@ -494,7 +494,7 @@
 			<script>
 				const featuredBaseUrl = "https://neravy-islamic-trust.netlify.app/public"; // Unique Base URL for Featured
 
-				fetch("https://neravy-islamic-trust.netlify.app/content/featured/featured.json")
+				fetch(`https://neravy-islamic-trust.netlify.app/content/featured/featured.json?t=${Date.now()}`)
 					.then(response => {
 						if (!response.ok) {
 							throw new Error("Failed to load featured highlights");
@@ -884,7 +884,7 @@
 			<script>
 				const recentWorksBaseUrl = "https://neravy-islamic-trust.netlify.app/public";
 
-				fetch("https://neravy-islamic-trust.netlify.app/content/recent-works/recent-works.json")
+				fetch(`https://neravy-islamic-trust.netlify.app/content/recent-works/recent-works.json?t=${Date.now()}`)
 					.then(response => {
 						if (!response.ok) {
 							throw new Error("Failed to load recent works data");
