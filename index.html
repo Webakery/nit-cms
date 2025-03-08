@@ -624,8 +624,8 @@
 						<script>
 							const baseUrl = "https://neravy-islamic-trust.netlify.app/public"; // Base URL for images
 
-							fetch("https://neravy-islamic-trust.netlify.app/content/gallery/gallery.json")
-								.then(response => {
+							fetch(`https://neravy-islamic-trust.netlify.app/content/gallery/gallery.json?t=${Date.now()}`)
+							.then(response => {
 									if (!response.ok) {
 										throw new Error("Failed to load gallery data");
 									}
