@@ -839,47 +839,26 @@
 			<br>
 
 			<style>
-	.recent-works-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Adjusts dynamically */
-    gap: 20px;
-    padding: 0;
-    list-style: none;
-}
+				.recent-works-grid {
+					display: grid;
+					grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+					/* Responsive 3 per row */
+					gap: 20px;
+					padding: 0;
+					list-style: none;
+				}
 
-.recent-work-item {
-    background: #fff;
-    border-radius: 10px;
-    overflow: hidden;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
-    transition: transform 0.3s ease-in-out;
-}
+				.recent-work-item {
+					background: #fff;
+					border-radius: 10px;
+					overflow: hidden;
+					box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
+					transition: transform 0.3s ease-in-out;
+				}
 
-.recent-work-item:hover {
-    transform: translateY(-5px);
-}
-
-.recent-work-item img {
-    width: 100%;
-    height: auto; /* Makes it responsive */
-    aspect-ratio: 16/9; /* Maintains a good proportion */
-    object-fit: cover; /* Ensures proper fit */
-    display: block;
-}
-
-/* 🔥 Mobile Optimization */
-@media (max-width: 768px) {
-    .recent-works-grid {
-        grid-template-columns: 1fr; /* Single column on small screens */
-    }
-
-    .recent-work-item img {
-        height: auto; /* No fixed height */
-        aspect-ratio: 4/3; /* Adjusted ratio for mobile */
-        object-fit: contain; /* Prevents cropping */
-    }
-}
-
+				.recent-work-item:hover {
+					transform: translateY(-5px);
+				}
 
 				.recent-work-item img {
 					width: 100%;
