@@ -839,50 +839,34 @@
 			<br>
 
 			<style>
-.recent-works-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsive */
-    gap: 20px;
-    padding: 0;
-    list-style: none;
-}
+				.recent-works-grid {
+					display: grid;
+					grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+					/* Responsive 3 per row */
+					gap: 20px;
+					padding: 0;
+					list-style: none;
+				}
 
-.recent-work-item {
-    background: #fff;
-    border-radius: 10px;
-    overflow: hidden;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
-    transition: transform 0.3s ease-in-out;
-}
+				.recent-work-item {
+					background: #fff;
+					border-radius: 10px;
+					overflow: hidden;
+					box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
+					transition: transform 0.3s ease-in-out;
+				}
 
-.recent-work-item:hover {
-    transform: translateY(-5px);
-}
+				.recent-work-item:hover {
+					transform: translateY(-5px);
+				}
 
-.recent-work-item img {
-    width: 100%;
-    height: 600px; /* Keeps consistent height */
-    object-fit: contain; /* Ensures full image is visible */
-    object-position: center; /* Centers image */
-    display: block;
-    background-color: black; /* Fills extra space with background */
-}
-
-/* 🔥 Mobile Optimization */
-@media (max-width: 768px) {
-    .recent-works-grid {
-        grid-template-columns: 1fr; /* Single column on small screens */
-    }
-
-    .recent-work-item img {
-        height: auto; /* Responsive height */
-        max-height: 400px; /* Prevents excessive stretching */
-        object-fit: contain; /* Ensures full image is visible */
-        object-position: center;
-    }
-}
-
-				
+				.recent-work-item img {
+					width: 80%;
+					height: 600px;
+					/* Keeps images elongated */
+					object-fit: cover;
+					display: block;
+				}
 
 				.recent-work-content {
 					padding: 15px;
