@@ -281,7 +281,7 @@
         }
         let reportsData = [];
 
-        fetch('content/monthly-reports.json')
+        fetch(`content/monthly-reports.json?t=${Date.now()}`)
             .then(response => response.json())
             .then(data => {
                 reportsData = data.reports;
